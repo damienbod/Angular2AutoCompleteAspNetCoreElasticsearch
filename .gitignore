@@ -18,3 +18,6 @@ src/Angular2AutoCompleteAspNetCoreElasticsearch/angular2App/boot.js.map
 src/Angular2AutoCompleteAspNetCoreElasticsearch/angular2App/polyfills.js
 src/Angular2AutoCompleteAspNetCoreElasticsearch/angular2App/polyfills.js.map
 src/Angular2AutoCompleteAspNetCoreElasticsearch/angular2App/vendor.js
+.vs
+src/Angular2AutoCompleteAspNetCoreElasticsearch/Angular2AutoCompleteAspNetCoreElasticsearch.xproj.user
+src/Angular2AutoCompleteAspNetCoreElasticsearch/project.lock.json
