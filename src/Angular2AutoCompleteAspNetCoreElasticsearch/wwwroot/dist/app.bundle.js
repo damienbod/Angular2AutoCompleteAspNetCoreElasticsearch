@@ -5033,7 +5033,7 @@ webpackJsonp([0],{
   \**************************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"panel-group\">\r\n\r\n    <p>hello {{message}}</p>\r\n\r\n    <ul>\r\n        <li *ngFor=\"let personCity of PersonCityItems\">\r\n            <span>{{personCity.info}} </span>\r\n        </li>\r\n    </ul>\r\n</div>"
+	module.exports = "<div class=\"panel-group\">\r\n\r\n    <p>Elasticsearch Status: TODO</p> ::TODO add auto complete search::\r\n\r\n    <hr />\r\n\r\n    <ul>\r\n        <li *ngFor=\"let personCity of PersonCityItems\">\r\n            <span>{{personCity.name}} {{personCity.familyName}} </span>\r\n            <br />\r\n            <span>{{personCity.info}}</span>\r\n            <hr />\r\n        </li>\r\n    </ul>\r\n</div>"
 
 /***/ }
 
