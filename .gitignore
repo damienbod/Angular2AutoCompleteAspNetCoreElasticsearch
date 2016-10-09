@@ -21,3 +21,4 @@ src/Angular2AutoCompleteAspNetCoreElasticsearch/angular2App/vendor.js
 .vs
 src/Angular2AutoCompleteAspNetCoreElasticsearch/Angular2AutoCompleteAspNetCoreElasticsearch.xproj.user
 src/Angular2AutoCompleteAspNetCoreElasticsearch/project.lock.json
+src/Angular2AutoCompleteAspNetCoreElasticsearch/node_modules
