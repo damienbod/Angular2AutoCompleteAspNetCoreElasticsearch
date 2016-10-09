@@ -1,4 +1,6 @@
-﻿using ElasticsearchCRUD;
+﻿using System;
+using Angular2AutoCompleteAspNetCoreElasticsearch.ElasticsearchProvider;
+using ElasticsearchCRUD;
 using ElasticsearchCRUD.ContextAddDeleteUpdate.IndexModel.SettingsModel;
 using ElasticsearchCRUD.ContextSearch.SearchModel;
 using ElasticsearchCRUD.Model.SearchModel;
@@ -7,13 +9,13 @@ using ElasticsearchCRUD.Tracing;
 
 namespace Angular2AutoCompleteAspNetCoreElasticsearch
 {
-    public class ElasticsearchGermanSearchProvider : IElasticsearchGermanSearchProvider
+    public class PersonCitySearchProvider : IPersonCitySearchProvider
     {
         private readonly IElasticsearchMappingResolver _elasticsearchMappingResolver = new ElasticsearchMappingResolver();
         private const string ConnectionString = "http://localhost:9200";
         private readonly ElasticsearchContext _context;
 
-        public ElasticsearchGermanSearchProvider()
+        public PersonCitySearchProvider()
         {
             _context = new ElasticsearchContext(ConnectionString, new ElasticsearchSerializerConfiguration(_elasticsearchMappingResolver))
             {
@@ -59,6 +61,10 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch
             return _context.Search<PersonCity>(search).PayloadResult;
         }
 
+        public ElasticsearchStatus GetStatus()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

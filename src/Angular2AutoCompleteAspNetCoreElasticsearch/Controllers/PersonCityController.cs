@@ -5,11 +5,11 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch.Controllers
     [Route("api/[controller]")]
     public class PersonCityController : Controller
     {
-        private IElasticsearchGermanSearchProvider readonly _elasticsearchGermanSearchProvider;
+        private readonly IPersonCitySearchProvider _personCitySearchProvider;
 
-        public PersonCityController(IElasticsearchGermanSearchProvider elasticsearchGermanSearchProvider)
+        public PersonCityController(IPersonCitySearchProvider personCitySearchProvider)
         {
-            _elasticsearchGermanSearchProvider = elasticsearchGermanSearchProvider;
+            _personCitySearchProvider = personCitySearchProvider;
         }
 
         // GET: api/values
@@ -34,7 +34,7 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch.Controllers
         [HttpGet("ElasticsearchStatus")]
         public IActionResult GetElasticsearchStatus()
         {
-            return new JsonResult("todo");
+            return Ok(_personCitySearchProvider.GetStatus());
         }
     }
 }
