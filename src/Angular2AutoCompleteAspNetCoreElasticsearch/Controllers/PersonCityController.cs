@@ -5,6 +5,13 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch.Controllers
     [Route("api/[controller]")]
     public class PersonCityController : Controller
     {
+        private IElasticsearchGermanSearchProvider readonly _elasticsearchGermanSearchProvider;
+
+        public PersonCityController(IElasticsearchGermanSearchProvider elasticsearchGermanSearchProvider)
+        {
+            _elasticsearchGermanSearchProvider = elasticsearchGermanSearchProvider;
+        }
+
         // GET: api/values
         [HttpGet]
         public IActionResult Get()
