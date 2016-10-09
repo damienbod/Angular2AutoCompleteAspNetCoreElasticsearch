@@ -12,7 +12,7 @@ export class TestDataService {
 
     constructor(private _http: Http, private _configuration: Configuration) {
 
-        this.actionUrl = _configuration.Server + 'api/values/';
+        this.actionUrl = _configuration.Server + 'api/personcity/';
 
         this.headers = new Headers();
         this.headers.append('Content-Type', 'application/json');

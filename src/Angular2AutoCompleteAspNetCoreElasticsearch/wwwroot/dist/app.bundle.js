@@ -4997,7 +4997,7 @@ webpackJsonp([0],{
 	        this.Delete = function (id) {
 	            return _this._http.delete(_this.actionUrl + id);
 	        };
-	        this.actionUrl = _configuration.Server + 'api/values/';
+	        this.actionUrl = _configuration.Server + 'api/personcity/';
 	        this.headers = new http_1.Headers();
 	        this.headers.append('Content-Type', 'application/json');
 	        this.headers.append('Accept', 'application/json');
