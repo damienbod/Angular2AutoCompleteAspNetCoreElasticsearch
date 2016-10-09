@@ -23,6 +23,10 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch
             {
                 TraceProvider = new ConsoleTraceProvider()
             };
+
+            //CreateIndex();
+
+            //CreateTestData();
         }
 
         public void CreateIndex()
@@ -67,7 +71,7 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch
         {
             var search = new Search()
             {
-                Query = new Query(new MatchQuery("info", term))
+                Query = new Query(new QueryStringQuery(term))
             };
             var results = _context.Search<PersonCity>(search);
 

@@ -16,7 +16,7 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_personCitySearchProvider.QueryString(""));
+            return Ok(_personCitySearchProvider.QueryString("*"));
         }
 
         [HttpGet("{id}")]
