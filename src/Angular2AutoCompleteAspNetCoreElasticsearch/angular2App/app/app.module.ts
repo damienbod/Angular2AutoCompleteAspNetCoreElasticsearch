@@ -7,7 +7,6 @@ import { Configuration } from './app.constants';
 import { routing } from './app.routes';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 
 import { TestDataService } from './services/testDataService';
 
@@ -22,7 +21,6 @@ import { TestDataService } from './services/testDataService';
     ],
     declarations: [
         AppComponent,
-        AboutComponent,
         HomeComponent
     ],
     providers: [

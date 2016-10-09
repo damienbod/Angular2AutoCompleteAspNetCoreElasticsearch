@@ -39,7 +39,6 @@ webpackJsonp([0],{
 	var app_routes_1 = __webpack_require__(/*! ./app.routes */ 61);
 	var http_1 = __webpack_require__(/*! @angular/http */ 64);
 	var home_component_1 = __webpack_require__(/*! ./home/home.component */ 62);
-	var about_component_1 = __webpack_require__(/*! ./about/about.component */ 67);
 	var testDataService_1 = __webpack_require__(/*! ./services/testDataService */ 63);
 	var AppModule = (function () {
 	    function AppModule() {
@@ -56,7 +55,6 @@ webpackJsonp([0],{
 	            ],
 	            declarations: [
 	                app_component_1.AppComponent,
-	                about_component_1.AboutComponent,
 	                home_component_1.HomeComponent
 	            ],
 	            providers: [
@@ -81,7 +79,7 @@ webpackJsonp([0],{
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
-	 * @license Angular v2.0.1
+	 * @license Angular v2.0.2
 	 * (c) 2010-2016 Google, Inc. https://angular.io/
 	 * License: MIT
 	 */
@@ -457,26 +455,6 @@ webpackJsonp([0],{
 	    var StringMapWrapper = (function () {
 	        function StringMapWrapper() {
 	        }
-	        StringMapWrapper.get = function (map, key) {
-	            return map.hasOwnProperty(key) ? map[key] : undefined;
-	        };
-	        StringMapWrapper.set = function (map, key, value) { map[key] = value; };
-	        StringMapWrapper.keys = function (map) { return Object.keys(map); };
-	        StringMapWrapper.values = function (map) {
-	            return Object.keys(map).map(function (k) { return map[k]; });
-	        };
-	        StringMapWrapper.isEmpty = function (map) {
-	            for (var prop in map) {
-	                return false;
-	            }
-	            return true;
-	        };
-	        StringMapWrapper.forEach = function (map, callback) {
-	            for (var _i = 0, _a = Object.keys(map); _i < _a.length; _i++) {
-	                var k = _a[_i];
-	                callback(map[k], k);
-	            }
-	        };
 	        StringMapWrapper.merge = function (m1, m2) {
 	            var m = {};
 	            for (var _i = 0, _a = Object.keys(m1); _i < _a.length; _i++) {
@@ -716,8 +694,6 @@ webpackJsonp([0],{
 	         */
 	        Validators.pattern = function (pattern) {
 	            return function (control) {
-	                if (isPresent(Validators.required(control)))
-	                    return null;
 	                var regex = new RegExp("^" + pattern + "$");
 	                var v = control.value;
 	                return regex.test(v) ? null :
@@ -733,7 +709,7 @@ webpackJsonp([0],{
 	         * of the individual error maps.
 	         */
 	        Validators.compose = function (validators) {
-	            if (isBlank(validators))
+	            if (!validators)
 	                return null;
 	            var presentValidators = validators.filter(isPresent);
 	            if (presentValidators.length == 0)
@@ -743,7 +719,7 @@ webpackJsonp([0],{
 	            };
 	        };
 	        Validators.composeAsync = function (validators) {
-	            if (isBlank(validators))
+	            if (!validators)
 	                return null;
 	            var presentValidators = validators.filter(isPresent);
 	            if (presentValidators.length == 0)
@@ -768,7 +744,7 @@ webpackJsonp([0],{
 	        var res = arrayOfErrors.reduce(function (res, errors) {
 	            return isPresent(errors) ? StringMapWrapper.merge(res, errors) : res;
 	        }, {});
-	        return StringMapWrapper.isEmpty(res) ? null : res;
+	        return Object.keys(res).length === 0 ? null : res;
 	    }
 	
 	    /**
@@ -1497,9 +1473,9 @@ webpackJsonp([0],{
 	        return p;
 	    }
 	    function setUpControl(control, dir) {
-	        if (isBlank(control))
+	        if (!control)
 	            _throwError(dir, 'Cannot find control with');
-	        if (isBlank(dir.valueAccessor))
+	        if (!dir.valueAccessor)
 	            _throwError(dir, 'No value accessor for form control with');
 	        control.validator = Validators.compose([control.validator, dir.validator]);
 	        control.asyncValidator = Validators.composeAsync([control.asyncValidator, dir.asyncValidator]);
@@ -1586,7 +1562,7 @@ webpackJsonp([0],{
 	    }
 	    // TODO: vsavkin remove it once https://github.com/angular/angular/issues/3011 is implemented
 	    function selectValueAccessor(dir, valueAccessors) {
-	        if (isBlank(valueAccessors))
+	        if (!valueAccessors)
 	            return null;
 	        var defaultAccessor;
 	        var builtinAccessor;
@@ -2373,7 +2349,7 @@ webpackJsonp([0],{
 	            if (path === void 0) { path = null; }
 	            var control = isPresent(path) && !ListWrapper.isEmpty(path) ? this.get(path) : this;
 	            if (isPresent(control) && isPresent(control._errors)) {
-	                return StringMapWrapper.get(control._errors, errorCode);
+	                return control._errors[errorCode];
 	            }
 	            else {
 	                return null;
@@ -2484,6 +2460,8 @@ webpackJsonp([0],{
 	     *
 	     * You can also initialize the control with a form state object on instantiation,
 	     * which includes both the value and whether or not the control is disabled.
+	     * You can't use the value key without the disabled key; both are required
+	     * to use this way of initialization.
 	     *
 	     * ```ts
 	     * const ctrl = new FormControl({value: 'n/a', disabled: true});
@@ -2783,9 +2761,9 @@ webpackJsonp([0],{
 	            var _this = this;
 	            var onlySelf = (_a === void 0 ? {} : _a).onlySelf;
 	            this._checkAllValuesPresent(value);
-	            StringMapWrapper.forEach(value, function (newValue, name) {
+	            Object.keys(value).forEach(function (name) {
 	                _this._throwIfControlMissing(name);
-	                _this.controls[name].setValue(newValue, { onlySelf: true });
+	                _this.controls[name].setValue(value[name], { onlySelf: true });
 	            });
 	            this.updateValueAndValidity({ onlySelf: onlySelf });
 	        };
@@ -2813,9 +2791,9 @@ webpackJsonp([0],{
 	        FormGroup.prototype.patchValue = function (value, _a) {
 	            var _this = this;
 	            var onlySelf = (_a === void 0 ? {} : _a).onlySelf;
-	            StringMapWrapper.forEach(value, function (newValue, name) {
+	            Object.keys(value).forEach(function (name) {
 	                if (_this.controls[name]) {
-	                    _this.controls[name].patchValue(newValue, { onlySelf: true });
+	                    _this.controls[name].patchValue(value[name], { onlySelf: true });
 	                }
 	            });
 	            this.updateValueAndValidity({ onlySelf: onlySelf });
@@ -2885,7 +2863,8 @@ webpackJsonp([0],{
 	        };
 	        /** @internal */
 	        FormGroup.prototype._forEachChild = function (cb) {
-	            StringMapWrapper.forEach(this.controls, cb);
+	            var _this = this;
+	            Object.keys(this.controls).forEach(function (k) { return cb(_this.controls[k], k); });
 	        };
 	        /** @internal */
 	        FormGroup.prototype._setUpControls = function () {
@@ -3994,7 +3973,7 @@ webpackJsonp([0],{
 	            this.form.asyncValidator = Validators.composeAsync([this.form.asyncValidator, async]);
 	        };
 	        FormGroupDirective.prototype._checkFormPresent = function () {
-	            if (isBlank(this.form)) {
+	            if (!this.form) {
 	                ReactiveErrors.missingFormException();
 	            }
 	        };
@@ -4616,8 +4595,8 @@ webpackJsonp([0],{
 	        FormBuilder.prototype.group = function (controlsConfig, extra) {
 	            if (extra === void 0) { extra = null; }
 	            var controls = this._reduceControls(controlsConfig);
-	            var validator = isPresent(extra) ? StringMapWrapper.get(extra, 'validator') : null;
-	            var asyncValidator = isPresent(extra) ? StringMapWrapper.get(extra, 'asyncValidator') : null;
+	            var validator = isPresent(extra) ? extra['validator'] : null;
+	            var asyncValidator = isPresent(extra) ? extra['asyncValidator'] : null;
 	            return new FormGroup(controls, validator, asyncValidator);
 	        };
 	        /**
@@ -4648,8 +4627,8 @@ webpackJsonp([0],{
 	        FormBuilder.prototype._reduceControls = function (controlsConfig) {
 	            var _this = this;
 	            var controls = {};
-	            StringMapWrapper.forEach(controlsConfig, function (controlConfig, controlName) {
-	                controls[controlName] = _this._createControl(controlConfig);
+	            Object.keys(controlsConfig).forEach(function (controlName) {
+	                controls[controlName] = _this._createControl(controlsConfig[controlName]);
 	            });
 	            return controls;
 	        };
@@ -4857,7 +4836,7 @@ webpackJsonp([0],{
   \********************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"container\" style=\"margin-top: 15px;\">\r\n\r\n    <nav class=\"navbar navbar-inverse\">\r\n        <div class=\"container-fluid\">\r\n            <div class=\"navbar-header\">\r\n                <a class=\"navbar-brand\" [routerLink]=\"['/about']\">ASP.NET Core // Angular2 // Webpack</a>\r\n            </div>\r\n            <ul class=\"nav navbar-nav\">\r\n                <li><a [routerLink]=\"['/home']\">Home</a></li>\r\n                <li><a [routerLink]=\"['/about']\">About</a></li>\r\n            </ul>\r\n            <ul class=\"nav navbar-nav navbar-right\">\r\n                <li><a href=\"https://twitter.com/damien_bod\"><img src=\"assets/damienbod.jpg\" height=\"40\" style=\"margin-top: -10px;\" /></a></li>\r\n                <li><a href=\"https://twitter.com/FabianGosebrink\"><img src=\"assets/fabianGosebrink.jpg\" height=\"40\" style=\"margin-top: -10px;\" /></a></li>\r\n            </ul>\r\n        </div>\r\n    </nav>\r\n\r\n\r\n\r\n    <router-outlet></router-outlet>\r\n\r\n\r\n    <footer>\r\n        <p>\r\n            <a href=\"https://twitter.com/FabianGosebrink\">Fabian Gosebrink</a>&nbsp;Blog: <a href=\"http://offering.solutions\">Offering.Solutions</a> &amp;\r\n            <a href=\"https://twitter.com/damien_bod\">DamienBod</a>&nbsp;Blog: <a href=\"https://damienbod.com/\">Software Engineering</a>\r\n            &copy; 2016\r\n        </p>\r\n    </footer>\r\n</div>"
+	module.exports = "<div class=\"container\" style=\"margin-top: 15px;\">\r\n\r\n    <nav class=\"navbar navbar-inverse\">\r\n        <div class=\"container-fluid\">\r\n            <div class=\"navbar-header\">\r\n                <a class=\"navbar-brand\" [routerLink]=\"['/home']\">Angular2 Auto Complete, ASP.NET Core Elasticsearch</a>\r\n            </div>\r\n            <ul class=\"nav navbar-nav\">\r\n                <!--<li><a [routerLink]=\"['/home']\">Home</a></li>-->\r\n            </ul>\r\n            <ul class=\"nav navbar-nav navbar-right\">\r\n                <li><a href=\"https://twitter.com/damien_bod\"><img src=\"assets/damienbod.jpg\" height=\"40\" style=\"margin-top: -10px;\" /></a></li>\r\n            </ul>\r\n        </div>\r\n    </nav>\r\n\r\n    <router-outlet></router-outlet>\r\n\r\n    <footer>\r\n        <p>\r\n            <a href=\"https://twitter.com/damien_bod\">DamienBod</a>&nbsp;Blog: <a href=\"https://damienbod.com/\">Software Engineering</a>\r\n            &copy; 2016\r\n        </p>\r\n    </footer>\r\n</div>"
 
 /***/ },
 
@@ -4922,11 +4901,9 @@ webpackJsonp([0],{
 	"use strict";
 	var router_1 = __webpack_require__(/*! @angular/router */ 29);
 	var home_component_1 = __webpack_require__(/*! ./home/home.component */ 62);
-	var about_component_1 = __webpack_require__(/*! ./about/about.component */ 67);
 	var appRoutes = [
 	    { path: '', component: home_component_1.HomeComponent },
-	    { path: 'home', component: home_component_1.HomeComponent },
-	    { path: 'about', component: about_component_1.AboutComponent }
+	    { path: 'home', component: home_component_1.HomeComponent }
 	];
 	exports.routing = router_1.RouterModule.forRoot(appRoutes);
 
@@ -5057,53 +5034,6 @@ webpackJsonp([0],{
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"panel-group\">\r\n\r\n    <p>hello {{message}}</p>\r\n\r\n    <ul>\r\n        <li *ngFor=\"let value of values\">\r\n            <span>{{value}} </span>\r\n        </li>\r\n    </ul>\r\n</div>"
-
-/***/ },
-
-/***/ 67:
-/*!**************************************************!*\
-  !*** ./angular2App/app/about/about.component.ts ***!
-  \**************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(/*! @angular/core */ 3);
-	var AboutComponent = (function () {
-	    function AboutComponent() {
-	        this.message = "Hello from About";
-	    }
-	    AboutComponent.prototype.ngOnInit = function () {
-	    };
-	    AboutComponent = __decorate([
-	        core_1.Component({
-	            selector: 'about',
-	            template: __webpack_require__(/*! ./about.component.html */ 68)
-	        }), 
-	        __metadata('design:paramtypes', [])
-	    ], AboutComponent);
-	    return AboutComponent;
-	}());
-	exports.AboutComponent = AboutComponent;
-
-
-/***/ },
-
-/***/ 68:
-/*!****************************************************!*\
-  !*** ./angular2App/app/about/about.component.html ***!
-  \****************************************************/
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"panel-group\">\n\n    <p>{{message}}</p>\n\n</div>"
 
 /***/ }
 
