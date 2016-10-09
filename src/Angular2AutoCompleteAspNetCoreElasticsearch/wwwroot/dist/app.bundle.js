@@ -4937,7 +4937,7 @@ webpackJsonp([0],{
 	        var _this = this;
 	        this._dataService
 	            .GetAll()
-	            .subscribe(function (data) { return _this.values = data; }, function (error) { return console.log(error); }, function () { return console.log('Get all complete'); });
+	            .subscribe(function (data) { return _this.PersonCityItems = data; }, function (error) { return console.log(error); }, function () { return console.log('Get all complete'); });
 	    };
 	    HomeComponent = __decorate([
 	        core_1.Component({
@@ -5033,7 +5033,7 @@ webpackJsonp([0],{
   \**************************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"panel-group\">\r\n\r\n    <p>hello {{message}}</p>\r\n\r\n    <ul>\r\n        <li *ngFor=\"let value of values\">\r\n            <span>{{value}} </span>\r\n        </li>\r\n    </ul>\r\n</div>"
+	module.exports = "<div class=\"panel-group\">\r\n\r\n    <p>hello {{message}}</p>\r\n\r\n    <ul>\r\n        <li *ngFor=\"let personCity of PersonCityItems\">\r\n            <span>{{personCity.info}} </span>\r\n        </li>\r\n    </ul>\r\n</div>"
 
 /***/ }
 

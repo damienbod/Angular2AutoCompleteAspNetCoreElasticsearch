@@ -13,7 +13,7 @@ import { TestDataService } from '../services/testDataService';
 export class HomeComponent implements OnInit {
 
     public message: string;
-    public values: any[];
+    public PersonCityItems: any[];
 
     constructor(private _dataService: TestDataService) {
         this.message = "Hello from HomeComponent constructor";
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
         this._dataService
             .GetAll()
-            .subscribe(data => this.values = data,
+            .subscribe(data => this.PersonCityItems = data,
             error => console.log(error),
             () => console.log('Get all complete'));
     }
