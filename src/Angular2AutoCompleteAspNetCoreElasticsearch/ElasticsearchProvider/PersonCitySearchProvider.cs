@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Angular2AutoCompleteAspNetCoreElasticsearch.ElasticsearchProvider;
 using ElasticsearchCRUD;
 using ElasticsearchCRUD.ContextAddDeleteUpdate.IndexModel.SettingsModel;
@@ -59,6 +61,17 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch
                 Query = new Query(new MatchQuery("info", name))
             };			
             return _context.Search<PersonCity>(search).PayloadResult;
+        }
+
+        public IEnumerable<PersonCity> QueryString(string term)
+        {
+            var search = new Search()
+            {
+                Query = new Query(new MatchQuery("info", term))
+            };
+            var results = _context.Search<PersonCity>(search);
+
+            return results.PayloadResult.Hits.HitsResult.Select(t => t.Source);
         }
 
         public ElasticsearchStatus GetStatus()
