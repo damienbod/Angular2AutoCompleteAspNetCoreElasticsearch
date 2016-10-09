@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Angular2WebpackVisualStudio
+namespace Angular2AutoCompleteAspNetCoreElasticsearch
 {
     public class Startup
     {
