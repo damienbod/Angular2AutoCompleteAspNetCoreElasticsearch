@@ -12,16 +12,6 @@ declare var Plotly: any;
     todo
 </div>
 
-<div *ngIf="displayRawData">
-    raw data:
-    <hr />
-    <span>{{data | json}}</span>
-    <hr />
-    layout:
-    <hr />
-    <span>{{layout | json}}</span>
-    <hr />
-</div>
 `
 })
 
@@ -29,14 +19,11 @@ declare var Plotly: any;
 export class AutocompleteSearchComponent implements OnInit {
 
     @Input() data: any;
-    @Input() layout: any;
-    @Input() options: any;
-    @Input() displayRawData: boolean;
+
 
     ngOnInit() {
         console.log("ngOnInit AutocompleteSearch");
         console.log(this.data);
-        console.log(this.layout);
 
        // Plotly.newPlot('myPlotlyDiv', this.data, this.layout, this.options);
     }

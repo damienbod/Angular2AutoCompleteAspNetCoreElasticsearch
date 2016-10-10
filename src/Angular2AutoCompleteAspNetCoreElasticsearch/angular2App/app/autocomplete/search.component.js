@@ -15,28 +15,15 @@ var AutocompleteSearchComponent = (function () {
     AutocompleteSearchComponent.prototype.ngOnInit = function () {
         console.log("ngOnInit AutocompleteSearch");
         console.log(this.data);
-        console.log(this.layout);
     };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
     ], AutocompleteSearchComponent.prototype, "data", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], AutocompleteSearchComponent.prototype, "layout", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], AutocompleteSearchComponent.prototype, "options", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Boolean)
-    ], AutocompleteSearchComponent.prototype, "displayRawData", void 0);
     AutocompleteSearchComponent = __decorate([
         core_1.Component({
             selector: 'autocompletesearch',
-            template: "\n<div style=\"margin-bottom:100px;\">\n    todo\n</div>\n\n<div *ngIf=\"displayRawData\">\n    raw data:\n    <hr />\n    <span>{{data | json}}</span>\n    <hr />\n    layout:\n    <hr />\n    <span>{{layout | json}}</span>\n    <hr />\n</div>\n"
+            template: "\n<div style=\"margin-bottom:100px;\">\n    todo\n</div>\n\n"
         }), 
         __metadata('design:paramtypes', [])
     ], AutocompleteSearchComponent);
