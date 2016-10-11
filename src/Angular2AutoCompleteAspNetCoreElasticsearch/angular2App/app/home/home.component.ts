@@ -1,14 +1,14 @@
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { TestDataService } from '../services/testDataService';
-import { AutocompleteSearchComponent } from '../autocomplete/search.component';
 
+import { AutocompleteSearchComponent } from '../autocomplete/search.component';
+import { SearchDataService } from '../autocomplete/searchDataService';
 
 @Component({
     selector: 'homecomponent',
     template: require('./home.component.html'),
-    providers: [TestDataService]
+    providers: [SearchDataService]
 })
 
 export class HomeComponent implements OnInit {
@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
     public message: string;
     public PersonCityItems: any[];
 
-    constructor(private _dataService: TestDataService) {
+    constructor(private _dataService: SearchDataService) {
         this.message = "Hello from HomeComponent constructor";
     }
 
