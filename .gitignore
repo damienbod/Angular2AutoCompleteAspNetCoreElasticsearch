@@ -25,3 +25,4 @@ src/Angular2AutoCompleteAspNetCoreElasticsearch/node_modules
 src/Angular2AutoCompleteAspNetCoreElasticsearch/bin
 src/Angular2AutoCompleteAspNetCoreElasticsearch/angular2App/app/autocomplete/searchDataService.js
 src/Angular2AutoCompleteAspNetCoreElasticsearch/angular2App/app/autocomplete/searchDataService.js.map
+src/Angular2AutoCompleteAspNetCoreElasticsearch/angular2App/vendor.js.map
