@@ -7,14 +7,16 @@ import { Configuration } from './app.constants';
 import { routing } from './app.routes';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { HomeComponent } from './home/home.component';
-import { AutocompleteSearchComponent } from './autocomplete/search.component';
 
-import { TestDataService } from './services/testDataService';
+import { Ng2CompleterModule } from "ng2-completer";
+import { AutocompleteSearchComponent } from './autocomplete/search.component';
+import { SearchDataService } from './autocomplete/searchDataService';
 
 @NgModule({
     imports: [
         BrowserModule,
         CommonModule,
+        Ng2CompleterModule,
         FormsModule,
         routing,
         HttpModule,
@@ -26,7 +28,7 @@ import { TestDataService } from './services/testDataService';
         AutocompleteSearchComponent
     ],
     providers: [
-        TestDataService,
+        SearchDataService,
         Configuration
     ],
     bootstrap:    [AppComponent],
