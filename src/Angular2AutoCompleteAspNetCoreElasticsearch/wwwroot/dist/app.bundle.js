@@ -215,10 +215,25 @@ webpackJsonp([0],{
 	var HomeComponent = (function () {
 	    function HomeComponent(_dataService) {
 	        this._dataService = _dataService;
+	        this.IndexExists = false;
 	        this.message = "Hello from HomeComponent constructor";
 	        this.SelectedPersonCity = new personCity_1.PersonCity();
 	    }
+	    ;
+	    HomeComponent.prototype.CreateTestData = function () {
+	        this._dataService.CreateTestData().subscribe(function (data) { return data; }, function (error) { return console.log(error); }, function () { return console.log('Get all complete'); });
+	    };
+	    HomeComponent.prototype.CreateIndex = function () {
+	        var _this = this;
+	        if (!this.IndexExists) {
+	            this._dataService.CreateIndex().subscribe(function (data) { return _this.IndexExists = true; }, function (error) { return console.log(error); }, function () { return console.log('Get all complete'); });
+	        }
+	    };
 	    HomeComponent.prototype.ngOnInit = function () {
+	        var _this = this;
+	        this._dataService
+	            .IndexExists()
+	            .subscribe(function (data) { return _this.IndexExists = data; }, function (error) { return console.log(error); }, function () { return console.log('Get all complete'); });
 	    };
 	    HomeComponent = __decorate([
 	        core_1.Component({
@@ -263,20 +278,17 @@ webpackJsonp([0],{
 	        this.GetAll = function () {
 	            return _this._http.get(_this.actionUrl).map(function (response) { return response.json(); });
 	        };
-	        this.GetSingle = function (id) {
-	            return _this._http.get(_this.actionUrl + id).map(function (res) { return res.json(); });
+	        this.CreateIndex = function () {
+	            var url = _this.actionUrl + "createindex";
+	            return _this._http.get(url).map(function (response) { return response.json(); });
 	        };
-	        this.Add = function (itemName) {
-	            var toAdd = JSON.stringify({ ItemName: itemName });
-	            return _this._http.post(_this.actionUrl, toAdd, { headers: _this.headers }).map(function (res) { return res.json(); });
+	        this.IndexExists = function () {
+	            var url = _this.actionUrl + "indexexists";
+	            return _this._http.get(url).map(function (response) { return response.json(); });
 	        };
-	        this.Update = function (id, itemToUpdate) {
-	            return _this._http
-	                .put(_this.actionUrl + id, JSON.stringify(itemToUpdate), { headers: _this.headers })
-	                .map(function (res) { return res.json(); });
-	        };
-	        this.Delete = function (id) {
-	            return _this._http.delete(_this.actionUrl + id);
+	        this.CreateTestData = function () {
+	            var url = _this.actionUrl + "createtestdata";
+	            return _this._http.get(url).map(function (response) { return response.json(); });
 	        };
 	        this.actionUrl = _configuration.Server + 'api/personcity/';
 	        this.headers = new http_1.Headers();
@@ -317,7 +329,7 @@ webpackJsonp([0],{
   \**************************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"panel-group\">\r\n\r\n    <p>Elasticsearch Status: TODO</p> \r\n    \r\n    <br />\r\n    <autocompletesearch [(bindModelPersonCity)]=\"SelectedPersonCity\" >\r\n    </autocompletesearch>\r\n\r\n    <hr />\r\n\r\n    <!--<ul>\r\n        <li *ngFor=\"let personCity of PersonCityItems\">\r\n            <span>{{personCity.name}} {{personCity.familyName}} </span>\r\n            <br />\r\n            <span>{{personCity.info}}</span>\r\n            <hr />\r\n        </li>\r\n    </ul>-->\r\n\r\n    <span>{{SelectedPersonCity.name}} {{SelectedPersonCity.familyName}} </span>\r\n    <br />\r\n    <span>{{SelectedPersonCity.info}}</span>\r\n    <hr />\r\n\r\n</div>"
+	module.exports = "<div class=\"panel-group\">\r\n\r\n    <p>Elasticsearch Index exists: {{IndexExists}}</p> \r\n    <button (click)=\"CreateIndex()\" *ngIf=\"!IndexExists\">Create Index</button>\r\n    <button (click)=\"CreateTestData()\">Create TestData</button>\r\n    \r\n    <hr />\r\n    <br />\r\n\r\n    <autocompletesearch [(bindModelPersonCity)]=\"SelectedPersonCity\" >\r\n    </autocompletesearch>\r\n\r\n    <hr />\r\n\r\n    SELECTED : <span>{{SelectedPersonCity.name}} {{SelectedPersonCity.familyName}} </span>\r\n    <br />\r\n    INFO     : <span>{{SelectedPersonCity.info}}</span>\r\n    <hr />\r\n\r\n</div>"
 
 /***/ },
 
