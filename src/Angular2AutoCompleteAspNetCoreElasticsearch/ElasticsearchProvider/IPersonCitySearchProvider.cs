@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Angular2AutoCompleteAspNetCoreElasticsearch.ElasticsearchProvider;
 using ElasticsearchCRUD.ContextSearch.SearchModel;
 
 namespace Angular2AutoCompleteAspNetCoreElasticsearch
@@ -12,7 +11,7 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch
 
         SearchResult<PersonCity> Search(string name);
 
-        ElasticsearchStatus GetStatus();
+        bool GetStatus();
 
         IEnumerable<PersonCity> QueryString(string term);
     }

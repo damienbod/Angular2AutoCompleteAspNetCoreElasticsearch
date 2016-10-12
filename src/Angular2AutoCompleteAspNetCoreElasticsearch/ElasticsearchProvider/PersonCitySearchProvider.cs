@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Angular2AutoCompleteAspNetCoreElasticsearch.ElasticsearchProvider;
 using ElasticsearchCRUD;
 using ElasticsearchCRUD.ContextAddDeleteUpdate.IndexModel.SettingsModel;
 using ElasticsearchCRUD.ContextSearch.SearchModel;
@@ -78,9 +77,9 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch
             return results.PayloadResult.Hits.HitsResult.Select(t => t.Source);
         }
 
-        public ElasticsearchStatus GetStatus()
+        public bool GetStatus()
         {
-            throw new NotImplementedException();
+            return _context.IndexExists<PersonCity>();
         }
     }
 }
