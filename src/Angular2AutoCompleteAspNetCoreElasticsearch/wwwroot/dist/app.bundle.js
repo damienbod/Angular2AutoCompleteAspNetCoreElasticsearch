@@ -224,9 +224,9 @@ webpackJsonp([0],{
 	        this._dataService.CreateTestData().subscribe(function (data) { return data; }, function (error) { return console.log(error); }, function () { return console.log('Get all complete'); });
 	    };
 	    HomeComponent.prototype.CreateIndex = function () {
-	        var _this = this;
 	        if (!this.IndexExists) {
-	            this._dataService.CreateIndex().subscribe(function (data) { return _this.IndexExists = true; }, function (error) { return console.log(error); }, function () { return console.log('Get all complete'); });
+	            this._dataService.CreateIndex().subscribe(function (data) { return data; }, function (error) { return console.log(error); }, function () { return console.log('Get all complete'); });
+	            this.IndexExists = true;
 	        }
 	    };
 	    HomeComponent.prototype.ngOnInit = function () {

@@ -32,9 +32,11 @@ export class HomeComponent implements OnInit {
 
     public CreateIndex() {
         if (!this.IndexExists) {
-            this._dataService.CreateIndex().subscribe(data => this.IndexExists = true,
+            this._dataService.CreateIndex().subscribe(data => data,
                 error => console.log(error),
                 () => console.log('Get all complete'));
+
+            this.IndexExists = true;
         }      
     }
 
