@@ -1,21 +1,16 @@
 <div class="panel-group">
 
-    <p>Elasticsearch Status: TODO</p> 
+    <p>Elasticsearch Index exists: {{IndexExists}}</p> 
+    <button (click)="CreateIndex()" *ngIf="!IndexExists">Create Index</button>
+    <button (click)="CreateTestData()">Create TestData</button>
     
+    <hr />
     <br />
+
     <autocompletesearch [(bindModelPersonCity)]="SelectedPersonCity" >
     </autocompletesearch>
 
     <hr />
-
-    <!--<ul>
-        <li *ngFor="let personCity of PersonCityItems">
-            <span>{{personCity.name}} {{personCity.familyName}} </span>
-            <br />
-            <span>{{personCity.info}}</span>
-            <hr />
-        </li>
-    </ul>-->
 
     SELECTED : <span>{{SelectedPersonCity.name}} {{SelectedPersonCity.familyName}} </span>
     <br />

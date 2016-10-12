@@ -17,17 +17,32 @@ export class HomeComponent implements OnInit {
     public message: string;
     public PersonCityItems: any[];
     public SelectedPersonCity: PersonCity;
+    public IndexExists: boolean = false;;
 
     constructor(private _dataService: SearchDataService) {
         this.message = "Hello from HomeComponent constructor";
         this.SelectedPersonCity = new PersonCity();
     }
 
+    public CreateTestData() {
+        this._dataService.CreateTestData().subscribe(data => data,
+            error => console.log(error),
+            () => console.log('Get all complete'));
+    }
+
+    public CreateIndex() {
+        if (!this.IndexExists) {
+            this._dataService.CreateIndex().subscribe(data => this.IndexExists = true,
+                error => console.log(error),
+                () => console.log('Get all complete'));
+        }      
+    }
+
     ngOnInit() {
-        //this._dataService
-        //    .GetAll()
-        //    .subscribe(data => this.PersonCityItems = data,
-        //    error => console.log(error),
-        //    () => console.log('Get all complete'));
+        this._dataService
+            .IndexExists()
+            .subscribe(data => this.IndexExists = data,
+            error => console.log(error),
+            () => console.log('Get all complete'));
     }
 }
