@@ -41,7 +41,7 @@ webpackJsonp([0],{
 	var home_component_1 = __webpack_require__(/*! ./home/home.component */ 62);
 	var ng2_completer_1 = __webpack_require__(/*! ng2-completer */ 67);
 	var search_component_1 = __webpack_require__(/*! ./autocomplete/search.component */ 69);
-	var searchDataService_1 = __webpack_require__(/*! ./autocomplete/searchDataService */ 63);
+	var searchDataService_1 = __webpack_require__(/*! ./services/searchDataService */ 63);
 	var AppModule = (function () {
 	    function AppModule() {
 	    }
@@ -210,17 +210,13 @@ webpackJsonp([0],{
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(/*! @angular/core */ 3);
-	var searchDataService_1 = __webpack_require__(/*! ../autocomplete/searchDataService */ 63);
+	var searchDataService_1 = __webpack_require__(/*! ../services/searchDataService */ 63);
 	var HomeComponent = (function () {
 	    function HomeComponent(_dataService) {
 	        this._dataService = _dataService;
 	        this.message = "Hello from HomeComponent constructor";
 	    }
 	    HomeComponent.prototype.ngOnInit = function () {
-	        var _this = this;
-	        this._dataService
-	            .GetAll()
-	            .subscribe(function (data) { return _this.PersonCityItems = data; }, function (error) { return console.log(error); }, function () { return console.log('Get all complete'); });
 	    };
 	    HomeComponent = __decorate([
 	        core_1.Component({
@@ -238,9 +234,9 @@ webpackJsonp([0],{
 /***/ },
 
 /***/ 63:
-/*!***********************************************************!*\
-  !*** ./angular2App/app/autocomplete/searchDataService.ts ***!
-  \***********************************************************/
+/*!*******************************************************!*\
+  !*** ./angular2App/app/services/searchDataService.ts ***!
+  \*******************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -302,7 +298,7 @@ webpackJsonp([0],{
   \**************************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"panel-group\">\r\n\r\n    <p>Elasticsearch Status: TODO</p> ::TODO add auto complete search::\r\n\r\n    <autocompletesearch [data]=\"blah\" >\r\n    </autocompletesearch>\r\n\r\n    <hr />\r\n\r\n    <ul>\r\n        <li *ngFor=\"let personCity of PersonCityItems\">\r\n            <span>{{personCity.name}} {{personCity.familyName}} </span>\r\n            <br />\r\n            <span>{{personCity.info}}</span>\r\n            <hr />\r\n        </li>\r\n    </ul>\r\n</div>"
+	module.exports = "<div class=\"panel-group\">\r\n\r\n    <p>Elasticsearch Status: TODO</p> \r\n    \r\n    <br />\r\n    <autocompletesearch [data]=\"blah\" >\r\n    </autocompletesearch>\r\n\r\n    <hr />\r\n\r\n    <!--<ul>\r\n        <li *ngFor=\"let personCity of PersonCityItems\">\r\n            <span>{{personCity.name}} {{personCity.familyName}} </span>\r\n            <br />\r\n            <span>{{personCity.info}}</span>\r\n            <hr />\r\n        </li>\r\n    </ul>-->\r\n</div>"
 
 /***/ },
 
@@ -323,24 +319,20 @@ webpackJsonp([0],{
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var http_1 = __webpack_require__(/*! @angular/http */ 64);
+	var app_constants_1 = __webpack_require__(/*! ../app.constants */ 60);
+	var personCityData_1 = __webpack_require__(/*! ./personCityData */ 70);
 	var ng2_completer_1 = __webpack_require__(/*! ng2-completer */ 67);
 	var AutocompleteSearchComponent = (function () {
-	    function AutocompleteSearchComponent(completerService) {
+	    function AutocompleteSearchComponent(completerService, http, _configuration) {
 	        this.completerService = completerService;
-	        this.searchData = [
-	            { color: 'red', value: '#f00' },
-	            { color: 'green', value: '#0f0' },
-	            { color: 'blue', value: '#00f' },
-	            { color: 'cyan', value: '#0ff' },
-	            { color: 'magenta', value: '#f0f' },
-	            { color: 'yellow', value: '#ff0' },
-	            { color: 'black', value: '#000' }
-	        ];
-	        this.dataService = completerService.local(this.searchData, 'color', 'color');
+	        this.http = http;
+	        this._configuration = _configuration;
+	        var actionUrl = _configuration.Server + 'api/personcity/search/';
+	        this.dataService = new personCityData_1.PersonCityData(http, _configuration);
 	    }
 	    AutocompleteSearchComponent.prototype.ngOnInit = function () {
 	        console.log("ngOnInit AutocompleteSearch");
-	        console.log(this.searchData);
 	    };
 	    __decorate([
 	        core_1.Input(), 
@@ -351,11 +343,55 @@ webpackJsonp([0],{
 	            selector: 'autocompletesearch',
 	            template: "\n<ng2-completer [(ngModel)]=\"searchStr\" [dataService]=\"dataService\" [minSearchLength]=\"0\"></ng2-completer>\n\n"
 	        }), 
-	        __metadata('design:paramtypes', [ng2_completer_1.CompleterService])
+	        __metadata('design:paramtypes', [ng2_completer_1.CompleterService, http_1.Http, app_constants_1.Configuration])
 	    ], AutocompleteSearchComponent);
 	    return AutocompleteSearchComponent;
 	}());
 	exports.AutocompleteSearchComponent = AutocompleteSearchComponent;
+
+
+/***/ },
+
+/***/ 70:
+/*!********************************************************!*\
+  !*** ./angular2App/app/autocomplete/personCityData.ts ***!
+  \********************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var Subject_1 = __webpack_require__(/*! rxjs/Subject */ 4);
+	var PersonCityData = (function (_super) {
+	    __extends(PersonCityData, _super);
+	    function PersonCityData(http, _configuration) {
+	        _super.call(this);
+	        this.http = http;
+	        this._configuration = _configuration;
+	        this.actionUrl = _configuration.Server + 'api/personcity/search/';
+	    }
+	    PersonCityData.prototype.search = function (term) {
+	        var _this = this;
+	        this.http.get(this.actionUrl + term)
+	            .map(function (res) {
+	            var data = res.json();
+	            var matches = data.map(function (personcity) {
+	                return {
+	                    title: personcity.name
+	                };
+	            });
+	            _this.next(matches);
+	        })
+	            .subscribe();
+	    };
+	    PersonCityData.prototype.cancel = function () {
+	    };
+	    return PersonCityData;
+	}(Subject_1.Subject));
+	exports.PersonCityData = PersonCityData;
 
 
 /***/ }
