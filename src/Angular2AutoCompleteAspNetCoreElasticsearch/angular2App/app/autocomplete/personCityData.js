@@ -20,7 +20,9 @@ var PersonCityData = (function (_super) {
             var data = res.json();
             var matches = data.map(function (personcity) {
                 return {
-                    title: personcity.name
+                    title: personcity.name,
+                    description: personcity.info,
+                    originalObject: personcity
                 };
             });
             _this.next(matches);

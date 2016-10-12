@@ -20,8 +20,9 @@ export class PersonCityData extends Subject<CompleterItem[]> implements Complete
                 let data = res.json();
                 let matches: CompleterItem[] = data.map((personcity: any) => {
                     return {
-                        title: personcity.name
-                        
+                        title: personcity.name,
+                        description: personcity.info,
+                        originalObject: personcity
                     }
                 });
                 this.next(matches);
