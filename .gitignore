@@ -32,3 +32,5 @@ src/Angular2AutoCompleteAspNetCoreElasticsearch/angular2App/app/services/searchD
 src/Angular2AutoCompleteAspNetCoreElasticsearch/angular2App/app/services/searchDataService.js.map
 src/Angular2AutoCompleteAspNetCoreElasticsearch/angular2App/app/autocomplete/personCity.js
 src/Angular2AutoCompleteAspNetCoreElasticsearch/angular2App/app/autocomplete/personCity.js.map
+src/Angular2AutoCompleteAspNetCoreElasticsearch/angular2App/app/autocomplete/personCityDataService.js
+src/Angular2AutoCompleteAspNetCoreElasticsearch/angular2App/app/autocomplete/personCityDataService.js.map

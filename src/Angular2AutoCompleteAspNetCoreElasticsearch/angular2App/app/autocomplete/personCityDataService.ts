@@ -4,7 +4,7 @@ import { Subject } from "rxjs/Subject";
 import { CompleterData, CompleterItem } from 'ng2-completer';
 import { Configuration } from '../app.constants';
 
-export class PersonCityData extends Subject<CompleterItem[]> implements CompleterData {
+export class PersonCityDataService extends Subject<CompleterItem[]> implements CompleterData {
     constructor(private http: Http, private _configuration: Configuration) {
         super();
 
@@ -21,7 +21,7 @@ export class PersonCityData extends Subject<CompleterItem[]> implements Complete
                 let matches: CompleterItem[] = data.map((personcity: any) => {
                     return {
                         title: personcity.name,
-                        description: personcity.info,
+                        //description: personcity.info,
                         originalObject: personcity
                     }
                 });
