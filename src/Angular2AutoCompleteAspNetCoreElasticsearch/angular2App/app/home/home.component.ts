@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 
 import { AutocompleteSearchComponent } from '../autocomplete/search.component';
 import { SearchDataService } from '../services/searchDataService';
+import { PersonCity } from '../autocomplete/personCity';
 
 @Component({
     selector: 'homecomponent',
@@ -15,9 +16,11 @@ export class HomeComponent implements OnInit {
 
     public message: string;
     public PersonCityItems: any[];
+    public SelectedPersonCity: PersonCity;
 
     constructor(private _dataService: SearchDataService) {
         this.message = "Hello from HomeComponent constructor";
+        this.SelectedPersonCity = new PersonCity();
     }
 
     ngOnInit() {

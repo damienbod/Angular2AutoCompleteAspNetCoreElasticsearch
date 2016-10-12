@@ -3,7 +3,7 @@
     <p>Elasticsearch Status: TODO</p> 
     
     <br />
-    <autocompletesearch [data]="blah" >
+    <autocompletesearch [(bindModelPersonCity)]="SelectedPersonCity" >
     </autocompletesearch>
 
     <hr />
@@ -16,4 +16,10 @@
             <hr />
         </li>
     </ul>-->
+
+    SELECTED : <span>{{SelectedPersonCity.name}} {{SelectedPersonCity.familyName}} </span>
+    <br />
+    INFO     : <span>{{SelectedPersonCity.info}}</span>
+    <hr />
+
 </div>
