@@ -21,25 +21,22 @@ export class SearchDataService {
 
     public GetAll = (): Observable<any> => {
         return this._http.get(this.actionUrl).map((response: Response) => <any>response.json());
+
     }
 
-    public GetSingle = (id: number): Observable<Response> => {
-        return this._http.get(this.actionUrl + id).map(res => res.json());
+    public CreateIndex = (): Observable<Response> => {
+        let url = this.actionUrl + "createindex";
+        return this._http.get(url).map((response: Response) => <any>response.json());
     }
 
-    public Add = (itemName: string): Observable<Response> => {
-        var toAdd = JSON.stringify({ ItemName: itemName });
-
-        return this._http.post(this.actionUrl, toAdd, { headers: this.headers }).map(res => res.json());
+    public IndexExists = (): Observable<boolean> => {
+        let url = this.actionUrl + "indexexists";
+        return this._http.get(url).map((response: Response) => <any>response.json());
     }
 
-    public Update = (id: number, itemToUpdate: any): Observable<Response> => {
-        return this._http
-            .put(this.actionUrl + id, JSON.stringify(itemToUpdate), { headers: this.headers })
-            .map(res => res.json());
+    public CreateTestData = (): Observable<Response> => {
+        let url = this.actionUrl + "createtestdata";
+        return this._http.get(url).map((response: Response) => <any>response.json());
     }
-
-    public Delete = (id: number): Observable<Response> => {
-        return this._http.delete(this.actionUrl + id);
-    }
+ 
 }
