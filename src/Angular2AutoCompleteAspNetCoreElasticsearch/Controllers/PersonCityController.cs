@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Angular2AutoCompleteAspNetCoreElasticsearch.Controllers
 {
@@ -25,10 +26,11 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch.Controllers
             return new JsonResult("todo");
         }
 
-        [HttpGet("{searchtext}")]
+        [HttpGet("search/{searchtext}")]
         public IActionResult Search(string searchtext)
         {
-            return new JsonResult("todo");
+            return Ok(_personCitySearchProvider.QueryString("*"));
+            //return Ok(_personCitySearchProvider.QueryString("*").Select(t => new CompleterItem { OriginalObject = t, Title = t.Name, Description= t.Info }));
         }
 
         [HttpGet("ElasticsearchStatus")]
