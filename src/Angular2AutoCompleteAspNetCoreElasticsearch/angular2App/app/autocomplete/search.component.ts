@@ -1,14 +1,14 @@
 import { Component, Inject, EventEmitter, Input, Output, OnInit, AfterViewInit, ElementRef } from '@angular/core';
-
+import { Http, Response } from "@angular/http";
 
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import { Router } from  '@angular/router';
 
-import { SearchDataService } from '../autocomplete/searchDataService';
+import { Configuration } from '../app.constants';
+import { PersonCityData } from './personCityData';
 
-
-import { CompleterService, CompleterData } from 'ng2-completer';
+import { CompleterService } from 'ng2-completer';
 
 @Component({
     selector: 'autocompletesearch',
@@ -21,28 +21,19 @@ import { CompleterService, CompleterData } from 'ng2-completer';
 
 export class AutocompleteSearchComponent implements OnInit    {
 
-    constructor(private completerService: CompleterService) {
-        this.dataService = completerService.local(this.searchData, 'color', 'color');
+    constructor(private completerService: CompleterService, private http: Http, private _configuration: Configuration) {
+
+        let actionUrl = _configuration.Server + 'api/personcity/search/';
+        this.dataService = new PersonCityData(http, _configuration); ////completerService.local("name, info, familyName", 'name');
     }
 
     @Input() data: any;
 
     private searchStr: string;
-    private dataService: CompleterData;
-    private searchData = [
-        { color: 'red', value: '#f00' },
-        { color: 'green', value: '#0f0' },
-        { color: 'blue', value: '#00f' },
-        { color: 'cyan', value: '#0ff' },
-        { color: 'magenta', value: '#f0f' },
-        { color: 'yellow', value: '#ff0' },
-        { color: 'black', value: '#000' }
-    ];
+    private dataService: PersonCityData;
 
     ngOnInit() {
         console.log("ngOnInit AutocompleteSearch");
-        console.log(this.searchData);
-
     }
 
 
