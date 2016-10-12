@@ -329,7 +329,7 @@ webpackJsonp([0],{
   \**************************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"panel-group\">\r\n\r\n    <p>Elasticsearch Index exists: {{IndexExists}}</p> \r\n    <button (click)=\"CreateIndex()\" *ngIf=\"!IndexExists\">Create Index</button>\r\n    <button (click)=\"CreateTestData()\">Create TestData</button>\r\n    \r\n    <hr />\r\n    <br />\r\n\r\n    <autocompletesearch [(bindModelPersonCity)]=\"SelectedPersonCity\" >\r\n    </autocompletesearch>\r\n\r\n    <hr />\r\n\r\n    SELECTED : <span>{{SelectedPersonCity.name}} {{SelectedPersonCity.familyName}} </span>\r\n    <br />\r\n    INFO     : <span>{{SelectedPersonCity.info}}</span>\r\n    <hr />\r\n\r\n</div>"
+	module.exports = "<div class=\"panel-group\">\r\n\r\n    <p>Elasticsearch Index exists: {{IndexExists}}</p> \r\n    <button (click)=\"CreateIndex()\" *ngIf=\"!IndexExists\">Create Index</button>\r\n    <button (click)=\"CreateTestData()\" *ngIf=\"IndexExists\">Create TestData</button>\r\n    \r\n    <hr />\r\n    <br />\r\n\r\n    <autocompletesearch [(bindModelPersonCity)]=\"SelectedPersonCity\" >\r\n    </autocompletesearch>\r\n\r\n    <hr />\r\n\r\n    SELECTED : <span>{{SelectedPersonCity.name}} {{SelectedPersonCity.familyName}} </span>\r\n    <br />\r\n    INFO     : <span>{{SelectedPersonCity.info}}</span>\r\n    <hr />\r\n\r\n</div>"
 
 /***/ },
 
@@ -422,6 +422,7 @@ webpackJsonp([0],{
 	            var matches = data.map(function (personcity) {
 	                return {
 	                    title: personcity.name,
+	                    description: personcity.familyName,
 	                    originalObject: personcity
 	                };
 	            });

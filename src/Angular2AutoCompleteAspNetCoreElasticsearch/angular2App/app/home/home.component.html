@@ -2,7 +2,7 @@
 
     <p>Elasticsearch Index exists: {{IndexExists}}</p> 
     <button (click)="CreateIndex()" *ngIf="!IndexExists">Create Index</button>
-    <button (click)="CreateTestData()">Create TestData</button>
+    <button (click)="CreateTestData()" *ngIf="IndexExists">Create TestData</button>
     
     <hr />
     <br />

@@ -47,7 +47,22 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch
             _context.AddUpdateDocument(sob, sob.Id);
             var tmc = new PersonCity { Id = 6, FamilyName = "McCauley", Info = "Couldn't a ask for anyone better", Name = "Tadhg" };
             _context.AddUpdateDocument(tmc, tmc.Id);
-
+            var id7 = new PersonCity { Id = 7, FamilyName = "Martini", Info = "Köniz", Name = "Christian" };
+            _context.AddUpdateDocument(id7, id7.Id);
+            var id8 = new PersonCity { Id = 8, FamilyName = "Lee", Info = "Basel Stadt", Name = "Phil" };
+            _context.AddUpdateDocument(id8, id8.Id);
+            var id9 = new PersonCity { Id = 9, FamilyName = "Wil", Info = "Basel Stadt", Name = "Nicole" };
+            _context.AddUpdateDocument(id9, id9.Id);
+            var id10 = new PersonCity { Id = 10, FamilyName = "Mario", Info = "Basel in some small town", Name = "Tim" };
+            _context.AddUpdateDocument(id10, id10.Id);
+            var id11 = new PersonCity { Id = 11, FamilyName = "Martin", Info = "Biel", Name = "Scott" };
+            _context.AddUpdateDocument(id11, id11.Id);
+            var id12 = new PersonCity { Id = 12, FamilyName = "Newman", Info = "Lyss", Name = "Tim" };
+            _context.AddUpdateDocument(id12, id12.Id);
+            var id13 = new PersonCity { Id = 13, FamilyName = "Lamb", Info = "Thun", Name = "Carla" };
+            _context.AddUpdateDocument(id13, id13.Id);
+            var id14 = new PersonCity { Id = 14, FamilyName = "Goldi", Info = "Zug", Name = "Ida" };
+            _context.AddUpdateDocument(id14, id14.Id);
             _context.SaveChanges();
         }
 
@@ -68,13 +83,29 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch
 
         public IEnumerable<PersonCity> QueryString(string term)
         {
-            var search = new Search()
-            {
-                Query = new Query(new QueryStringQuery(term))
-            };
-            var results = _context.Search<PersonCity>(search);
+            //var search = new Search()
+            //{
+            //    Query = new Query(new QueryStringQuery(term))
+            //};
+            var results = _context.Search<PersonCity>(BuildQueryStringSearch(term));
 
             return results.PayloadResult.Hits.HitsResult.Select(t => t.Source);
+        }
+
+        private Search BuildQueryStringSearch(string term)
+        {
+            var names = "";
+            if (term != null)
+            {
+                names = term.Replace("+", " OR *");
+            }
+
+            var search = new Search
+            {
+                Query = new Query(new QueryStringQuery(names + "*"))
+            };
+
+            return search;
         }
 
         public bool GetStatus()
