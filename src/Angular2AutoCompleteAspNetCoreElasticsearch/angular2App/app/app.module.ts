@@ -10,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 
 import { Ng2CompleterModule } from "ng2-completer";
 import { AutocompleteSearchComponent } from './autocomplete/search.component';
-import { SearchDataService } from './autocomplete/searchDataService';
+import { SearchDataService } from './services/searchDataService';
 
 @NgModule({
     imports: [

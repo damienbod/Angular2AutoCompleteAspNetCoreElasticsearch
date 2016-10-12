@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 
 import { AutocompleteSearchComponent } from '../autocomplete/search.component';
-import { SearchDataService } from '../autocomplete/searchDataService';
+import { SearchDataService } from '../services/searchDataService';
 
 @Component({
     selector: 'homecomponent',
@@ -21,10 +21,10 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
-        this._dataService
-            .GetAll()
-            .subscribe(data => this.PersonCityItems = data,
-            error => console.log(error),
-            () => console.log('Get all complete'));
+        //this._dataService
+        //    .GetAll()
+        //    .subscribe(data => this.PersonCityItems = data,
+        //    error => console.log(error),
+        //    () => console.log('Get all complete'));
     }
 }
