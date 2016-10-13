@@ -36,7 +36,7 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch
 
         public void CreateIndex()
         {			
-            _context.IndexCreate<PersonCity>(this.CreateNewIndexDefinition());
+            _context.IndexCreate<PersonCity>(new IndexDefinition());
         }
 
         private IndexDefinition CreateNewIndexDefinition()
