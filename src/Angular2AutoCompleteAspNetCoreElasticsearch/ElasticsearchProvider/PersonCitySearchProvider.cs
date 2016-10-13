@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using ElasticsearchCRUD;
 using ElasticsearchCRUD.ContextAddDeleteUpdate.IndexModel.SettingsModel;
+using ElasticsearchCRUD.ContextAddDeleteUpdate.IndexModel.SettingsModel.Analyzers;
+using ElasticsearchCRUD.ContextAddDeleteUpdate.IndexModel.SettingsModel.Filters;
 using ElasticsearchCRUD.ContextSearch.SearchModel;
+using ElasticsearchCRUD.ContextSearch.SearchModel.AggModel;
+using ElasticsearchCRUD.Model;
 using ElasticsearchCRUD.Model.SearchModel;
+using ElasticsearchCRUD.Model.SearchModel.Aggregations;
 using ElasticsearchCRUD.Model.SearchModel.Queries;
+using ElasticsearchCRUD.Model.SearchModel.Sorting;
 using ElasticsearchCRUD.Tracing;
 
 namespace Angular2AutoCompleteAspNetCoreElasticsearch
@@ -30,7 +36,66 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch
 
         public void CreateIndex()
         {			
-            _context.IndexCreate<PersonCity>(new IndexDefinition());
+            _context.IndexCreate<PersonCity>(this.CreateNewIndexDefinition());
+        }
+
+        private IndexDefinition CreateNewIndexDefinition()
+        {
+            return new IndexDefinition
+            {
+                IndexSettings =
+                {
+                    Analysis = new Analysis
+                    {
+                        Analyzer =
+                        {
+                            Analyzers = new List<AnalyzerBase>
+                            {
+                                new CustomAnalyzer("john_analyzer")
+                                {
+                                    Tokenizer = DefaultTokenizers.Whitespace,
+                                    Filter = new List<string> {DefaultTokenFilters.Lowercase, "john_synonym"},
+                                },
+                                new CustomAnalyzer("suggest")
+                                {
+                                    Tokenizer = DefaultTokenizers.Standard,
+                                    Filter = new List<string> {DefaultTokenFilters.Lowercase},
+                                    CharFilter = new List<string> {DefaultCharFilters.HtmlStrip},
+                                },
+                                new CustomAnalyzer("autocomplete")
+                                {
+                                    Tokenizer = DefaultTokenizers.Standard,
+                                    Filter = new List<string> {DefaultTokenFilters.Lowercase, "autocompleteFilter"},
+                                    CharFilter = new List<string> {DefaultCharFilters.HtmlStrip},
+                                }
+                            }
+                        },
+                        Filters =
+                        {
+                            CustomFilters = new List<AnalysisFilterBase>
+                            {
+                                new SynonymTokenFilter("john_synonym")
+                                {
+                                    Synonyms = new List<string>
+                                    {
+                                        "sean  => john, sean, séan",
+                                        "séan => john, sean, séan",
+                                        "johny => john",
+                                    }
+                                },
+                                new ShingleTokenFilter("autocompleteFilter")
+                                {
+                                    MaxShingleSize = 5,
+                                    MinShingleSize = 2
+                                },
+                                new StemmerTokenFilter("stemmer"),
+                                new StopTokenFilter("stopwords")
+                            }
+                        }
+                    }
+                },
+            };
+
         }
 
         public void CreateTestData()
@@ -80,6 +145,8 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch
             };			
             return _context.Search<PersonCity>(search).PayloadResult;
         }
+
+
 
         public IEnumerable<PersonCity> QueryString(string term)
         {
