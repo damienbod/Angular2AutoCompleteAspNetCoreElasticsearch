@@ -7,6 +7,7 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch
     {
         public long Id { get; set; }
 
+        [ElasticsearchString(Fields = typeof(FieldDataDefinition), Analyzer = LanguageAnalyzers.German)]
         public string Name { get; set; }
 
         public string FamilyName { get; set; }

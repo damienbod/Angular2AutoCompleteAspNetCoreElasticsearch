@@ -21,7 +21,7 @@ export class PersonCityDataService extends Subject<CompleterItem[]> implements C
                 let matches: CompleterItem[] = data.map((personcity: any) => {
                     return {
                         title: personcity.name,
-                        description: personcity.familyName,
+                        description: personcity.familyName + ", " + personcity.info, 
                         originalObject: personcity
                     }
                 });
