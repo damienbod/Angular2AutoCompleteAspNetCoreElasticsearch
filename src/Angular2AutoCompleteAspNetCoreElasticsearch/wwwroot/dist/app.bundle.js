@@ -239,7 +239,8 @@ webpackJsonp([0],{
 	        core_1.Component({
 	            selector: 'homecomponent',
 	            template: __webpack_require__(/*! ./home.component.html */ 69),
-	            providers: [searchDataService_1.SearchDataService]
+	            providers: [searchDataService_1.SearchDataService],
+	            styles: [__webpack_require__(/*! ../../style/app.scss */ 61)]
 	        }), 
 	        __metadata('design:paramtypes', [searchDataService_1.SearchDataService])
 	    ], HomeComponent);
@@ -329,7 +330,7 @@ webpackJsonp([0],{
   \**************************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"panel-group\">\r\n\r\n    <p>Elasticsearch Index exists: {{IndexExists}}</p> \r\n    <button (click)=\"CreateIndex()\" *ngIf=\"!IndexExists\">Create Index</button>\r\n    <button (click)=\"CreateTestData()\" *ngIf=\"IndexExists\">Create TestData</button>\r\n    \r\n    <hr />\r\n    <br />\r\n\r\n    <autocompletesearch [(bindModelPersonCity)]=\"SelectedPersonCity\" style=\"width: 600px;\" >\r\n    </autocompletesearch>\r\n\r\n    <hr />\r\n\r\n    SELECTED : <span>{{SelectedPersonCity.name}} {{SelectedPersonCity.familyName}} </span>\r\n    <br />\r\n    INFO     : <span>{{SelectedPersonCity.info}}</span>\r\n    <hr />\r\n\r\n</div>"
+	module.exports = "<div class=\"panel-group\">\r\n\r\n    <p>Elasticsearch Index exists: {{IndexExists}}</p> \r\n    <button (click)=\"CreateIndex()\" *ngIf=\"!IndexExists\">Create Index</button>\r\n    <button (click)=\"CreateTestData()\" *ngIf=\"IndexExists\">Create TestData</button>\r\n    \r\n    <hr />\r\n    <br />\r\n\r\n    <autocompletesearch [(bindModelPersonCity)]=\"SelectedPersonCity\" >\r\n    </autocompletesearch>\r\n\r\n    <hr />\r\n\r\n    SELECTED : <span>{{SelectedPersonCity.name}} {{SelectedPersonCity.familyName}} </span>\r\n    <br />\r\n    INFO     : <span>{{SelectedPersonCity.info}}</span>\r\n    <hr />\r\n\r\n</div>"
 
 /***/ },
 
@@ -382,7 +383,7 @@ webpackJsonp([0],{
 	    AutocompleteSearchComponent = __decorate([
 	        core_1.Component({
 	            selector: 'autocompletesearch',
-	            template: "\n<ng2-completer [dataService]=\"dataService\" (selected)=\"onPersonCitySelected($event)\" [minSearchLength]=\"0\"></ng2-completer>\n\n"
+	            template: "\n<ng2-completer [dataService]=\"dataService\" (selected)=\"onPersonCitySelected($event)\" [minSearchLength]=\"0\" ></ng2-completer>\n\n"
 	        }), 
 	        __metadata('design:paramtypes', [ng2_completer_1.CompleterService, http_1.Http, app_constants_1.Configuration])
 	    ], AutocompleteSearchComponent);

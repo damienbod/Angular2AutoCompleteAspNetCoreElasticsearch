@@ -14,7 +14,7 @@ import { CompleterService, CompleterItem } from 'ng2-completer';
 @Component({
     selector: 'autocompletesearch',
   template: `
-<ng2-completer [dataService]="dataService" (selected)="onPersonCitySelected($event)" [minSearchLength]="0"></ng2-completer>
+<ng2-completer [dataService]="dataService" (selected)="onPersonCitySelected($event)" [minSearchLength]="0" ></ng2-completer>
 
 `
 })

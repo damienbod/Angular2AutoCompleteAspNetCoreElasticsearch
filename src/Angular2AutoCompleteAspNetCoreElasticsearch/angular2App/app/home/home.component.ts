@@ -9,7 +9,8 @@ import { PersonCity } from '../autocomplete/personCity';
 @Component({
     selector: 'homecomponent',
     template: require('./home.component.html'),
-    providers: [SearchDataService]
+    providers: [SearchDataService],
+    styles: [ require('../../style/app.scss')]
 })
 
 export class HomeComponent implements OnInit {
