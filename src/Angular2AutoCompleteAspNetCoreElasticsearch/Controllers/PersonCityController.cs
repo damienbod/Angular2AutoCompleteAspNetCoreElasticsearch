@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Angular2AutoCompleteAspNetCoreElasticsearch.Controllers
 {
@@ -13,7 +12,6 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch.Controllers
             _personCitySearchProvider = personCitySearchProvider;
         }
 
-        // GET: api/values
         [HttpGet]
         public IActionResult Get()
         {
