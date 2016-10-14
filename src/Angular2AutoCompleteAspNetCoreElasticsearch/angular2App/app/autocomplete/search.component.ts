@@ -16,7 +16,8 @@ import { CompleterService, CompleterItem } from 'ng2-completer';
   template: `
 <ng2-completer [dataService]="dataService" (selected)="onPersonCitySelected($event)" [minSearchLength]="0" ></ng2-completer>
 
-`
+`,
+  styles: [String(require('./search.component.scss'))]
 })
     
 export class AutocompleteSearchComponent implements OnInit    {
