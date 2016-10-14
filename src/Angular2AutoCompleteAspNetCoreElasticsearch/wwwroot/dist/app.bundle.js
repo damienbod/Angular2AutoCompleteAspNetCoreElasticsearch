@@ -35,13 +35,13 @@ webpackJsonp([0],{
 	var forms_1 = __webpack_require__(/*! @angular/forms */ 24);
 	var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ 21);
 	var app_component_1 = __webpack_require__(/*! ./app.component */ 28);
-	var app_constants_1 = __webpack_require__(/*! ./app.constants */ 62);
-	var app_routes_1 = __webpack_require__(/*! ./app.routes */ 63);
-	var http_1 = __webpack_require__(/*! @angular/http */ 66);
-	var home_component_1 = __webpack_require__(/*! ./home/home.component */ 64);
-	var ng2_completer_1 = __webpack_require__(/*! ng2-completer */ 70);
-	var search_component_1 = __webpack_require__(/*! ./autocomplete/search.component */ 72);
-	var searchDataService_1 = __webpack_require__(/*! ./services/searchDataService */ 65);
+	var app_constants_1 = __webpack_require__(/*! ./app.constants */ 66);
+	var app_routes_1 = __webpack_require__(/*! ./app.routes */ 67);
+	var http_1 = __webpack_require__(/*! @angular/http */ 70);
+	var home_component_1 = __webpack_require__(/*! ./home/home.component */ 68);
+	var ng2_completer_1 = __webpack_require__(/*! ng2-completer */ 74);
+	var search_component_1 = __webpack_require__(/*! ./autocomplete/search.component */ 76);
+	var searchDataService_1 = __webpack_require__(/*! ./services/searchDataService */ 69);
 	var AppModule = (function () {
 	    function AppModule() {
 	    }
@@ -102,7 +102,7 @@ webpackJsonp([0],{
 	        core_1.Component({
 	            selector: 'my-app',
 	            template: __webpack_require__(/*! ./app.component.html */ 59),
-	            styles: [__webpack_require__(/*! ./app.component.scss */ 60), __webpack_require__(/*! ../style/app.scss */ 61)]
+	            styles: [String(__webpack_require__(/*! ./app.component.scss */ 60)), String(__webpack_require__(/*! ../style/app.scss */ 64))]
 	        }), 
 	        __metadata('design:paramtypes', [router_1.Router])
 	    ], AppComponent);
@@ -127,23 +127,99 @@ webpackJsonp([0],{
 /*!********************************************!*\
   !*** ./angular2App/app/app.component.scss ***!
   \********************************************/
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// load the styles\nvar content = require(\"!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./app.component.scss\");\nif(typeof content === 'string') content = [[module.id, content, '']];\n// add the styles to the DOM\nvar update = require(\"!./../../node_modules/style-loader/addStyles.js\")(content, {});\nif(content.locals) module.exports = content.locals;\n// Hot Module Replacement\nif(module.hot) {\n\t// When the styles change, update the <style> tags\n\tif(!content.locals) {\n\t\tmodule.hot.accept(\"!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./app.component.scss\", function() {\n\t\t\tvar newContent = require(\"!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./app.component.scss\");\n\t\t\tif(typeof newContent === 'string') newContent = [[module.id, newContent, '']];\n\t\t\tupdate(newContent);\n\t\t});\n\t}\n\t// When the module is disposed, remove the <style> tags\n\tmodule.hot.dispose(function() { update(); });\n}"
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../~/css-loader!./../../~/sass-loader!./app.component.scss */ 61);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 63)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./app.component.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./app.component.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
 /***/ },
 
 /***/ 61:
-/*!************************************!*\
-  !*** ./angular2App/style/app.scss ***!
-  \************************************/
-/***/ function(module, exports) {
+/*!***************************************************************************!*\
+  !*** ./~/css-loader!./~/sass-loader!./angular2App/app/app.component.scss ***!
+  \***************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// load the styles\nvar content = require(\"!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./app.scss\");\nif(typeof content === 'string') content = [[module.id, content, '']];\n// add the styles to the DOM\nvar update = require(\"!./../../node_modules/style-loader/addStyles.js\")(content, {});\nif(content.locals) module.exports = content.locals;\n// Hot Module Replacement\nif(module.hot) {\n\t// When the styles change, update the <style> tags\n\tif(!content.locals) {\n\t\tmodule.hot.accept(\"!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./app.scss\", function() {\n\t\t\tvar newContent = require(\"!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./app.scss\");\n\t\t\tif(typeof newContent === 'string') newContent = [[module.id, newContent, '']];\n\t\t\tupdate(newContent);\n\t\t});\n\t}\n\t// When the module is disposed, remove the <style> tags\n\tmodule.hot.dispose(function() { update(); });\n}"
+	exports = module.exports = __webpack_require__(/*! ./../../~/css-loader/lib/css-base.js */ 62)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "body {\n  padding-top: 50px; }\n\n.starter-template {\n  padding: 40px 15px;\n  text-align: center; }\n\n.navigationLinkButton:hover {\n  cursor: pointer; }\n\na {\n  color: #03A9F4; }\n", ""]);
+	
+	// exports
+
 
 /***/ },
 
-/***/ 62:
+/***/ 64:
+/*!************************************!*\
+  !*** ./angular2App/style/app.scss ***!
+  \************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../~/css-loader!./../../~/sass-loader!./app.scss */ 65);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 63)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./app.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./app.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+
+/***/ 65:
+/*!*******************************************************************!*\
+  !*** ./~/css-loader!./~/sass-loader!./angular2App/style/app.scss ***!
+  \*******************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../~/css-loader/lib/css-base.js */ 62)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "a {\n  color: #03A9F4; }\n\n.completer-input {\n  width: 500px; }\n", ""]);
+	
+	// exports
+
+
+/***/ },
+
+/***/ 66:
 /*!******************************************!*\
   !*** ./angular2App/app/app.constants.ts ***!
   \******************************************/
@@ -175,7 +251,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 63:
+/***/ 67:
 /*!***************************************!*\
   !*** ./angular2App/app/app.routes.ts ***!
   \***************************************/
@@ -183,7 +259,7 @@ webpackJsonp([0],{
 
 	"use strict";
 	var router_1 = __webpack_require__(/*! @angular/router */ 29);
-	var home_component_1 = __webpack_require__(/*! ./home/home.component */ 64);
+	var home_component_1 = __webpack_require__(/*! ./home/home.component */ 68);
 	var appRoutes = [
 	    { path: '', component: home_component_1.HomeComponent },
 	    { path: 'home', component: home_component_1.HomeComponent }
@@ -193,7 +269,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 64:
+/***/ 68:
 /*!************************************************!*\
   !*** ./angular2App/app/home/home.component.ts ***!
   \************************************************/
@@ -210,8 +286,8 @@ webpackJsonp([0],{
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(/*! @angular/core */ 3);
-	var searchDataService_1 = __webpack_require__(/*! ../services/searchDataService */ 65);
-	var personCity_1 = __webpack_require__(/*! ../autocomplete/personCity */ 68);
+	var searchDataService_1 = __webpack_require__(/*! ../services/searchDataService */ 69);
+	var personCity_1 = __webpack_require__(/*! ../autocomplete/personCity */ 72);
 	var HomeComponent = (function () {
 	    function HomeComponent(_dataService) {
 	        this._dataService = _dataService;
@@ -238,9 +314,8 @@ webpackJsonp([0],{
 	    HomeComponent = __decorate([
 	        core_1.Component({
 	            selector: 'homecomponent',
-	            template: __webpack_require__(/*! ./home.component.html */ 69),
-	            providers: [searchDataService_1.SearchDataService],
-	            styles: [__webpack_require__(/*! ../../style/app.scss */ 61)]
+	            template: __webpack_require__(/*! ./home.component.html */ 73),
+	            providers: [searchDataService_1.SearchDataService]
 	        }), 
 	        __metadata('design:paramtypes', [searchDataService_1.SearchDataService])
 	    ], HomeComponent);
@@ -251,7 +326,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 65:
+/***/ 69:
 /*!*******************************************************!*\
   !*** ./angular2App/app/services/searchDataService.ts ***!
   \*******************************************************/
@@ -268,9 +343,9 @@ webpackJsonp([0],{
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(/*! @angular/core */ 3);
-	var http_1 = __webpack_require__(/*! @angular/http */ 66);
-	__webpack_require__(/*! rxjs/add/operator/map */ 67);
-	var app_constants_1 = __webpack_require__(/*! ../app.constants */ 62);
+	var http_1 = __webpack_require__(/*! @angular/http */ 70);
+	__webpack_require__(/*! rxjs/add/operator/map */ 71);
+	var app_constants_1 = __webpack_require__(/*! ../app.constants */ 66);
 	var SearchDataService = (function () {
 	    function SearchDataService(_http, _configuration) {
 	        var _this = this;
@@ -307,7 +382,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 68:
+/***/ 72:
 /*!****************************************************!*\
   !*** ./angular2App/app/autocomplete/personCity.ts ***!
   \****************************************************/
@@ -324,7 +399,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 69:
+/***/ 73:
 /*!**************************************************!*\
   !*** ./angular2App/app/home/home.component.html ***!
   \**************************************************/
@@ -334,7 +409,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 72:
+/***/ 76:
 /*!**********************************************************!*\
   !*** ./angular2App/app/autocomplete/search.component.ts ***!
   \**********************************************************/
@@ -351,11 +426,11 @@ webpackJsonp([0],{
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(/*! @angular/core */ 3);
-	var http_1 = __webpack_require__(/*! @angular/http */ 66);
-	var app_constants_1 = __webpack_require__(/*! ../app.constants */ 62);
-	var personCityDataService_1 = __webpack_require__(/*! ./personCityDataService */ 73);
-	var personCity_1 = __webpack_require__(/*! ./personCity */ 68);
-	var ng2_completer_1 = __webpack_require__(/*! ng2-completer */ 70);
+	var http_1 = __webpack_require__(/*! @angular/http */ 70);
+	var app_constants_1 = __webpack_require__(/*! ../app.constants */ 66);
+	var personCityDataService_1 = __webpack_require__(/*! ./personCityDataService */ 77);
+	var personCity_1 = __webpack_require__(/*! ./personCity */ 72);
+	var ng2_completer_1 = __webpack_require__(/*! ng2-completer */ 74);
 	var AutocompleteSearchComponent = (function () {
 	    function AutocompleteSearchComponent(completerService, http, _configuration) {
 	        this.completerService = completerService;
@@ -383,7 +458,8 @@ webpackJsonp([0],{
 	    AutocompleteSearchComponent = __decorate([
 	        core_1.Component({
 	            selector: 'autocompletesearch',
-	            template: "\n<ng2-completer [dataService]=\"dataService\" (selected)=\"onPersonCitySelected($event)\" [minSearchLength]=\"0\" ></ng2-completer>\n\n"
+	            template: "\n<ng2-completer [dataService]=\"dataService\" (selected)=\"onPersonCitySelected($event)\" [minSearchLength]=\"0\" ></ng2-completer>\n\n",
+	            styles: [String(__webpack_require__(/*! ./search.component.scss */ 78))]
 	        }), 
 	        __metadata('design:paramtypes', [ng2_completer_1.CompleterService, http_1.Http, app_constants_1.Configuration])
 	    ], AutocompleteSearchComponent);
@@ -394,7 +470,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 73:
+/***/ 77:
 /*!***************************************************************!*\
   !*** ./angular2App/app/autocomplete/personCityDataService.ts ***!
   \***************************************************************/
@@ -436,6 +512,54 @@ webpackJsonp([0],{
 	    return PersonCityDataService;
 	}(Subject_1.Subject));
 	exports.PersonCityDataService = PersonCityDataService;
+
+
+/***/ },
+
+/***/ 78:
+/*!************************************************************!*\
+  !*** ./angular2App/app/autocomplete/search.component.scss ***!
+  \************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/sass-loader!./search.component.scss */ 79);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 63)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./search.component.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./search.component.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+
+/***/ 79:
+/*!*******************************************************************************************!*\
+  !*** ./~/css-loader!./~/sass-loader!./angular2App/app/autocomplete/search.component.scss ***!
+  \*******************************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 62)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".completer-input {\n  width: 500px;\n  display: block;\n  height: 34px;\n  padding: 6px 12px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  color: #555;\n  background-color: #fff;\n  background-image: none;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;\n  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }\n\n.completer-dropdown {\n  width: 480px !important; }\n", ""]);
+	
+	// exports
 
 
 /***/ }
