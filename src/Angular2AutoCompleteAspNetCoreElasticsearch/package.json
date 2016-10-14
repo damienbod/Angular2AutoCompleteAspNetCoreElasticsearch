@@ -45,7 +45,7 @@
     "html-webpack-plugin": "^2.8.1",
     "jquery": "^2.2.0",
     "json-loader": "^0.5.3",
-    "node-sass": "^3.4.2",
+    "node-sass": "3.10.1",
     "null-loader": "0.1.1",
     "postcss-loader": "^0.9.1",
     "raw-loader": "0.5.1",
