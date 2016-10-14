@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using ElasticsearchCRUD.ContextSearch.SearchModel;
 
 namespace Angular2AutoCompleteAspNetCoreElasticsearch
 {
@@ -8,8 +7,6 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch
         void CreateIndex();
 
         void CreateTestData();
-
-        SearchResult<PersonCity> Search(string name);
 
         bool GetStatus();
 
