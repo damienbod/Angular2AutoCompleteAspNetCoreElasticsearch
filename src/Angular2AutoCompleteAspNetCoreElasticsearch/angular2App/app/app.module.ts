@@ -9,7 +9,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { HomeComponent } from './home/home.component';
 
 import { Ng2CompleterModule } from "ng2-completer";
-import { AutocompleteSearchComponent } from './autocomplete/search.component';
+import { PersonCityAutocompleteSearchComponent } from './autocomplete/personCityAutocompleteSearch.component';
 import { SearchDataService } from './services/searchDataService';
 
 @NgModule({
@@ -25,7 +25,7 @@ import { SearchDataService } from './services/searchDataService';
     declarations: [
         AppComponent,
         HomeComponent,
-        AutocompleteSearchComponent
+        PersonCityAutocompleteSearchComponent
     ],
     providers: [
         SearchDataService,

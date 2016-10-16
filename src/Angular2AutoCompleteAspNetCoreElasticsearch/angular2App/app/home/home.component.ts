@@ -2,7 +2,7 @@ import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 
-import { AutocompleteSearchComponent } from '../autocomplete/search.component';
+import { PersonCityAutocompleteSearchComponent } from '../autocomplete/personCityAutocompleteSearch.component';
 import { SearchDataService } from '../services/searchDataService';
 import { PersonCity } from '../autocomplete/personCity';
 

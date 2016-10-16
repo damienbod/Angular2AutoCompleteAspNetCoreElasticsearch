@@ -40,7 +40,7 @@ webpackJsonp([0],{
 	var http_1 = __webpack_require__(/*! @angular/http */ 70);
 	var home_component_1 = __webpack_require__(/*! ./home/home.component */ 68);
 	var ng2_completer_1 = __webpack_require__(/*! ng2-completer */ 74);
-	var search_component_1 = __webpack_require__(/*! ./autocomplete/search.component */ 76);
+	var personCityAutocompleteSearch_component_1 = __webpack_require__(/*! ./autocomplete/personCityAutocompleteSearch.component */ 366);
 	var searchDataService_1 = __webpack_require__(/*! ./services/searchDataService */ 69);
 	var AppModule = (function () {
 	    function AppModule() {
@@ -59,7 +59,7 @@ webpackJsonp([0],{
 	            declarations: [
 	                app_component_1.AppComponent,
 	                home_component_1.HomeComponent,
-	                search_component_1.AutocompleteSearchComponent
+	                personCityAutocompleteSearch_component_1.PersonCityAutocompleteSearchComponent
 	            ],
 	            providers: [
 	                searchDataService_1.SearchDataService,
@@ -409,72 +409,6 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 76:
-/*!**********************************************************!*\
-  !*** ./angular2App/app/autocomplete/search.component.ts ***!
-  \**********************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(/*! @angular/core */ 3);
-	var http_1 = __webpack_require__(/*! @angular/http */ 70);
-	var app_constants_1 = __webpack_require__(/*! ../app.constants */ 66);
-	var personCityDataService_1 = __webpack_require__(/*! ./personCityDataService */ 77);
-	var personCity_1 = __webpack_require__(/*! ./personCity */ 72);
-	var ng2_completer_1 = __webpack_require__(/*! ng2-completer */ 74);
-	var AutocompleteSearchComponent = (function () {
-	    function AutocompleteSearchComponent(completerService, http, _configuration) {
-	        this.completerService = completerService;
-	        this.http = http;
-	        this._configuration = _configuration;
-	        this.bindModelPersonCityChange = new core_1.EventEmitter();
-	        this.disableAutocomplete = false;
-	        var actionUrl = _configuration.Server + 'api/personcity/search/';
-	        this.dataService = new personCityDataService_1.PersonCityDataService(http, _configuration);
-	    }
-	    AutocompleteSearchComponent.prototype.ngOnInit = function () {
-	        console.log("ngOnInit AutocompleteSearch");
-	    };
-	    AutocompleteSearchComponent.prototype.onPersonCitySelected = function (selected) {
-	        console.log(selected);
-	        this.bindModelPersonCityChange.emit(selected.originalObject);
-	    };
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', Object)
-	    ], AutocompleteSearchComponent.prototype, "bindModelPersonCityChange", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', personCity_1.PersonCity)
-	    ], AutocompleteSearchComponent.prototype, "bindModelPersonCity", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean)
-	    ], AutocompleteSearchComponent.prototype, "disableAutocomplete", void 0);
-	    AutocompleteSearchComponent = __decorate([
-	        core_1.Component({
-	            selector: 'autocompletesearch',
-	            template: "\n<ng2-completer [dataService]=\"dataService\" (selected)=\"onPersonCitySelected($event)\" [minSearchLength]=\"0\" [disableInput]=\"disableAutocomplete\"></ng2-completer>\n\n",
-	            styles: [String(__webpack_require__(/*! ./search.component.scss */ 78))]
-	        }), 
-	        __metadata('design:paramtypes', [ng2_completer_1.CompleterService, http_1.Http, app_constants_1.Configuration])
-	    ], AutocompleteSearchComponent);
-	    return AutocompleteSearchComponent;
-	}());
-	exports.AutocompleteSearchComponent = AutocompleteSearchComponent;
-
-
-/***/ },
-
 /***/ 77:
 /*!***************************************************************!*\
   !*** ./angular2App/app/autocomplete/personCityDataService.ts ***!
@@ -521,16 +455,82 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 78:
-/*!************************************************************!*\
-  !*** ./angular2App/app/autocomplete/search.component.scss ***!
-  \************************************************************/
+/***/ 366:
+/*!********************************************************************************!*\
+  !*** ./angular2App/app/autocomplete/personCityAutocompleteSearch.component.ts ***!
+  \********************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var http_1 = __webpack_require__(/*! @angular/http */ 70);
+	var app_constants_1 = __webpack_require__(/*! ../app.constants */ 66);
+	var personCityDataService_1 = __webpack_require__(/*! ./personCityDataService */ 77);
+	var personCity_1 = __webpack_require__(/*! ./personCity */ 72);
+	var ng2_completer_1 = __webpack_require__(/*! ng2-completer */ 74);
+	var PersonCityAutocompleteSearchComponent = (function () {
+	    function PersonCityAutocompleteSearchComponent(completerService, http, _configuration) {
+	        this.completerService = completerService;
+	        this.http = http;
+	        this._configuration = _configuration;
+	        this.bindModelPersonCityChange = new core_1.EventEmitter();
+	        this.disableAutocomplete = false;
+	        var actionUrl = _configuration.Server + 'api/personcity/search/';
+	        this.dataService = new personCityDataService_1.PersonCityDataService(http, _configuration);
+	    }
+	    PersonCityAutocompleteSearchComponent.prototype.ngOnInit = function () {
+	        console.log("ngOnInit AutocompleteSearch");
+	    };
+	    PersonCityAutocompleteSearchComponent.prototype.onPersonCitySelected = function (selected) {
+	        console.log(selected);
+	        this.bindModelPersonCityChange.emit(selected.originalObject);
+	    };
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', Object)
+	    ], PersonCityAutocompleteSearchComponent.prototype, "bindModelPersonCityChange", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', personCity_1.PersonCity)
+	    ], PersonCityAutocompleteSearchComponent.prototype, "bindModelPersonCity", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], PersonCityAutocompleteSearchComponent.prototype, "disableAutocomplete", void 0);
+	    PersonCityAutocompleteSearchComponent = __decorate([
+	        core_1.Component({
+	            selector: 'autocompletesearch',
+	            template: "\n<ng2-completer [dataService]=\"dataService\" (selected)=\"onPersonCitySelected($event)\" [minSearchLength]=\"0\" [disableInput]=\"disableAutocomplete\"></ng2-completer>\n\n",
+	            styles: [String(__webpack_require__(/*! ./personCityAutocompleteSearch.component.scss */ 367))]
+	        }), 
+	        __metadata('design:paramtypes', [ng2_completer_1.CompleterService, http_1.Http, app_constants_1.Configuration])
+	    ], PersonCityAutocompleteSearchComponent);
+	    return PersonCityAutocompleteSearchComponent;
+	}());
+	exports.PersonCityAutocompleteSearchComponent = PersonCityAutocompleteSearchComponent;
+
+
+/***/ },
+
+/***/ 367:
+/*!**********************************************************************************!*\
+  !*** ./angular2App/app/autocomplete/personCityAutocompleteSearch.component.scss ***!
+  \**********************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/sass-loader!./search.component.scss */ 79);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/sass-loader!./personCityAutocompleteSearch.component.scss */ 368);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 63)(content, {});
@@ -539,8 +539,8 @@ webpackJsonp([0],{
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./search.component.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./search.component.scss");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./personCityAutocompleteSearch.component.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./personCityAutocompleteSearch.component.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -551,10 +551,10 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 79:
-/*!*******************************************************************************************!*\
-  !*** ./~/css-loader!./~/sass-loader!./angular2App/app/autocomplete/search.component.scss ***!
-  \*******************************************************************************************/
+/***/ 368:
+/*!*****************************************************************************************************************!*\
+  !*** ./~/css-loader!./~/sass-loader!./angular2App/app/autocomplete/personCityAutocompleteSearch.component.scss ***!
+  \*****************************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 62)();

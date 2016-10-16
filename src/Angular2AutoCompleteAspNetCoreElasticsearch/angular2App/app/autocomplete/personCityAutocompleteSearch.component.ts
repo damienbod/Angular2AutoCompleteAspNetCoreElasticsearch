@@ -17,10 +17,10 @@ import { CompleterService, CompleterItem } from 'ng2-completer';
 <ng2-completer [dataService]="dataService" (selected)="onPersonCitySelected($event)" [minSearchLength]="0" [disableInput]="disableAutocomplete"></ng2-completer>
 
 `,
-  styles: [String(require('./search.component.scss'))]
+  styles: [String(require('./personCityAutocompleteSearch.component.scss'))]
 })
     
-export class AutocompleteSearchComponent implements OnInit    {
+export class PersonCityAutocompleteSearchComponent implements OnInit    {
 
     constructor(private completerService: CompleterService, private http: Http, private _configuration: Configuration) {
 
