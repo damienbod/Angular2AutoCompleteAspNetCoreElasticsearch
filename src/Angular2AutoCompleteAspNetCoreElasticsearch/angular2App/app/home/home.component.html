@@ -1,0 +1,20 @@
+<div class="panel-group">
+
+    <p>Elasticsearch Index exists: {{IndexExists}}</p> 
+    <button (click)="CreateIndex()" *ngIf="!IndexExists">Create Index</button>
+    <button (click)="CreateTestData()" *ngIf="IndexExists">Create TestData</button>
+    
+    <hr />
+    <br />
+
+    <autocompletesearch [(bindModelPersonCity)]="SelectedPersonCity" [disableAutocomplete]="!IndexExists" >
+    </autocompletesearch>
+
+    <hr />
+
+    SELECTED : <span>{{SelectedPersonCity.name}} {{SelectedPersonCity.familyName}} </span>
+    <br />
+    INFO     : <span>{{SelectedPersonCity.info}}</span>
+    <hr />
+
+</div>
