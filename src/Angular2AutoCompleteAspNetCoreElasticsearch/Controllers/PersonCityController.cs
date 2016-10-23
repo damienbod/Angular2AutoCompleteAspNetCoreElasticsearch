@@ -19,6 +19,12 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch.Controllers
             return Ok(_personCitySearchProvider.QueryString(searchtext));
         }
 
+        [HttpGet("autocomplete/{searchtext}")]
+        public IActionResult AutoComplete(string searchtext)
+        {
+            return Ok(_personCitySearchProvider.AutocompleteSearch(searchtext));
+        }
+
         [HttpGet("createindex")]
         public IActionResult CreateIndex()
         {
