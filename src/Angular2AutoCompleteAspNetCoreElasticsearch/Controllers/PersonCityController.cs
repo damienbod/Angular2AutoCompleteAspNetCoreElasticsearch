@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SearchComponent;
 
 namespace Angular2AutoCompleteAspNetCoreElasticsearch.Controllers
 {
