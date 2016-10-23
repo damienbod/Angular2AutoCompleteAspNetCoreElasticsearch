@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 
 import { Ng2CompleterModule } from "ng2-completer";
 import { PersonCityAutocompleteSearchComponent } from './autocomplete/personCityAutocompleteSearch.component';
+import { SearchComponent } from './searchcomponent/search.component';
 import { SearchDataService } from './services/searchDataService';
 
 @NgModule({
@@ -25,7 +26,8 @@ import { SearchDataService } from './services/searchDataService';
     declarations: [
         AppComponent,
         HomeComponent,
-        PersonCityAutocompleteSearchComponent
+        PersonCityAutocompleteSearchComponent,
+        SearchComponent
     ],
     providers: [
         SearchDataService,

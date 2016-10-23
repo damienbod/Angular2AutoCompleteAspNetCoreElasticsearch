@@ -17,4 +17,7 @@
     INFO     : <span>{{SelectedPersonCity.info}}</span>
     <hr />
 
+    <search (bindModelPersonCities)="SelectedPersonCity" [disableAutocomplete]="!IndexExists">
+    </search>
+    
 </div>

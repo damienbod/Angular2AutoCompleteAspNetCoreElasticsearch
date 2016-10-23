@@ -27,7 +27,7 @@ export class SearchComponent implements OnInit    {
         this.dataService = new SearchDataService(http, _configuration);
     }
 
-    @Output() bindModelPersonCityChange = new EventEmitter<PersonCity[]>();
+    @Output() bindModelPersonCitiesChange = new EventEmitter<PersonCity[]>();
     @Input() disableAutocomplete: boolean = false;
 
     private searchStr: string;
@@ -43,7 +43,7 @@ export class SearchComponent implements OnInit    {
         this.dataService
             .FindAllForTerm(selected.title)
             .subscribe(
-            data => this.bindModelPersonCityChange.emit(data),
+            data => this.bindModelPersonCitiesChange.emit(data),
             error => console.log(error),
             () => console.log('onPersonCitySelected complete')
             );

@@ -6,6 +6,8 @@ import { PersonCityAutocompleteSearchComponent } from '../autocomplete/personCit
 import { SearchDataService } from '../services/searchDataService';
 import { PersonCity } from '../autocomplete/personCity';
 
+import { SearchComponent } from '../searchcomponent/search.component';
+
 @Component({
     selector: 'homecomponent',
     template: require('./home.component.html'),
