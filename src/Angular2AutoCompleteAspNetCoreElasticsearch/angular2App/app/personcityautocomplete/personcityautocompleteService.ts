@@ -8,7 +8,7 @@ export class PersoncityautocompleteDataService extends Subject<CompleterItem[]> 
     constructor(private http: Http, private _configuration: Configuration) {
         super();
 
-        this.actionUrl = _configuration.Server + 'api/personcity/search/';
+        this.actionUrl = _configuration.Server + 'api/personcity/querystringsearch/';
     }
 
     private actionUrl: string;
