@@ -86,7 +86,7 @@ namespace SearchComponent
             {
                 Id = 7,
                 Name = "Ali Tugberk",
-                FamilyName = "Ugurlu ",
+                FamilyName = "Ugurlu",
                 CityCountry = "United Kingdom Cambridge",
                 Metadata = "ASP.NET MVC Microsoft MVP Web API",
                 Info = "I am a web guy, Microsoft MVP and software developer specialized mainly on .NET Web technologies. I've worked at the tourism industry to build tourism software services and products for long time and now, I am working at Redgate Software as a Software Engineer helping people do database delivery in a joyful way. I am also a very involved member in the community and try my way to expose my knowledge to others through my blog, webcasts, authoring books, giving talks on various topics and so on. I live in lovely and green Cambridge, UK and I am married to a lovely woman.",
@@ -94,6 +94,46 @@ namespace SearchComponent
                 Twitter = "https://twitter.com/tourismgeek",
                 Github = "https://github.com/tugberkugurlu",
             });
+
+            Data.Add(new PersonCity
+            {
+                Id = 8,
+                Name = "Scott",
+                FamilyName = "Hanselman",
+                CityCountry = "USA",
+                Metadata = "ASP.NET Core Web API",
+                Info = "My name is Scott Hanselman. I'm a programmer, teacher, and speaker. I work out of my home office in Portland, Oregon for the Web Platform Team at Microsoft, but this blog, its content and opinions are my own. I blog about technology, culture, gadgets, diversity, code, the web, where we're going and where we've been. I'm excited about community, social equity, media, entrepreneurship and above all, the open web.",
+                Web = "http://www.hanselman.com/",
+                Twitter = "https://twitter.com/shanselman",
+                Github = "#",
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 9,
+                Name = "Scott",
+                FamilyName = "Hanselman",
+                CityCountry = "USA",
+                Metadata = "ASP.NET Core Web API",
+                Info = "My name is Scott Hanselman. I'm a programmer, teacher, and speaker. I work out of my home office in Portland, Oregon for the Web Platform Team at Microsoft, but this blog, its content and opinions are my own. I blog about technology, culture, gadgets, diversity, code, the web, where we're going and where we've been. I'm excited about community, social equity, media, entrepreneurship and above all, the open web.",
+                Web = "http://www.hanselman.com/",
+                Twitter = "https://twitter.com/shanselman",
+                Github = "#",
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 10,
+                Name = "John",
+                FamilyName = "Papa",
+                CityCountry = "USA",
+                Metadata = "Angular2 Angular",
+                Info = "Hi, I'm John Papa. I author this blog, create courses for Pluralsight and am a Google Developer Expert and Microsoft Regional Director. I speak at events and train technology thought leaders",
+                Web = "https://johnpapa.net/about/",
+                Twitter = "https://twitter.com/john_papa",
+                Github = "https://github.com/johnpapa",
+            });
+            
         }
     }
 }
