@@ -2,7 +2,7 @@
 
     <p>Elasticsearch Index exists: {{IndexExists}}</p> 
 
-    <personcitysearch [(bindSelectedTerm)]="SelectedTerm" [disableAutocomplete]="!IndexExists">
+    <personcitysearch (onTermSelectedEvent)="onTermSelectedEvent($event)" [disableAutocomplete]="!IndexExists">
     </personcitysearch>
     
     Selected: {{SelectedTerm}}

@@ -22,7 +22,6 @@ export class HomeSearchComponent implements OnInit {
     constructor(private _dataService: SearchDataService, private _personcitysearchComponent: PersoncitysearchComponent) {
         this.message = "Hello from HomeSearchComponent constructor";
         this.SelectedTerm = "none";
-        this._personcitysearchComponent.bindSelectedTermChange.subscribe(item => this.OnSelectedTermChanged(item));
     }
 
     public CreateTestData() {
@@ -41,11 +40,13 @@ export class HomeSearchComponent implements OnInit {
         }
     }
 
-    public OnSelectedTermChanged(term: string) {
+    public onTermSelectedEvent(term: string) {
+        this.SelectedTerm = term;
         this.findDataForSearchTerm(term)
     }
 
     private findDataForSearchTerm(term: string) {
+        console.log("findDataForSearchTerm:" + term);
         this._dataService.FindAllForTerm(term)
             .subscribe((data) => {
                 this.PersonCityItems = data;
