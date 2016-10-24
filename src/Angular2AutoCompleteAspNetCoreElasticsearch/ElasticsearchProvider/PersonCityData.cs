@@ -10,7 +10,7 @@ namespace SearchComponent
         {
             Data.Add(new PersonCity {
                 Id = 1, Name = "Damien", FamilyName = "Bowden", CityCountry="Switzerland",
-                Metadata = "ASP.NET Core EFCore SQLite Angular2 Angular Typescript javascript Microsoft MVP webpack",
+                Metadata = "ASP.NET Core EFCore SQLite Angular2 Angular Typescript javascript Microsoft MVP webpack security",
                 Info = "I am an engineer, Microsoft MVP, living in Switzerland interested in web development. My favorite technologies are ASP.NET Core, EFCore, ASP.NET, WebAPI, AngularJS, Angular 2, Typescript, MS SQL Server, SQLite and Elasticsearch.", 
                 Web= "https://damienbod.com",
                 Twitter= "https://twitter.com/damien_bod",
@@ -205,7 +205,7 @@ namespace SearchComponent
                 Name = "Brock",
                 FamilyName = "Allen",
                 CityCountry = "Barrington, RI ",
-                Metadata = "ASP.NET Core security identityserver",
+                Metadata = "ASP.NET Core security identityserver oidc javascript",
                 Info = "Currently Brock is an independent consultant specializing in .NET, web development, and web - based security with 20 years of industry experience.Brock is the co - author of many security - related open source frameworks including IdentityServer, IdentityManager, and MembershipReboot.He also frequently posts to the ASP.NET forums, is a MVP for ASP.NET / IIS, a member of ASPInsiders and a contributor to the ASP.NET platform. Brock lives in Barrington, RI and can be reached at brockallen@gmail.com.",
                 Web = "https://brockallen.com/",
                 Twitter = "https://twitter.com/brocklallen",
@@ -225,8 +225,19 @@ namespace SearchComponent
                 Github = "https://github.com/leastprivilege",
             });
 
+            Data.Add(new PersonCity
+            {
+                Id = 18,
+                Name = "Scott",
+                FamilyName = "Brady",
+                CityCountry = "Bristol, United Kingdom",
+                Metadata = "ASP.NET Core security identityserver",
+                Info = "I am a Senior Software Engineer at Rock Solid Knowledge. We offer software development consultancy, development and training services with myself specialising in all things Identity Server. I work predominantly in C# back-end and middleware systems with the beginnings of a specialisation in web security. I have had a focus on cloud computing since my MSc dissertation in 2013, gaining experience using various cloud based PaaS and IaaS offerings ever since. ",
+                Web = "https://www.scottbrady91.com/",
+                Twitter = "https://twitter.com/scottbrady91",
+                Github = "https://github.com/scottbrady91",
+            });
 
-            
         }
     }
 }
