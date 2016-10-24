@@ -7,9 +7,10 @@
     <hr />
     <br />
 
-    <personcitysearch (bindModelPersonCitiesChange)="PersonCityItems" [disableAutocomplete]="!IndexExists">
+    <personcitysearch [(bindSelectedTerm)]="SelectedTerm" [disableAutocomplete]="!IndexExists">
     </personcitysearch>
     
+    Selected: {{SelectedTerm}}
     <hr />
     <br />
 

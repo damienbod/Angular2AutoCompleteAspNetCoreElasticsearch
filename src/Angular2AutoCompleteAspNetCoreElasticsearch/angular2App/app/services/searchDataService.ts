@@ -38,5 +38,10 @@ export class SearchDataService {
         let url = this.actionUrl + "createtestdata";
         return this._http.get(url).map((response: Response) => <any>response.json());
     }
+
+    public FindAllForTerm = (term: string): Observable<any> => {
+        return this._http.get(this.actionUrl + term).map((response: Response) => <any>response.json());
+    }
+
  
 }

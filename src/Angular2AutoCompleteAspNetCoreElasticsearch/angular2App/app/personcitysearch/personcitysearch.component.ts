@@ -14,7 +14,7 @@ import { CompleterService, CompleterItem } from 'ng2-completer';
 @Component({
     selector: 'personcitysearch',
   template: `
-<ng2-completer [dataService]="dataService" (selected)="onPersonCitySelected($event)" [minSearchLength]="0" [disableInput]="disableAutocomplete"></ng2-completer>
+<ng2-completer [dataService]="dataService" (selected)="onTermSelected($event)" [minSearchLength]="0" [disableInput]="disableAutocomplete"></ng2-completer>
 
 `,
   styles: [String(require('./personcitysearch.component.scss'))]
@@ -27,7 +27,9 @@ export class PersoncitysearchComponent implements OnInit    {
         this.dataService = new PersoncitysearchService(http, _configuration);
     }
 
-    @Output() bindModelPersonCitiesChange = new EventEmitter<PersonCity[]>();
+    @Output() bindSelectedTermChange = new EventEmitter<string>();
+    @Input() bindSelectedTerm: string;
+
     @Input() disableAutocomplete: boolean = false;
 
     private searchStr: string;
@@ -37,16 +39,9 @@ export class PersoncitysearchComponent implements OnInit    {
         console.log("ngOnInit SearchComponent");
     }
 
-    public onPersonCitySelected(selected: CompleterItem) {
+    public onTermSelected(selected: CompleterItem) {
         console.log(selected);
 
-        this.dataService
-            .FindAllForTerm(selected.title)
-            .subscribe(
-            data => this.bindModelPersonCitiesChange.emit(data),
-            error => console.log(error),
-            () => console.log('onPersonCitySelected complete')
-            );
-
+        this.bindSelectedTermChange.emit(selected.title);
     }
 }

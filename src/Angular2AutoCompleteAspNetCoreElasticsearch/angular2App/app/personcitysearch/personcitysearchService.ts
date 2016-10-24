@@ -31,10 +31,6 @@ export class PersoncitysearchService extends Subject<CompleterItem[]> implements
             .subscribe();
     }
 
-    public FindAllForTerm = (term: string): Observable<any> => {
-        return this.http.get(this.actionUrl + term).map((response: Response) => <any>response.json());
-    }
-
     public cancel() {
         // Handle cancel
     }

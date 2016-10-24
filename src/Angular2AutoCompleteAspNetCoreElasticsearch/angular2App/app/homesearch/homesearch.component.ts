@@ -2,10 +2,8 @@ import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 
-import { PersoncityautocompleteComponent } from '../personcityautocomplete/personcityautocomplete.component';
 import { SearchDataService } from '../services/searchDataService';
 import { PersonCity } from '../model/personCity';
-
 import { PersoncitysearchComponent } from '../personcitysearch/personcitysearch.component';
 
 @Component({
@@ -18,12 +16,12 @@ export class HomeSearchComponent implements OnInit {
 
     public message: string;
     public PersonCityItems: any[];
-    public SelectedPersonCity: PersonCity;
+    public SelectedTerm: string;
     public IndexExists: boolean = false;
 
     constructor(private _dataService: SearchDataService) {
         this.message = "Hello from HomeSearchComponent constructor";
-        this.SelectedPersonCity = new PersonCity();
+        this.SelectedTerm = "none";
     }
 
     public CreateTestData() {
