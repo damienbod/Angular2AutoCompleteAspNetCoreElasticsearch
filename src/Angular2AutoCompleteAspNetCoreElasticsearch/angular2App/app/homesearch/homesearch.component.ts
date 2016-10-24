@@ -27,17 +27,30 @@ export class HomeSearchComponent implements OnInit {
     public CreateTestData() {
         this._dataService.CreateTestData().subscribe(data => data,
             error => console.log(error),
-            () => console.log('Get all complete'));
+            () => console.log('CreateTestData complete'));
     }
 
     public CreateIndex() {
         if (!this.IndexExists) {
             this._dataService.CreateIndex().subscribe(data => data,
                 error => console.log(error),
-                () => console.log('Get all complete'));
+                () => console.log('CreateIndex complete'));
 
             this.IndexExists = true;
         }      
+    }
+
+
+    public FindDataForSearchTerm() {
+        this._dataService.GetAll()
+            .subscribe((data) => {
+                this.PersonCityItems = data;
+            },
+            error => console.log(error),
+            () => {
+                console.log('PersonCitySearch:GetAll completed');
+            }
+            );
     }
 
     ngOnInit() {
@@ -45,6 +58,6 @@ export class HomeSearchComponent implements OnInit {
             .IndexExists()
             .subscribe(data => this.IndexExists = data,
             error => console.log(error),
-            () => console.log('Get all complete'));
+            () => console.log('Get IndexExists complete'));
     }
 }
