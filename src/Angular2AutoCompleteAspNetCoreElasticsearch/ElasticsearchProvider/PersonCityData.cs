@@ -110,19 +110,6 @@ namespace SearchComponent
 
             Data.Add(new PersonCity
             {
-                Id = 9,
-                Name = "Scott",
-                FamilyName = "Hanselman",
-                CityCountry = "USA",
-                Metadata = "ASP.NET Core Web API",
-                Info = "My name is Scott Hanselman. I'm a programmer, teacher, and speaker. I work out of my home office in Portland, Oregon for the Web Platform Team at Microsoft, but this blog, its content and opinions are my own. I blog about technology, culture, gadgets, diversity, code, the web, where we're going and where we've been. I'm excited about community, social equity, media, entrepreneurship and above all, the open web.",
-                Web = "http://www.hanselman.com/",
-                Twitter = "https://twitter.com/shanselman",
-                Github = "#",
-            });
-
-            Data.Add(new PersonCity
-            {
                 Id = 10,
                 Name = "John",
                 FamilyName = "Papa",
