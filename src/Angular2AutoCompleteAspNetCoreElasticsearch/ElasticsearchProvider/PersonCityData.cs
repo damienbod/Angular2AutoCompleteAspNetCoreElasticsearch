@@ -110,6 +110,19 @@ namespace SearchComponent
 
             Data.Add(new PersonCity
             {
+                Id = 9,
+                Name = "Roberto",
+                FamilyName = "Simonetti",
+                CityCountry = "Italy",
+                Metadata = ".NET TypeScript Angular Angular2 ASP.NET Core",
+                Info = "My passion was born with Basic on TI-99/4A & Commodore. At school I discovered Turbo Pascal & Java. I loved Visual Basic, .NET, and now TypeScript & Angular.",
+                Web = "https://github.com/robisim74",
+                Twitter = "https://twitter.com/robisim74",
+                Github = "https://github.com/robisim74",
+            });
+
+            Data.Add(new PersonCity
+            {
                 Id = 10,
                 Name = "John",
                 FamilyName = "Papa",
@@ -172,6 +185,46 @@ namespace SearchComponent
                 Twitter = "https://twitter.com/DeborahKurata",
                 Github = "https://github.com/DeborahK",
             });
+
+            Data.Add(new PersonCity
+            {
+                Id = 15,
+                Name = "Andrew",
+                FamilyName = "Lock",
+                CityCountry = "Plymouth, UK",
+                Metadata = "ASP.NET Core security",
+                Info = "My name is Andrew Lock, though everyone knows me as ‘Sock’. I am a full-time developer, working predominantly in full stack ASP.NET development in Devon, UK. I graduated with an MEng in Engineering from Cambridge University in 2008, and completed my PhD in Medical Image Processing in 2014. I have experience primarily with C# and VB ASP.NET, working both in MVC and WebForms, but have also worked professionally with C++ and WinForms. ",
+                Web = "http://andrewlock.net/",
+                Twitter = "https://twitter.com/andrewlocknet",
+                Github = "https://github.com/andrewlock",
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 16,
+                Name = "Brock",
+                FamilyName = "Allen",
+                CityCountry = "Barrington, RI ",
+                Metadata = "ASP.NET Core security identityserver",
+                Info = "Currently Brock is an independent consultant specializing in .NET, web development, and web - based security with 20 years of industry experience.Brock is the co - author of many security - related open source frameworks including IdentityServer, IdentityManager, and MembershipReboot.He also frequently posts to the ASP.NET forums, is a MVP for ASP.NET / IIS, a member of ASPInsiders and a contributor to the ASP.NET platform. Brock lives in Barrington, RI and can be reached at brockallen@gmail.com.",
+                Web = "https://brockallen.com/",
+                Twitter = "https://twitter.com/brocklallen",
+                Github = "https://github.com/brockallen",
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 17,
+                Name = "Dominick",
+                FamilyName = "Baier",
+                CityCountry = "Germany",
+                Metadata = "ASP.NET Core security identityserver",
+                Info = "I am an independent consultant specializing in identity & access control. I help companies around the world designing & implementing authentication and authorization for their distributed web and native applications. I am the co-author of the popular OpenID Connect & OAuth 2.0 framework called IdentityServer (http://identityserver.io) , have written a couple of books and tweet as @leastprivilege.",
+                Web = "https://leastprivilege.com/",
+                Twitter = "https://twitter.com/leastprivilege",
+                Github = "https://github.com/leastprivilege",
+            });
+
 
             
         }
