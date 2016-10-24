@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using SearchComponent;
+﻿using System.Collections.Generic;
 
 namespace SearchComponent
 {
@@ -37,7 +33,7 @@ namespace SearchComponent
             Data.Add(new PersonCity
             {
                 Id = 3,
-                Name = "Jürgen ",
+                Name = "Jürgen",
                 FamilyName = "Gutsch",
                 CityCountry = "Switzerland Basel",
                 Metadata = "ASP.NET Core Angular2 Angular Typescript javascript Microsoft MVP Azure",
@@ -45,6 +41,58 @@ namespace SearchComponent
                 Web = "http://asp.net-hacker.rocks/",
                 Twitter = "https://twitter.com/sharpcms",
                 Github = "https://github.com/JuergenGutsch",
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 4,
+                Name = "Benjamin",
+                FamilyName = "Abt",
+                CityCountry = "Germany",
+                Metadata = "ASP.NET Core Microsoft MVP Azure AngularJS TypeScript",
+                Info = "Benjamin Abt is a software architect and developer focused on .NET, ASP.NET, Azure, AngularJS and TypeScript. He became an ASP.NET/IIS MVP on July, 2015. Studio is his second home. He's an administrator and moderator of the largest german-speaking C# forum, www.mycsharp.de and he spends a lot of time supporting other users on their problems and projects. His blog SCHWABENCODE.com is well known in the german - speaking community. It's focused on german, because he thinks the DACH region has great developers, is a great location for research and development but still there are a lot of developers who do easier with their native language. On GitHub you can follow him on https://github.com/SchwabenCode/ for releases and https://github.com/BenjaminAbt for samples. Ben currently works as Software Architect focused on.NET and Cloud technologies.",
+                Web = "http://www.benjamin-abt.com",
+                Twitter = "https://twitter.com/SCHWABENCODEcom",
+                Github = "https://github.com/BenjaminAbt",
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 5,
+                Name = "Alexander",
+                FamilyName = "Zeitler",
+                CityCountry = "Germany Karlsruhe, BW",
+                Metadata = "ASP.NET MVC Microsoft MVP Web API",
+                Info = "Alexander Zeitler is a self-employed Web Developer who has spent 17 years working mainly for the tooling and machining industry as well as plant manufacturing, where he works mainly with ASP.NET MVC and now ASP.NET Web API on the server side and HTML5, CSS3 and JavaScript on the client side. He has been rewarded repeatedly with the Microsoft MVP award in ASP.NET for his engagement with the German.NET community and he maintains a blog at http://blog.alexonasp.net, which he has kept since 2003.",
+                Web = "https://alexanderzeitler.com/",
+                Twitter = "https://twitter.com/alexzeitler_",
+                Github = "https://github.com/alexzeitler",
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 6,
+                Name = "Christos",
+                FamilyName = "Sakellarios",
+                CityCountry = "Greece Athens Attica",
+                Metadata = "ASP.NET MVC Microsoft MVP Web API Typescript security",
+                Info = "Senior Web Developer Blogger ",
+                Web = "https://chsakell.com/",
+                Twitter = "https://twitter.com/chsakellsblog",
+                Github = "https://github.com/chsakell",
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 7,
+                Name = "Ali Tugberk",
+                FamilyName = "Ugurlu ",
+                CityCountry = "United Kingdom Cambridge",
+                Metadata = "ASP.NET MVC Microsoft MVP Web API",
+                Info = "I am a web guy, Microsoft MVP and software developer specialized mainly on .NET Web technologies. I've worked at the tourism industry to build tourism software services and products for long time and now, I am working at Redgate Software as a Software Engineer helping people do database delivery in a joyful way. I am also a very involved member in the community and try my way to expose my knowledge to others through my blog, webcasts, authoring books, giving talks on various topics and so on. I live in lovely and green Cambridge, UK and I am married to a lovely woman.",
+                Web = "http://www.tugberkugurlu.com",
+                Twitter = "https://twitter.com/tourismgeek",
+                Github = "https://github.com/tugberkugurlu",
             });
         }
     }
