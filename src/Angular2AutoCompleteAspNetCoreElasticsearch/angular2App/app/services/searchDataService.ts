@@ -40,7 +40,7 @@ export class SearchDataService {
     }
 
     public FindAllForTerm = (term: string): Observable<any> => {
-        return this._http.get(this.actionUrl + term).map((response: Response) => <any>response.json());
+        return this._http.get(this.actionUrl + "search/" + term).map((response: Response) => <any>response.json());
     }
 
  
