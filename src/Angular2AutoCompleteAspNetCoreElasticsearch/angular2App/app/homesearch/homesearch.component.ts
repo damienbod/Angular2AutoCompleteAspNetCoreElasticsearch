@@ -19,9 +19,10 @@ export class HomeSearchComponent implements OnInit {
     public SelectedTerm: string;
     public IndexExists: boolean = false;
 
-    constructor(private _dataService: SearchDataService) {
+    constructor(private _dataService: SearchDataService, private _personcitysearchComponent: PersoncitysearchComponent) {
         this.message = "Hello from HomeSearchComponent constructor";
         this.SelectedTerm = "none";
+        this._personcitysearchComponent.bindSelectedTermChange.subscribe(item => this.OnSelectedTermChanged(item));
     }
 
     public CreateTestData() {
@@ -37,12 +38,15 @@ export class HomeSearchComponent implements OnInit {
                 () => console.log('CreateIndex complete'));
 
             this.IndexExists = true;
-        }      
+        }
     }
 
+    public OnSelectedTermChanged(term: string) {
+        this.findDataForSearchTerm(term)
+    }
 
-    public FindDataForSearchTerm() {
-        this._dataService.GetAll()
+    private findDataForSearchTerm(term: string) {
+        this._dataService.FindAllForTerm(term)
             .subscribe((data) => {
                 this.PersonCityItems = data;
             },
