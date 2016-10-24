@@ -139,11 +139,11 @@ namespace SearchComponent
         {
             var search = new Search
             {
-                Size = 0,
+                Size = 10,
                 Query = new Query(new MatchQuery("did_you_mean", term))
             };
 
-            var results = _context.Search<PersonCity>(term);
+            var results = _context.Search<PersonCity>(search);
 
             return results.PayloadResult.Hits.HitsResult.Select(t => t.Source);
         }
@@ -169,32 +169,40 @@ namespace SearchComponent
         {
             var jm = new PersonCity { Id = 1, FamilyName = "Moore", Info = "Muenich", Name = "John" };
             _context.AddUpdateDocument(jm, jm.Id);
-            var jj = new PersonCity { Id = 2, FamilyName = "Jones", Info = "Münich", Name = "Johny" };
+            var jj = new PersonCity { Id = 2, FamilyName = "Jones", Info = "Münich, have not heard much about this guy, willig to do more", Name = "Johny" };
             _context.AddUpdateDocument(jj, jj.Id);
-            var pm = new PersonCity { Id = 3, FamilyName = "Murphy", Info = "Munich", Name = "Paul" };
+            var pm = new PersonCity { Id = 3, FamilyName = "Murphy", Info = "Munich, this guy is special, wants to win everything", Name = "Paul" };
             _context.AddUpdateDocument(pm, pm.Id);
-            var sm = new PersonCity { Id = 4, FamilyName = "McGurk", Info = "munich", Name = "Séan" };
+            var sm = new PersonCity { Id = 4, FamilyName = "McGurk", Info = "munich, peanut jelly type", Name = "Séan" };
             _context.AddUpdateDocument(sm, sm.Id);
             var sob = new PersonCity { Id = 5, FamilyName = "O'Brien", Info = "Not a much use, bit of a problem", Name = "Sean" };
             _context.AddUpdateDocument(sob, sob.Id);
             var tmc = new PersonCity { Id = 6, FamilyName = "McCauley", Info = "Couldn't a ask for anyone better", Name = "Tadhg" };
             _context.AddUpdateDocument(tmc, tmc.Id);
-            var id7 = new PersonCity { Id = 7, FamilyName = "Martini", Info = "Köniz", Name = "Christian" };
+            var id7 = new PersonCity { Id = 7, FamilyName = "Martini", Info = "Köniz, one of a million, looking forward to gtting this person on board", Name = "Christian" };
             _context.AddUpdateDocument(id7, id7.Id);
-            var id8 = new PersonCity { Id = 8, FamilyName = "Lee", Info = "Basel Stadt", Name = "Phil" };
+            var id8 = new PersonCity { Id = 8, FamilyName = "Lee", Info = "Basel Stadt, always sing, happy as larry", Name = "Phil" };
             _context.AddUpdateDocument(id8, id8.Id);
-            var id9 = new PersonCity { Id = 9, FamilyName = "Wil", Info = "Basel Stadt", Name = "Nicole" };
+            var id9 = new PersonCity { Id = 9, FamilyName = "Wil", Info = "Basel Stadt, another from the sticks, a lot to learn here", Name = "Nicole" };
             _context.AddUpdateDocument(id9, id9.Id);
             var id10 = new PersonCity { Id = 10, FamilyName = "Mario", Info = "Basel in some small town", Name = "Tim" };
             _context.AddUpdateDocument(id10, id10.Id);
-            var id11 = new PersonCity { Id = 11, FamilyName = "Martin", Info = "Biel", Name = "Scott" };
+            var id11 = new PersonCity { Id = 11, FamilyName = "Martin", Info = "Biel, too much cloud in the head", Name = "Scott" };
             _context.AddUpdateDocument(id11, id11.Id);
-            var id12 = new PersonCity { Id = 12, FamilyName = "Newman", Info = "Lyss", Name = "Tim" };
+            var id12 = new PersonCity { Id = 12, FamilyName = "Newman", Info = "Lyss, what a way to go, very impressive", Name = "Tim" };
             _context.AddUpdateDocument(id12, id12.Id);
-            var id13 = new PersonCity { Id = 13, FamilyName = "Lamb", Info = "Thun", Name = "Carla" };
+            var id13 = new PersonCity { Id = 13, FamilyName = "Lamb", Info = "Thun, never stops dancing and singing", Name = "Carla" };
             _context.AddUpdateDocument(id13, id13.Id);
-            var id14 = new PersonCity { Id = 14, FamilyName = "Goldi", Info = "Zug", Name = "Ida" };
+            var id14 = new PersonCity { Id = 14, FamilyName = "Goldi", Info = "Zug, looper loads to handle here", Name = "Ida" };
             _context.AddUpdateDocument(id14, id14.Id);
+            var id15 = new PersonCity { Id = 15, FamilyName = "tim", Info = "Brig, some how this address and data might be incorrect", Name = "Lou" };
+            _context.AddUpdateDocument(id15, id15.Id);
+            var id16 = new PersonCity { Id = 16, FamilyName = "Mat", Info = "Bulle, chill out sessions expert, always can help a small bit", Name = "Wil" };
+            _context.AddUpdateDocument(id16, id16.Id);
+            var id17 = new PersonCity { Id = 17, FamilyName = "Jones", Info = "Rheinfelden, having a ball, won't come home, will be there this XMas", Name = "Mick" };
+            _context.AddUpdateDocument(id17, id17.Id);
+            var id18 = new PersonCity { Id = 18, FamilyName = "Last", Info = "Rheinfelden,new kid on the block, expert, novice in everything", Name = "James" };
+            _context.AddUpdateDocument(id18, id18.Id);
             _context.SaveChanges();
         }
         /// <summary>
