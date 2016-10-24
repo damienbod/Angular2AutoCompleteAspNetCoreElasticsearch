@@ -6,7 +6,9 @@ import { AppComponent }  from './app.component';
 import { Configuration } from './app.constants';
 import { routing } from './app.routes';
 import { HttpModule, JsonpModule } from '@angular/http';
+
 import { HomeComponent } from './home/home.component';
+import { HomeSearchComponent } from './homesearch/homesearch.component';
 
 import { Ng2CompleterModule } from "ng2-completer";
 import { PersoncityautocompleteComponent } from './personcityautocomplete/personcityautocomplete.component';
@@ -26,6 +28,7 @@ import { SearchDataService } from './services/searchDataService';
     declarations: [
         AppComponent,
         HomeComponent,
+        HomeSearchComponent,
         PersoncityautocompleteComponent,
         PersoncitysearchComponent
     ],
