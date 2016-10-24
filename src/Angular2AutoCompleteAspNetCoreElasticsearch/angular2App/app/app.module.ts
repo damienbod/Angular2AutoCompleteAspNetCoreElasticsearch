@@ -34,7 +34,8 @@ import { SearchDataService } from './services/searchDataService';
     ],
     providers: [
         SearchDataService,
-        Configuration
+        Configuration,
+        PersoncitysearchComponent
     ],
     bootstrap:    [AppComponent],
 })
