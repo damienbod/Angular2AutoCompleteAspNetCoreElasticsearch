@@ -3,12 +3,13 @@ import { Subject } from "rxjs/Subject";
 
 import { CompleterData, CompleterItem } from 'ng2-completer';
 import { Configuration } from '../app.constants';
+import { Observable } from 'rxjs/Observable';
 
-export class PersonCityDataService extends Subject<CompleterItem[]> implements CompleterData {
+export class PersoncitysearchService extends Subject<CompleterItem[]> implements CompleterData {
     constructor(private http: Http, private _configuration: Configuration) {
         super();
 
-        this.actionUrl = _configuration.Server + 'api/personcity/search/';
+        this.actionUrl = _configuration.Server + 'api/personcity/autocomplete/';
     }
 
     private actionUrl: string;
@@ -18,16 +19,20 @@ export class PersonCityDataService extends Subject<CompleterItem[]> implements C
             .map((res: Response) => {
                 // Convert the result to CompleterItem[]
                 let data = res.json();
-                let matches: CompleterItem[] = data.map((personcity: any) => {
+                let matches: CompleterItem[] = data.map((autocomplete: any) => {
                     return {
-                        title: personcity.name,
-                        description: personcity.familyName + ", " + personcity.info, 
-                        originalObject: personcity
+                        title: autocomplete,
+
+                        originalObject: autocomplete
                     }
                 });
                 this.next(matches);
             })
             .subscribe();
+    }
+
+    public FindAllForTerm = (term: string): Observable<any> => {
+        return this.http.get(this.actionUrl + term).map((response: Response) => <any>response.json());
     }
 
     public cancel() {

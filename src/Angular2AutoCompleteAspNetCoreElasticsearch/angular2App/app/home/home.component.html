@@ -17,7 +17,18 @@
     INFO     : <span>{{SelectedPersonCity.info}}</span>
     <hr />
 
-    <search (bindModelPersonCities)="SelectedPersonCity" [disableAutocomplete]="!IndexExists">
-    </search>
+    <personcitysearch (bindModelPersonCitiesChange)="PersonCityItems" [disableAutocomplete]="!IndexExists">
+    </personcitysearch>
     
+    <hr />
+    <br />
+
+    <ul>
+        <li *ngFor="let personCity of PersonCityItems">
+            <span>{{personCity.name}} {{personCity.familyName}} </span>
+            <br />
+            INFO     : <span>{{personCity.info}}</span>
+        </li>
+    </ul>
+
 </div>

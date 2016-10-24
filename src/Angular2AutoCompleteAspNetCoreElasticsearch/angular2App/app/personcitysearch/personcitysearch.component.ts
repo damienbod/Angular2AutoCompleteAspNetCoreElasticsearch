@@ -6,41 +6,47 @@ import { Observable } from 'rxjs/Observable';
 import { Router } from  '@angular/router';
 
 import { Configuration } from '../app.constants';
-import { PersonCityDataService } from './personCityDataService';
-import { PersonCity } from './personCity';
+import { PersoncitysearchService } from './personcitysearchService';
+import { PersonCity } from '../model/personCity';
 
 import { CompleterService, CompleterItem } from 'ng2-completer';
 
 @Component({
-    selector: 'autocompletesearch',
+    selector: 'personcitysearch',
   template: `
 <ng2-completer [dataService]="dataService" (selected)="onPersonCitySelected($event)" [minSearchLength]="0" [disableInput]="disableAutocomplete"></ng2-completer>
 
 `,
-  styles: [String(require('./personCityAutocompleteSearch.component.scss'))]
+  styles: [String(require('./personcitysearch.component.scss'))]
 })
     
-export class PersonCityAutocompleteSearchComponent implements OnInit    {
+export class PersoncitysearchComponent implements OnInit    {
 
     constructor(private completerService: CompleterService, private http: Http, private _configuration: Configuration) {
 
-        let actionUrl = _configuration.Server + 'api/personcity/search/';
-        this.dataService = new PersonCityDataService(http, _configuration); ////completerService.local("name, info, familyName", 'name');
+        this.dataService = new PersoncitysearchService(http, _configuration);
     }
 
-    @Output() bindModelPersonCityChange = new EventEmitter<PersonCity>();
-    @Input() bindModelPersonCity: PersonCity;
+    @Output() bindModelPersonCitiesChange = new EventEmitter<PersonCity[]>();
     @Input() disableAutocomplete: boolean = false;
 
     private searchStr: string;
-    private dataService: PersonCityDataService;
+    private dataService: PersoncitysearchService;
 
     ngOnInit() {
-        console.log("ngOnInit AutocompleteSearch");
+        console.log("ngOnInit SearchComponent");
     }
 
     public onPersonCitySelected(selected: CompleterItem) {
         console.log(selected);
-        this.bindModelPersonCityChange.emit(selected.originalObject);
+
+        this.dataService
+            .FindAllForTerm(selected.title)
+            .subscribe(
+            data => this.bindModelPersonCitiesChange.emit(data),
+            error => console.log(error),
+            () => console.log('onPersonCitySelected complete')
+            );
+
     }
 }
