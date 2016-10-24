@@ -1,4 +1,4 @@
-import { Injectable, Component, Inject, EventEmitter, Input, Output, OnInit, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, Inject, EventEmitter, Input, Output, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 import { Http, Response } from "@angular/http";
 
 import { Subscription } from 'rxjs/Subscription';
@@ -20,7 +20,6 @@ import { CompleterService, CompleterItem } from 'ng2-completer';
   styles: [String(require('./personcitysearch.component.scss'))]
 })
 
-@Injectable()
 export class PersoncitysearchComponent implements OnInit    {
 
     constructor(private completerService: CompleterService, private http: Http, private _configuration: Configuration) {
@@ -28,7 +27,7 @@ export class PersoncitysearchComponent implements OnInit    {
         this.dataService = new PersoncitysearchService(http, _configuration);
     }
 
-    @Output() bindSelectedTermChange = new EventEmitter<string>();
+    @Output() onTermSelectedEvent = new EventEmitter<string>();
     @Input() bindSelectedTerm: string;
 
     @Input() disableAutocomplete: boolean = false;
@@ -41,8 +40,9 @@ export class PersoncitysearchComponent implements OnInit    {
     }
 
     public onTermSelected(selected: CompleterItem) {
+        console.log("onTermSelected");
         console.log(selected);
 
-        this.bindSelectedTermChange.emit(selected.title);
+        this.onTermSelectedEvent.emit(selected.title);
     }
 }
