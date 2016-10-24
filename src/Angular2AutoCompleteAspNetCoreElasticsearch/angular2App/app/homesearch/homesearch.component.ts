@@ -8,7 +8,7 @@ import { PersoncitysearchComponent } from '../personcitysearch/personcitysearch.
 
 @Component({
     selector: 'homesearchcomponent',
-    template: require('./homesearch.component.html'),
+    templateUrl: 'homesearch.component.html',
     providers: [SearchDataService]
 })
 

@@ -8,7 +8,7 @@ import { PersonCity } from '../model/personCity';
 
 @Component({
     selector: 'homecomponent',
-    template: require('./home.component.html'),
+    templateUrl: 'home.component.html',
     providers: [SearchDataService]
 })
 

@@ -10,14 +10,14 @@ import { PersoncitysearchService } from './personcitysearchService';
 import { PersonCity } from '../model/personCity';
 
 import { CompleterService, CompleterItem } from 'ng2-completer';
+import './personcitysearch.component.scss';
 
 @Component({
     selector: 'personcitysearch',
   template: `
 <ng2-completer [dataService]="dataService" (selected)="onTermSelected($event)" [minSearchLength]="0" [disableInput]="disableAutocomplete"></ng2-completer>
 
-`,
-  styles: [String(require('./personcitysearch.component.scss'))]
+`
 })
 
 export class PersoncitysearchComponent implements OnInit    {

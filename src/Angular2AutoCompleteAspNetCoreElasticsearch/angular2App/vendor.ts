@@ -1,11 +1,6 @@
-﻿import '@angular/platform-browser-dynamic';
-import '@angular/platform-browser';
-import '@angular/core';
-import '@angular/http';
-import '@angular/router';
+﻿import 'ng2-completer';
 
-import 'ng2-completer';
-
+import 'jquery/src/jquery';
 import 'bootstrap/dist/js/bootstrap';
 
 import './css/bootstrap.css';
