@@ -133,6 +133,59 @@ namespace SearchComponent
                 Twitter = "https://twitter.com/john_papa",
                 Github = "https://github.com/johnpapa",
             });
+
+            Data.Add(new PersonCity
+            {
+                Id = 11,
+                Name = "Dan",
+                FamilyName = "Wahlin",
+                CityCountry = "USA",
+                Metadata = "JavaScript Angular Node.js, C# ASP.NET MVC Web API Docker",
+                Info = "Dan Wahlin founded Wahlin Consulting which provides consulting and training services on Web technologies such as JavaScript, Angular, Node.js, C#, ASP.NET MVC, Web API, and Docker. He’s also published over 10 developer courses on Pluralsight.com and Udemy.com including the new Docker for Web Developers course. Dan is a Microsoft MVP and Regional Director and speaks at conferences and user groups around the world.  Dan has written several books on Web technologies, hundreds of technical articles and blog posts (http://blog.codewithdan.com) and runs the Web Weekly newsletter - a great way to stay up on the latest technologies. Follow Dan on Twitter @DanWahlin.",
+                Web = "https://blog.codewithdan.com/",
+                Twitter = "https://twitter.com/danwahlin",
+                Github = "https://github.com/danwahlin",
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 12,
+                Name = "Jeremy",
+                FamilyName = "Likness",
+                CityCountry = "USA",
+                Metadata = "JavaScript Angular Angular2 C# ASP.NET",
+                Info = "Jeremy Likness leads the application development practice for Atlanta-based iVision and is an experienced entrepreneur and technology executive who has successfully helped ship commercial enterprise software for 20 years. He specializes in catalyzing growth, developing ideas and creating value through delivering software in technical enterprises. His roles as business owner, technology executive and hands-on developer provided unique opportunities to directly impact the bottom line of multiple businesses by helping them grow and increase their organizational capacity while improving operational efficiency. He has worked with several initially small companies like Manhattan Associates and AirWatch before they grew large and experienced their transition from good to great while helping direct vision and strategy to embrace changing technology and markets. Jeremy is capable of quickly adapting to new paradigms and helps technology teams endure change by providing strong leadership, working with team members “in the trenches” and mentoring them in the soft skills that are key for engineers to bridge the gap between business and technology.",
+                Web = "http://csharperimage.jeremylikness.com/",
+                Twitter = "https://twitter.com/jeremylikness",
+                Github = "https://github.com/jeremylikness",
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 13,
+                Name = "Jeremy",
+                FamilyName = "Likness",
+                CityCountry = "USA Vermont",
+                Metadata = "Entity Framework EFCore C# ASP.NET PostgreSQL DDD Microsoft MVP",
+                Info = "Vermont Geekette, DDD, .NET (& EF) Mentor, Author, MS MVP, MS Regional Director, VTdotNET, Pluralsight, MSDN Mag. Talk to me about mentoring your dev team!",
+                Web = "http://thedatafarm.com/blog/",
+                Twitter = "https://twitter.com/julielerman",
+                Github = "https://github.com/julielerman",
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 14,
+                Name = "Kurata",
+                FamilyName = "Deborah",
+                CityCountry = "Pleasanton, CA",
+                Metadata = "Angular Angular2 Microsoft MVP",
+                Info = "Software developer, independent consultant, Pluralsight author, speaker, Microsoft MVP, Google GDE. Co-chair of Eastbay .NET, which meets in Berkeley.",
+                Web = "http://blogs.msmvps.com/deborahk/",
+                Twitter = "https://twitter.com/DeborahKurata",
+                Github = "https://github.com/DeborahK",
+            });
+
             
         }
     }
