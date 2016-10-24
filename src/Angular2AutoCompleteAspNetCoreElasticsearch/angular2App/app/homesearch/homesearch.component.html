@@ -1,20 +1,22 @@
 <div class="panel-group">
 
-    <p>Elasticsearch Index exists: {{IndexExists}}</p> 
+    <!--<p>Elasticsearch Index exists: {{IndexExists}}</p>--> 
 
     <personcitysearch (onTermSelectedEvent)="onTermSelectedEvent($event)" [disableAutocomplete]="!IndexExists">
     </personcitysearch>
     
-    Selected: {{SelectedTerm}}
     <hr />
     <br />
 
-    <ul>
-        <li *ngFor="let personCity of PersonCityItems">
-            <span>{{personCity.name}} {{personCity.familyName}} </span>
-            <br />
-            INFO     : <span>{{personCity.info}}</span>
-        </li>
-    </ul>
+    <div *ngFor="let personCity of PersonCityItems">  
+        <b><span>{{personCity.name}} {{personCity.familyName}} </span></b> <a href="{{personCity.twitter}}"><img src="assets/socialTwitter.png" /></a>  <a href="{{personCity.github}}"><img src="assets/github.png" /></a><br />
+        <em style="font-size:large"><a href="{{personCity.web}}">{{personCity.web}}</a></em><br />  
+        <em><span>{{personCity.metadata}}</span></em><br />      
+        <span>{{personCity.info}}</span><br />
+        <br />
+        <br />
+
+    </div>
 
 </div>
+

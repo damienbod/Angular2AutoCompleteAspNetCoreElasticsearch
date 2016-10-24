@@ -59,9 +59,10 @@ webpackJsonp([0],[
 	var app_routes_1 = __webpack_require__(/*! ./app.routes */ 67);
 	var http_1 = __webpack_require__(/*! @angular/http */ 70);
 	var home_component_1 = __webpack_require__(/*! ./home/home.component */ 68);
-	var ng2_completer_1 = __webpack_require__(/*! ng2-completer */ 74);
-	var personCityAutocompleteSearch_component_1 = __webpack_require__(/*! ./autocomplete/personCityAutocompleteSearch.component */ 76);
-	var search_component_1 = __webpack_require__(/*! ./searchcomponent/search.component */ 80);
+	var homesearch_component_1 = __webpack_require__(/*! ./homesearch/homesearch.component */ 74);
+	var ng2_completer_1 = __webpack_require__(/*! ng2-completer */ 77);
+	var personcityautocomplete_component_1 = __webpack_require__(/*! ./personcityautocomplete/personcityautocomplete.component */ 82);
+	var personcitysearch_component_1 = __webpack_require__(/*! ./personcitysearch/personcitysearch.component */ 75);
 	var searchDataService_1 = __webpack_require__(/*! ./services/searchDataService */ 69);
 	var AppModule = (function () {
 	    function AppModule() {
@@ -80,12 +81,14 @@ webpackJsonp([0],[
 	            declarations: [
 	                app_component_1.AppComponent,
 	                home_component_1.HomeComponent,
-	                personCityAutocompleteSearch_component_1.PersonCityAutocompleteSearchComponent,
-	                search_component_1.SearchComponent
+	                homesearch_component_1.HomeSearchComponent,
+	                personcityautocomplete_component_1.PersoncityautocompleteComponent,
+	                personcitysearch_component_1.PersoncitysearchComponent
 	            ],
 	            providers: [
 	                searchDataService_1.SearchDataService,
-	                app_constants_1.Configuration
+	                app_constants_1.Configuration,
+	                personcitysearch_component_1.PersoncitysearchComponent
 	            ],
 	            bootstrap: [app_component_1.AppComponent],
 	        }), 
@@ -173,7 +176,7 @@ webpackJsonp([0],[
   \********************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"container\" style=\"margin-top: 15px;\">\r\n\r\n    <nav class=\"navbar navbar-inverse\">\r\n        <div class=\"container-fluid\">\r\n            <div class=\"navbar-header\">\r\n                <a class=\"navbar-brand\" [routerLink]=\"['/home']\">Angular2 Auto Complete, ASP.NET Core Elasticsearch</a>\r\n            </div>\r\n            <ul class=\"nav navbar-nav\">\r\n                <!--<li><a [routerLink]=\"['/home']\">Home</a></li>-->\r\n            </ul>\r\n            <ul class=\"nav navbar-nav navbar-right\">\r\n                <li><a href=\"https://twitter.com/damien_bod\"><img src=\"assets/damienbod.jpg\" height=\"40\" style=\"margin-top: -10px;\" /></a></li>\r\n            </ul>\r\n        </div>\r\n    </nav>\r\n\r\n    <router-outlet></router-outlet>\r\n\r\n    <footer>\r\n        <p>\r\n            <a href=\"https://twitter.com/damien_bod\">DamienBod</a>&nbsp;Blog: <a href=\"https://damienbod.com/\">Software Engineering</a>\r\n            &copy; 2016\r\n        </p>\r\n    </footer>\r\n</div>"
+	module.exports = "<div class=\"container\" style=\"margin-top: 15px;\">\r\n\r\n    <nav class=\"navbar navbar-inverse\">\r\n        <div class=\"container-fluid\">\r\n            <div class=\"navbar-header\">\r\n                <a class=\"navbar-brand\" [routerLink]=\"['/home']\">Home</a>\r\n            </div>\r\n            <ul class=\"nav navbar-nav\">\r\n                <li><a [routerLink]=\"['/home']\">AutoComplete</a></li>\r\n                <li><a [routerLink]=\"['/homesearch']\">Search</a></li>\r\n            </ul>\r\n            <ul class=\"nav navbar-nav navbar-right\">\r\n                <li><a href=\"https://twitter.com/damien_bod\"><img src=\"assets/damienbod.jpg\" height=\"40\" style=\"margin-top: -10px;\" /></a></li>\r\n            </ul>\r\n        </div>\r\n    </nav>\r\n\r\n    <router-outlet></router-outlet>\r\n\r\n    <footer>\r\n        <p>\r\n            <a href=\"https://twitter.com/damien_bod\">DamienBod</a>&nbsp;Blog: <a href=\"https://damienbod.com/\">Software Engineering</a>\r\n            &copy; 2016\r\n        </p>\r\n    </footer>\r\n</div>"
 
 /***/ },
 /* 60 */
@@ -310,9 +313,11 @@ webpackJsonp([0],[
 	"use strict";
 	var router_1 = __webpack_require__(/*! @angular/router */ 29);
 	var home_component_1 = __webpack_require__(/*! ./home/home.component */ 68);
+	var homesearch_component_1 = __webpack_require__(/*! ./homesearch/homesearch.component */ 74);
 	var appRoutes = [
 	    { path: '', component: home_component_1.HomeComponent },
-	    { path: 'home', component: home_component_1.HomeComponent }
+	    { path: 'home', component: home_component_1.HomeComponent },
+	    { path: 'homesearch', component: homesearch_component_1.HomeSearchComponent }
 	];
 	exports.routing = router_1.RouterModule.forRoot(appRoutes);
 
@@ -336,7 +341,7 @@ webpackJsonp([0],[
 	};
 	var core_1 = __webpack_require__(/*! @angular/core */ 3);
 	var searchDataService_1 = __webpack_require__(/*! ../services/searchDataService */ 69);
-	var personCity_1 = __webpack_require__(/*! ../autocomplete/personCity */ 72);
+	var personCity_1 = __webpack_require__(/*! ../model/personCity */ 72);
 	var HomeComponent = (function () {
 	    function HomeComponent(_dataService) {
 	        this._dataService = _dataService;
@@ -344,7 +349,6 @@ webpackJsonp([0],[
 	        this.message = "Hello from HomeComponent constructor";
 	        this.SelectedPersonCity = new personCity_1.PersonCity();
 	    }
-	    ;
 	    HomeComponent.prototype.CreateTestData = function () {
 	        this._dataService.CreateTestData().subscribe(function (data) { return data; }, function (error) { return console.log(error); }, function () { return console.log('Get all complete'); });
 	    };
@@ -414,6 +418,9 @@ webpackJsonp([0],[
 	            var url = _this.actionUrl + "createtestdata";
 	            return _this._http.get(url).map(function (response) { return response.json(); });
 	        };
+	        this.FindAllForTerm = function (term) {
+	            return _this._http.get(_this.actionUrl + "search/" + term).map(function (response) { return response.json(); });
+	        };
 	        this.actionUrl = _configuration.Server + 'api/personcity/';
 	        this.headers = new http_1.Headers();
 	        this.headers.append('Content-Type', 'application/json');
@@ -432,9 +439,9 @@ webpackJsonp([0],[
 /* 70 */,
 /* 71 */,
 /* 72 */
-/*!****************************************************!*\
-  !*** ./angular2App/app/autocomplete/personCity.ts ***!
-  \****************************************************/
+/*!*********************************************!*\
+  !*** ./angular2App/app/model/personCity.ts ***!
+  \*********************************************/
 /***/ function(module, exports) {
 
 	"use strict";
@@ -453,15 +460,13 @@ webpackJsonp([0],[
   \**************************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"panel-group\">\r\n\r\n    <p>Elasticsearch Index exists: {{IndexExists}}</p> \r\n    <button (click)=\"CreateIndex()\" *ngIf=\"!IndexExists\">Create Index</button>\r\n    <button (click)=\"CreateTestData()\" *ngIf=\"IndexExists\">Create TestData</button>\r\n    \r\n    <hr />\r\n    <br />\r\n\r\n    <autocompletesearch [(bindModelPersonCity)]=\"SelectedPersonCity\" [disableAutocomplete]=\"!IndexExists\" >\r\n    </autocompletesearch>\r\n\r\n    <hr />\r\n\r\n    SELECTED : <span>{{SelectedPersonCity.name}} {{SelectedPersonCity.familyName}} </span>\r\n    <br />\r\n    INFO     : <span>{{SelectedPersonCity.info}}</span>\r\n    <hr />\r\n\r\n    <search (bindModelPersonCities)=\"SelectedPersonCity\" [disableAutocomplete]=\"!IndexExists\">\r\n    </search>\r\n    \r\n</div>"
+	module.exports = "<div class=\"panel-group\">\r\n\r\n    <p>Elasticsearch Index exists: {{IndexExists}}</p> \r\n    <button (click)=\"CreateIndex()\" *ngIf=\"!IndexExists\">Create Index</button>\r\n    <button (click)=\"CreateTestData()\" *ngIf=\"IndexExists\">Create TestData</button>\r\n    \r\n    <hr />\r\n    <br />\r\n\r\n    <personcityautocomplete [(bindModelPersonCity)]=\"SelectedPersonCity\" [disableAutocomplete]=\"!IndexExists\" >\r\n    </personcityautocomplete>\r\n\r\n    <hr />\r\n\r\n    SELECTED : <span>{{SelectedPersonCity.name}} {{SelectedPersonCity.familyName}} </span>\r\n    <br />\r\n    INFO     : <span>{{SelectedPersonCity.info}}</span>\r\n    <hr />\r\n\r\n\r\n</div>"
 
 /***/ },
-/* 74 */,
-/* 75 */,
-/* 76 */
-/*!********************************************************************************!*\
-  !*** ./angular2App/app/autocomplete/personCityAutocompleteSearch.component.ts ***!
-  \********************************************************************************/
+/* 74 */
+/*!************************************************************!*\
+  !*** ./angular2App/app/homesearch/homesearch.component.ts ***!
+  \************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -475,149 +480,63 @@ webpackJsonp([0],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(/*! @angular/core */ 3);
-	var http_1 = __webpack_require__(/*! @angular/http */ 70);
-	var app_constants_1 = __webpack_require__(/*! ../app.constants */ 66);
-	var personCityDataService_1 = __webpack_require__(/*! ./personCityDataService */ 77);
-	var personCity_1 = __webpack_require__(/*! ./personCity */ 72);
-	var ng2_completer_1 = __webpack_require__(/*! ng2-completer */ 74);
-	var PersonCityAutocompleteSearchComponent = (function () {
-	    function PersonCityAutocompleteSearchComponent(completerService, http, _configuration) {
-	        this.completerService = completerService;
-	        this.http = http;
-	        this._configuration = _configuration;
-	        this.bindModelPersonCityChange = new core_1.EventEmitter();
-	        this.disableAutocomplete = false;
-	        var actionUrl = _configuration.Server + 'api/personcity/search/';
-	        this.dataService = new personCityDataService_1.PersonCityDataService(http, _configuration);
+	var searchDataService_1 = __webpack_require__(/*! ../services/searchDataService */ 69);
+	var personcitysearch_component_1 = __webpack_require__(/*! ../personcitysearch/personcitysearch.component */ 75);
+	var HomeSearchComponent = (function () {
+	    function HomeSearchComponent(_dataService, _personcitysearchComponent) {
+	        this._dataService = _dataService;
+	        this._personcitysearchComponent = _personcitysearchComponent;
+	        this.IndexExists = false;
+	        this.message = "Hello from HomeSearchComponent constructor";
+	        this.SelectedTerm = "none";
 	    }
-	    PersonCityAutocompleteSearchComponent.prototype.ngOnInit = function () {
-	        console.log("ngOnInit AutocompleteSearch");
+	    HomeSearchComponent.prototype.CreateTestData = function () {
+	        this._dataService.CreateTestData().subscribe(function (data) { return data; }, function (error) { return console.log(error); }, function () { return console.log('CreateTestData complete'); });
 	    };
-	    PersonCityAutocompleteSearchComponent.prototype.onPersonCitySelected = function (selected) {
-	        console.log(selected);
-	        this.bindModelPersonCityChange.emit(selected.originalObject);
+	    HomeSearchComponent.prototype.CreateIndex = function () {
+	        if (!this.IndexExists) {
+	            this._dataService.CreateIndex().subscribe(function (data) { return data; }, function (error) { return console.log(error); }, function () { return console.log('CreateIndex complete'); });
+	            this.IndexExists = true;
+	        }
 	    };
-	    __decorate([
-	        core_1.Output(), 
-	        __metadata('design:type', Object)
-	    ], PersonCityAutocompleteSearchComponent.prototype, "bindModelPersonCityChange", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', personCity_1.PersonCity)
-	    ], PersonCityAutocompleteSearchComponent.prototype, "bindModelPersonCity", void 0);
-	    __decorate([
-	        core_1.Input(), 
-	        __metadata('design:type', Boolean)
-	    ], PersonCityAutocompleteSearchComponent.prototype, "disableAutocomplete", void 0);
-	    PersonCityAutocompleteSearchComponent = __decorate([
-	        core_1.Component({
-	            selector: 'autocompletesearch',
-	            template: "\n<ng2-completer [dataService]=\"dataService\" (selected)=\"onPersonCitySelected($event)\" [minSearchLength]=\"0\" [disableInput]=\"disableAutocomplete\"></ng2-completer>\n\n",
-	            styles: [String(__webpack_require__(/*! ./personCityAutocompleteSearch.component.scss */ 78))]
-	        }), 
-	        __metadata('design:paramtypes', [ng2_completer_1.CompleterService, http_1.Http, app_constants_1.Configuration])
-	    ], PersonCityAutocompleteSearchComponent);
-	    return PersonCityAutocompleteSearchComponent;
-	}());
-	exports.PersonCityAutocompleteSearchComponent = PersonCityAutocompleteSearchComponent;
-
-
-/***/ },
-/* 77 */
-/*!***************************************************************!*\
-  !*** ./angular2App/app/autocomplete/personCityDataService.ts ***!
-  \***************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var Subject_1 = __webpack_require__(/*! rxjs/Subject */ 4);
-	var PersonCityDataService = (function (_super) {
-	    __extends(PersonCityDataService, _super);
-	    function PersonCityDataService(http, _configuration) {
-	        _super.call(this);
-	        this.http = http;
-	        this._configuration = _configuration;
-	        this.actionUrl = _configuration.Server + 'api/personcity/search/';
-	    }
-	    PersonCityDataService.prototype.search = function (term) {
+	    HomeSearchComponent.prototype.onTermSelectedEvent = function (term) {
+	        this.SelectedTerm = term;
+	        this.findDataForSearchTerm(term);
+	    };
+	    HomeSearchComponent.prototype.findDataForSearchTerm = function (term) {
 	        var _this = this;
-	        this.http.get(this.actionUrl + term)
-	            .map(function (res) {
-	            var data = res.json();
-	            var matches = data.map(function (personcity) {
-	                return {
-	                    title: personcity.name,
-	                    description: personcity.familyName + ", " + personcity.info,
-	                    originalObject: personcity
-	                };
-	            });
-	            _this.next(matches);
-	        })
-	            .subscribe();
+	        console.log("findDataForSearchTerm:" + term);
+	        this._dataService.FindAllForTerm(term)
+	            .subscribe(function (data) {
+	            _this.PersonCityItems = data;
+	        }, function (error) { return console.log(error); }, function () {
+	            console.log('PersonCitySearch:GetAll completed');
+	        });
 	    };
-	    PersonCityDataService.prototype.cancel = function () {
+	    HomeSearchComponent.prototype.ngOnInit = function () {
+	        var _this = this;
+	        this._dataService
+	            .IndexExists()
+	            .subscribe(function (data) { return _this.IndexExists = data; }, function (error) { return console.log(error); }, function () { return console.log('Get IndexExists complete'); });
 	    };
-	    return PersonCityDataService;
-	}(Subject_1.Subject));
-	exports.PersonCityDataService = PersonCityDataService;
+	    HomeSearchComponent = __decorate([
+	        core_1.Component({
+	            selector: 'homesearchcomponent',
+	            template: __webpack_require__(/*! ./homesearch.component.html */ 81),
+	            providers: [searchDataService_1.SearchDataService]
+	        }), 
+	        __metadata('design:paramtypes', [searchDataService_1.SearchDataService, personcitysearch_component_1.PersoncitysearchComponent])
+	    ], HomeSearchComponent);
+	    return HomeSearchComponent;
+	}());
+	exports.HomeSearchComponent = HomeSearchComponent;
 
 
 /***/ },
-/* 78 */
-/*!**********************************************************************************!*\
-  !*** ./angular2App/app/autocomplete/personCityAutocompleteSearch.component.scss ***!
-  \**********************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/sass-loader!./personCityAutocompleteSearch.component.scss */ 79);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 63)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./personCityAutocompleteSearch.component.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./personCityAutocompleteSearch.component.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 79 */
-/*!*****************************************************************************************************************!*\
-  !*** ./~/css-loader!./~/sass-loader!./angular2App/app/autocomplete/personCityAutocompleteSearch.component.scss ***!
-  \*****************************************************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 62)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, ".completer-input {\n  width: 500px;\n  display: block;\n  height: 34px;\n  padding: 6px 12px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  color: #555;\n  background-color: #fff;\n  background-image: none;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;\n  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }\n\n.completer-dropdown {\n  width: 480px !important; }\n", ""]);
-	
-	// exports
-
-
-/***/ },
-/* 80 */
-/*!*************************************************************!*\
-  !*** ./angular2App/app/searchcomponent/search.component.ts ***!
-  \*************************************************************/
+/* 75 */
+/*!************************************************************************!*\
+  !*** ./angular2App/app/personcitysearch/personcitysearch.component.ts ***!
+  \************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -633,53 +552,55 @@ webpackJsonp([0],[
 	var core_1 = __webpack_require__(/*! @angular/core */ 3);
 	var http_1 = __webpack_require__(/*! @angular/http */ 70);
 	var app_constants_1 = __webpack_require__(/*! ../app.constants */ 66);
-	var searchComponentDataService_1 = __webpack_require__(/*! ./searchComponentDataService */ 81);
-	var ng2_completer_1 = __webpack_require__(/*! ng2-completer */ 74);
-	var SearchComponent = (function () {
-	    function SearchComponent(completerService, http, _configuration) {
+	var personcitysearchService_1 = __webpack_require__(/*! ./personcitysearchService */ 76);
+	var ng2_completer_1 = __webpack_require__(/*! ng2-completer */ 77);
+	var PersoncitysearchComponent = (function () {
+	    function PersoncitysearchComponent(completerService, http, _configuration) {
 	        this.completerService = completerService;
 	        this.http = http;
 	        this._configuration = _configuration;
-	        this.bindModelPersonCitiesChange = new core_1.EventEmitter();
+	        this.onTermSelectedEvent = new core_1.EventEmitter();
 	        this.disableAutocomplete = false;
-	        this.dataService = new searchComponentDataService_1.SearchDataService(http, _configuration);
+	        this.dataService = new personcitysearchService_1.PersoncitysearchService(http, _configuration);
 	    }
-	    SearchComponent.prototype.ngOnInit = function () {
+	    PersoncitysearchComponent.prototype.ngOnInit = function () {
 	        console.log("ngOnInit SearchComponent");
 	    };
-	    SearchComponent.prototype.onPersonCitySelected = function (selected) {
-	        var _this = this;
+	    PersoncitysearchComponent.prototype.onTermSelected = function (selected) {
+	        console.log("onTermSelected");
 	        console.log(selected);
-	        this.dataService
-	            .FindAllForTerm(selected.title)
-	            .subscribe(function (data) { return _this.bindModelPersonCitiesChange.emit(data); }, function (error) { return console.log(error); }, function () { return console.log('onPersonCitySelected complete'); });
+	        this.onTermSelectedEvent.emit(selected.title);
 	    };
 	    __decorate([
 	        core_1.Output(), 
 	        __metadata('design:type', Object)
-	    ], SearchComponent.prototype, "bindModelPersonCitiesChange", void 0);
+	    ], PersoncitysearchComponent.prototype, "onTermSelectedEvent", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', String)
+	    ], PersoncitysearchComponent.prototype, "bindSelectedTerm", void 0);
 	    __decorate([
 	        core_1.Input(), 
 	        __metadata('design:type', Boolean)
-	    ], SearchComponent.prototype, "disableAutocomplete", void 0);
-	    SearchComponent = __decorate([
+	    ], PersoncitysearchComponent.prototype, "disableAutocomplete", void 0);
+	    PersoncitysearchComponent = __decorate([
 	        core_1.Component({
-	            selector: 'search',
-	            template: "\n<ng2-completer [dataService]=\"dataService\" (selected)=\"onPersonCitySelected($event)\" [minSearchLength]=\"0\" [disableInput]=\"disableAutocomplete\"></ng2-completer>\n\n",
-	            styles: [String(__webpack_require__(/*! ./search.component.scss */ 82))]
+	            selector: 'personcitysearch',
+	            template: "\n<ng2-completer [dataService]=\"dataService\" (selected)=\"onTermSelected($event)\" [minSearchLength]=\"0\" [disableInput]=\"disableAutocomplete\"></ng2-completer>\n\n",
+	            styles: [String(__webpack_require__(/*! ./personcitysearch.component.scss */ 79))]
 	        }), 
 	        __metadata('design:paramtypes', [ng2_completer_1.CompleterService, http_1.Http, app_constants_1.Configuration])
-	    ], SearchComponent);
-	    return SearchComponent;
+	    ], PersoncitysearchComponent);
+	    return PersoncitysearchComponent;
 	}());
-	exports.SearchComponent = SearchComponent;
+	exports.PersoncitysearchComponent = PersoncitysearchComponent;
 
 
 /***/ },
-/* 81 */
-/*!***********************************************************************!*\
-  !*** ./angular2App/app/searchcomponent/searchComponentDataService.ts ***!
-  \***********************************************************************/
+/* 76 */
+/*!*********************************************************************!*\
+  !*** ./angular2App/app/personcitysearch/personcitysearchService.ts ***!
+  \*********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -689,19 +610,15 @@ webpackJsonp([0],[
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Subject_1 = __webpack_require__(/*! rxjs/Subject */ 4);
-	var SearchDataService = (function (_super) {
-	    __extends(SearchDataService, _super);
-	    function SearchDataService(http, _configuration) {
-	        var _this = this;
+	var PersoncitysearchService = (function (_super) {
+	    __extends(PersoncitysearchService, _super);
+	    function PersoncitysearchService(http, _configuration) {
 	        _super.call(this);
 	        this.http = http;
 	        this._configuration = _configuration;
-	        this.FindAllForTerm = function (term) {
-	            return _this.http.get(_this.actionUrl + term).map(function (response) { return response.json(); });
-	        };
 	        this.actionUrl = _configuration.Server + 'api/personcity/autocomplete/';
 	    }
-	    SearchDataService.prototype.search = function (term) {
+	    PersoncitysearchService.prototype.search = function (term) {
 	        var _this = this;
 	        this.http.get(this.actionUrl + term)
 	            .map(function (res) {
@@ -716,24 +633,26 @@ webpackJsonp([0],[
 	        })
 	            .subscribe();
 	    };
-	    SearchDataService.prototype.cancel = function () {
+	    PersoncitysearchService.prototype.cancel = function () {
 	    };
-	    return SearchDataService;
+	    return PersoncitysearchService;
 	}(Subject_1.Subject));
-	exports.SearchDataService = SearchDataService;
+	exports.PersoncitysearchService = PersoncitysearchService;
 
 
 /***/ },
-/* 82 */
-/*!***************************************************************!*\
-  !*** ./angular2App/app/searchcomponent/search.component.scss ***!
-  \***************************************************************/
+/* 77 */,
+/* 78 */,
+/* 79 */
+/*!**************************************************************************!*\
+  !*** ./angular2App/app/personcitysearch/personcitysearch.component.scss ***!
+  \**************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/sass-loader!./search.component.scss */ 83);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/sass-loader!./personcitysearch.component.scss */ 80);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 63)(content, {});
@@ -742,8 +661,8 @@ webpackJsonp([0],[
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./search.component.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./search.component.scss");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./personcitysearch.component.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./personcitysearch.component.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -753,10 +672,10 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 83 */
-/*!**********************************************************************************************!*\
-  !*** ./~/css-loader!./~/sass-loader!./angular2App/app/searchcomponent/search.component.scss ***!
-  \**********************************************************************************************/
+/* 80 */
+/*!*********************************************************************************************************!*\
+  !*** ./~/css-loader!./~/sass-loader!./angular2App/app/personcitysearch/personcitysearch.component.scss ***!
+  \*********************************************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 62)();
@@ -765,6 +684,170 @@ webpackJsonp([0],[
 	
 	// module
 	exports.push([module.id, ".completer-input {\n  width: 500px;\n  display: block;\n  height: 34px;\n  padding: 6px 12px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  color: #555;\n  background-color: #fff;\n  background-image: none;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;\n  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }\n\n.completer-dropdown {\n  width: 480px !important; }\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 81 */
+/*!**************************************************************!*\
+  !*** ./angular2App/app/homesearch/homesearch.component.html ***!
+  \**************************************************************/
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"panel-group\">\r\n\r\n    <!--<p>Elasticsearch Index exists: {{IndexExists}}</p>--> \r\n\r\n    <personcitysearch (onTermSelectedEvent)=\"onTermSelectedEvent($event)\" [disableAutocomplete]=\"!IndexExists\">\r\n    </personcitysearch>\r\n    \r\n    <hr />\r\n    <br />\r\n\r\n    <div *ngFor=\"let personCity of PersonCityItems\">  \r\n        <b><span>{{personCity.name}} {{personCity.familyName}} </span></b> <a href=\"{{personCity.twitter}}\"><img src=\"assets/socialTwitter.png\" /></a>  <a href=\"{{personCity.github}}\"><img src=\"assets/github.png\" /></a><br />\r\n        <em style=\"font-size:large\"><a href=\"{{personCity.web}}\">{{personCity.web}}</a></em><br />  \r\n        <em><span>{{personCity.metadata}}</span></em><br />      \r\n        <span>{{personCity.info}}</span><br />\r\n        <br />\r\n        <br />\r\n\r\n    </div>\r\n\r\n</div>\r\n\r\n"
+
+/***/ },
+/* 82 */
+/*!************************************************************************************!*\
+  !*** ./angular2App/app/personcityautocomplete/personcityautocomplete.component.ts ***!
+  \************************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(/*! @angular/core */ 3);
+	var http_1 = __webpack_require__(/*! @angular/http */ 70);
+	var app_constants_1 = __webpack_require__(/*! ../app.constants */ 66);
+	var personcityautocompleteService_1 = __webpack_require__(/*! ./personcityautocompleteService */ 83);
+	var personCity_1 = __webpack_require__(/*! ../model/personCity */ 72);
+	var ng2_completer_1 = __webpack_require__(/*! ng2-completer */ 77);
+	var PersoncityautocompleteComponent = (function () {
+	    function PersoncityautocompleteComponent(completerService, http, _configuration) {
+	        this.completerService = completerService;
+	        this.http = http;
+	        this._configuration = _configuration;
+	        this.bindModelPersonCityChange = new core_1.EventEmitter();
+	        this.disableAutocomplete = false;
+	        this.dataService = new personcityautocompleteService_1.PersoncityautocompleteDataService(http, _configuration);
+	    }
+	    PersoncityautocompleteComponent.prototype.ngOnInit = function () {
+	        console.log("ngOnInit PersoncityautocompleteComponent");
+	    };
+	    PersoncityautocompleteComponent.prototype.onPersonCitySelected = function (selected) {
+	        console.log(selected);
+	        this.bindModelPersonCityChange.emit(selected.originalObject);
+	    };
+	    __decorate([
+	        core_1.Output(), 
+	        __metadata('design:type', Object)
+	    ], PersoncityautocompleteComponent.prototype, "bindModelPersonCityChange", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', personCity_1.PersonCity)
+	    ], PersoncityautocompleteComponent.prototype, "bindModelPersonCity", void 0);
+	    __decorate([
+	        core_1.Input(), 
+	        __metadata('design:type', Boolean)
+	    ], PersoncityautocompleteComponent.prototype, "disableAutocomplete", void 0);
+	    PersoncityautocompleteComponent = __decorate([
+	        core_1.Component({
+	            selector: 'personcityautocomplete',
+	            template: "\n<ng2-completer [dataService]=\"dataService\" (selected)=\"onPersonCitySelected($event)\" [minSearchLength]=\"0\" [disableInput]=\"disableAutocomplete\"></ng2-completer>\n\n",
+	            styles: [String(__webpack_require__(/*! ./personcityautocomplete.component.scss */ 84))]
+	        }), 
+	        __metadata('design:paramtypes', [ng2_completer_1.CompleterService, http_1.Http, app_constants_1.Configuration])
+	    ], PersoncityautocompleteComponent);
+	    return PersoncityautocompleteComponent;
+	}());
+	exports.PersoncityautocompleteComponent = PersoncityautocompleteComponent;
+
+
+/***/ },
+/* 83 */
+/*!*********************************************************************************!*\
+  !*** ./angular2App/app/personcityautocomplete/personcityautocompleteService.ts ***!
+  \*********************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var Subject_1 = __webpack_require__(/*! rxjs/Subject */ 4);
+	var PersoncityautocompleteDataService = (function (_super) {
+	    __extends(PersoncityautocompleteDataService, _super);
+	    function PersoncityautocompleteDataService(http, _configuration) {
+	        _super.call(this);
+	        this.http = http;
+	        this._configuration = _configuration;
+	        this.actionUrl = _configuration.Server + 'api/personcity/querystringsearch/';
+	    }
+	    PersoncityautocompleteDataService.prototype.search = function (term) {
+	        var _this = this;
+	        this.http.get(this.actionUrl + term)
+	            .map(function (res) {
+	            var data = res.json();
+	            var matches = data.map(function (personcity) {
+	                return {
+	                    title: personcity.name,
+	                    description: personcity.familyName + ", " + personcity.cityCountry,
+	                    originalObject: personcity
+	                };
+	            });
+	            _this.next(matches);
+	        })
+	            .subscribe();
+	    };
+	    PersoncityautocompleteDataService.prototype.cancel = function () {
+	    };
+	    return PersoncityautocompleteDataService;
+	}(Subject_1.Subject));
+	exports.PersoncityautocompleteDataService = PersoncityautocompleteDataService;
+
+
+/***/ },
+/* 84 */
+/*!**************************************************************************************!*\
+  !*** ./angular2App/app/personcityautocomplete/personcityautocomplete.component.scss ***!
+  \**************************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/sass-loader!./personcityautocomplete.component.scss */ 85);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 63)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./personcityautocomplete.component.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js!./personcityautocomplete.component.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 85 */
+/*!*********************************************************************************************************************!*\
+  !*** ./~/css-loader!./~/sass-loader!./angular2App/app/personcityautocomplete/personcityautocomplete.component.scss ***!
+  \*********************************************************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 62)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".completer-input {\n  width: 600px;\n  display: block;\n  height: 34px;\n  padding: 6px 12px;\n  font-size: 14px;\n  line-height: 1.42857143;\n  color: #555;\n  background-color: #fff;\n  background-image: none;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;\n  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;\n  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }\n\n.completer-dropdown {\n  width: 580px !important; }\n", ""]);
 	
 	// exports
 

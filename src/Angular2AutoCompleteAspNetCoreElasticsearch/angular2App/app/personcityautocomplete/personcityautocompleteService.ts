@@ -21,7 +21,7 @@ export class PersoncityautocompleteDataService extends Subject<CompleterItem[]> 
                 let matches: CompleterItem[] = data.map((personcity: any) => {
                     return {
                         title: personcity.name,
-                        description: personcity.familyName + ", " + personcity.info, 
+                        description: personcity.familyName + ", " + personcity.cityCountry,
                         originalObject: personcity
                     }
                 });
