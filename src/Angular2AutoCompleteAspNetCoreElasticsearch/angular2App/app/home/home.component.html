@@ -7,8 +7,8 @@
     <hr />
     <br />
 
-    <autocompletesearch [(bindModelPersonCity)]="SelectedPersonCity" [disableAutocomplete]="!IndexExists" >
-    </autocompletesearch>
+    <personcityautocomplete [(bindModelPersonCity)]="SelectedPersonCity" [disableAutocomplete]="!IndexExists" >
+    </personcityautocomplete>
 
     <hr />
 
@@ -17,18 +17,5 @@
     INFO     : <span>{{SelectedPersonCity.info}}</span>
     <hr />
 
-    <personcitysearch (bindModelPersonCitiesChange)="PersonCityItems" [disableAutocomplete]="!IndexExists">
-    </personcitysearch>
-    
-    <hr />
-    <br />
-
-    <ul>
-        <li *ngFor="let personCity of PersonCityItems">
-            <span>{{personCity.name}} {{personCity.familyName}} </span>
-            <br />
-            INFO     : <span>{{personCity.info}}</span>
-        </li>
-    </ul>
 
 </div>
