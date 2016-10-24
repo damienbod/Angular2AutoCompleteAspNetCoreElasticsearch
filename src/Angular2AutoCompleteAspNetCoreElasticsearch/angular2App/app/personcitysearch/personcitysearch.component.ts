@@ -1,4 +1,4 @@
-import { Component, Inject, EventEmitter, Input, Output, OnInit, AfterViewInit, ElementRef } from '@angular/core';
+import { Injectable, Component, Inject, EventEmitter, Input, Output, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 import { Http, Response } from "@angular/http";
 
 import { Subscription } from 'rxjs/Subscription';
@@ -19,7 +19,8 @@ import { CompleterService, CompleterItem } from 'ng2-completer';
 `,
   styles: [String(require('./personcitysearch.component.scss'))]
 })
-    
+
+@Injectable()
 export class PersoncitysearchComponent implements OnInit    {
 
     constructor(private completerService: CompleterService, private http: Http, private _configuration: Configuration) {
