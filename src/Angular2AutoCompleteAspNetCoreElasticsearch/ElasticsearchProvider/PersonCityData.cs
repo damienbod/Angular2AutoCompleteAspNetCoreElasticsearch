@@ -340,6 +340,76 @@ namespace SearchComponent
                 Mvp = ""
             });
 
+            Data.Add(new PersonCity
+            {
+                Id = 25,
+                Name = "Rob",
+                FamilyName = "Wormald",
+                CityCountry = "Mountain View CA",
+                Metadata = "Angular Angular2",
+                Info = "I’m a Javascripter, currently spending most of my time working on Angular2. ",
+                Web = "http://www.roblog.io/",
+                Twitter = "https://twitter.com/robwormald",
+                Github = "https://github.com/robwormald",
+                Mvp = ""
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 26,
+                Name = "Brad",
+                FamilyName = "Green",
+                CityCountry = "Mountain View CA",
+                Metadata = "Angular Angular2",
+                Info = "Engineering director at Google where I manage AngularJS and GreenTea (CRM). Also, I have 2 children and 4 chickens. Chickens are easier. ",
+                Web = "https://plus.google.com/+BradGreen",
+                Twitter = "https://twitter.com/bradlygreen",
+                Github = "https://github.com/bradlygreen",
+                Mvp = ""
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 27,
+                Name = "Victor",
+                FamilyName = "Savkin",
+                CityCountry = "Mountain View CA",
+                Metadata = "Angular Angular2",
+                Info = "Victor toys with eclectic programming technologies and obsesses over fonts and keyboard layouts. He also makes Angular.",
+                Web = "https://vsavkin.com/",
+                Twitter = "https://twitter.com/victorsavkin",
+                Github = "https://github.com/vsavkin",
+                Mvp = ""
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 28,
+                Name = "Todd",
+                FamilyName = "Motto",
+                CityCountry = "England UK",
+                Metadata = "Angular Angular2",
+                Info = "I’m Todd, a 26 year old front-end engineer from England, UK, working as a Developer Advocate at Telerik. Co-Founder of Ultimate Angular, a project to bring the Angular 1.x and Angular 2 ecosystem to developers through online courses. I’m also a Developer Expert at Google, conference speaker and open source lover.",
+                Web = "https://toddmotto.com",
+                Twitter = "https://twitter.com/toddmotto",
+                Github = "https://github.com/toddmotto",
+                Mvp = ""
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 29,
+                Name = "Pascal",
+                FamilyName = "Precht",
+                CityCountry = "Hanover Germany ",
+                Metadata = "Angular Angular2",
+                Info = "I like headphones, art, skateboarding and coding. Angular GDE at @Google, @thoughtram co-founder and creator of @5thingsAngular.",
+                Web = "http://thoughtram.io/",
+                Twitter = "https://twitter.com/PascalPrecht",
+                Github = "https://github.com/PascalPrecht",
+                Mvp = ""
+            });
+            
         }
     }
 }
