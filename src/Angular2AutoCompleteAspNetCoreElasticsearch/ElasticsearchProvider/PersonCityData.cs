@@ -238,6 +238,32 @@ namespace SearchComponent
                 Github = "https://github.com/scottbrady91",
             });
 
+			Data.Add(new PersonCity
+            {
+                Id = 19,
+                Name = "Shawn",
+                FamilyName = "Wildermuth",
+                CityCountry = "USA",
+                Metadata = "ASP.NET Core .NET C#",
+                Info = "Shawn Wildermuth is a fourteen-time Microsoft MVP (ASP.NET/IIS) and is involved with Microsoft as an ASP.NET Insider, ClientDev Insider and Windows Phone Insider. You may have taken one of his more than twenty courses for Pluralsight including Building a Web App with ASP.NET Core, MVC, EF and Angular and Bootstrap 3. He is also the author of eight books and dozens of articles on software development. He has been seen speaking at a variety of international conferences including TechEd, Oredev, SDC, VSLive, DevIntersection, MIX, DevTeach, DevConnections and DevReach. He is one of the Wilder Minds LLC.",
+                Web = "http://wildermuth.com/",
+                Twitter = "https://twitter.com/shawnwildermuth",
+                Github = "https://github.com/shawnwildermuth",
+            });
+			
+			Data.Add(new PersonCity
+            {
+                Id = 20,
+                Name = "Minko",
+                FamilyName = "Gechev",
+                CityCountry = "San Francisco, California USA",
+                Metadata = "Angular Angular2",
+                Info = "I created a JavaScript user group in Sofia, which has (had) regular Beer.js meet-ups. For about fifteen years I’ve been training karate (since 1999) and since 2005 I’ve been using different programming languages (including Pascal, Haskell, C, C++, PHP, JavaScript, Io, Java, AspectJ, C#, VisualBasic, Ruby, Python, Perl, ActionScript, Prolog…even Clips) so as you might see I’ve met different programming paradigms – functional, object-oriented, prototype-based oo, aspect-oriented, logical programming, procedural…I just don’t have a patience to see what’s coming next after the OO “dictatorship” :-).",
+                Web = "http://blog.mgechev.com/",
+                Twitter = "https://twitter.com/mgechev",
+                Github = "https://github.com/mgechev",
+            });
+			
         }
     }
 }
