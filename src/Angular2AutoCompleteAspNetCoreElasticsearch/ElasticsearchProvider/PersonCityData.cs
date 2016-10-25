@@ -238,7 +238,7 @@ namespace SearchComponent
                 Github = "https://github.com/scottbrady91",
             });
 
-			Data.Add(new PersonCity
+            Data.Add(new PersonCity
             {
                 Id = 19,
                 Name = "Shawn",
@@ -250,8 +250,8 @@ namespace SearchComponent
                 Twitter = "https://twitter.com/shawnwildermuth",
                 Github = "https://github.com/shawnwildermuth",
             });
-			
-			Data.Add(new PersonCity
+            
+            Data.Add(new PersonCity
             {
                 Id = 20,
                 Name = "Minko",
@@ -263,7 +263,7 @@ namespace SearchComponent
                 Twitter = "https://twitter.com/mgechev",
                 Github = "https://github.com/mgechev",
             });
-			
+            
         }
     }
 }
