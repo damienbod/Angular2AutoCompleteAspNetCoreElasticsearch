@@ -15,7 +15,7 @@ namespace SearchComponent
                 Web= "https://damienbod.com",
                 Twitter= "https://twitter.com/damien_bod",
                 Github = "https://github/damienbod",
-                Mvp = ""
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/5002218"
             });
 
             Data.Add(new PersonCity
@@ -29,7 +29,7 @@ namespace SearchComponent
                 Web = "http://fabian-gosebrink.com/",
                 Twitter = "https://twitter.com/FabianGosebrink",
                 Github = "https://github.com/FabianGosebrink",
-                Mvp = ""
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/5001666"
             });
 
             Data.Add(new PersonCity
@@ -43,7 +43,7 @@ namespace SearchComponent
                 Web = "http://asp.net-hacker.rocks/",
                 Twitter = "https://twitter.com/sharpcms",
                 Github = "https://github.com/JuergenGutsch",
-                Mvp = ""
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/5001508"
             });
 
             Data.Add(new PersonCity
@@ -57,7 +57,7 @@ namespace SearchComponent
                 Web = "http://www.benjamin-abt.com",
                 Twitter = "https://twitter.com/SCHWABENCODEcom",
                 Github = "https://github.com/BenjaminAbt",
-                Mvp = ""
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/5001507"
             });
 
             Data.Add(new PersonCity
@@ -295,7 +295,7 @@ namespace SearchComponent
                 Web = "http://www.mikesdotnetting.com/",
                 Twitter = "https://twitter.com/mikesdotnetting",
                 Github = "",
-                Mvp = ""
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/4015684"
             });
             
             Data.Add(new PersonCity
