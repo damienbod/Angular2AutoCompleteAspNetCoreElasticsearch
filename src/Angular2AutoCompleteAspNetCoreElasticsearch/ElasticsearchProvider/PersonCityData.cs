@@ -438,7 +438,19 @@ namespace SearchComponent
                 Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/4031649?fullName=Troy%20%20Hunt"
             });
 
-            
+            Data.Add(new PersonCity
+            {
+                Id = 32,
+                Name = "Rick",
+                FamilyName = "Strahl",
+                CityCountry = " Paia, HI ",
+                Metadata = " ASPNET, C#, HTML5, Mobile, JavaScript, Angular",
+                Info = "Wind, waves, code and everything in between... ASP.NET • C# • HTML5 • JavaScript • AngularJs ",
+                Web = "https://weblog.west-wind.com/",
+                Twitter = "https://twitter.com/RickStrahl",
+                Github = "https://github.com/RickStrahl",
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/5000249?fullName=Rick%20Strahl"
+            });
 
         }
     }
