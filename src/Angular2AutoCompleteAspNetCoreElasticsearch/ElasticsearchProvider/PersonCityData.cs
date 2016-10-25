@@ -29,7 +29,7 @@ namespace SearchComponent
                 Web = "http://fabian-gosebrink.com/",
                 Twitter = "https://twitter.com/FabianGosebrink",
                 Github = "https://github.com/FabianGosebrink",
-                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/5001666"
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/5001666?fullName=Fabian%20%20Gosebrink"
             });
 
             Data.Add(new PersonCity
@@ -43,7 +43,7 @@ namespace SearchComponent
                 Web = "http://asp.net-hacker.rocks/",
                 Twitter = "https://twitter.com/sharpcms",
                 Github = "https://github.com/JuergenGutsch",
-                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/5001508"
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/5001508?fullName=J%C3%BCrgen%20%20Gutsch"
             });
 
             Data.Add(new PersonCity
@@ -57,7 +57,7 @@ namespace SearchComponent
                 Web = "http://www.benjamin-abt.com",
                 Twitter = "https://twitter.com/SCHWABENCODEcom",
                 Github = "https://github.com/BenjaminAbt",
-                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/5001507"
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/5001507?fullName=Benjamin%20%20Abt"
             });
 
             Data.Add(new PersonCity
@@ -71,7 +71,7 @@ namespace SearchComponent
                 Web = "https://alexanderzeitler.com/",
                 Twitter = "https://twitter.com/alexzeitler_",
                 Github = "https://github.com/alexzeitler",
-                Mvp = ""
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/10225?fullName=Alexander%20%20Zeitler"
             });
 
             Data.Add(new PersonCity
@@ -85,7 +85,7 @@ namespace SearchComponent
                 Web = "https://chsakell.com/",
                 Twitter = "https://twitter.com/chsakellsblog",
                 Github = "https://github.com/chsakell",
-                Mvp = ""
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/5002193?fullName=Christos%20%20Sakellarios"
             });
 
             Data.Add(new PersonCity
@@ -99,7 +99,7 @@ namespace SearchComponent
                 Web = "http://www.tugberkugurlu.com",
                 Twitter = "https://twitter.com/tourismgeek",
                 Github = "https://github.com/tugberkugurlu",
-                Mvp = ""
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/4039968?fullName=Ali%20Tugberk%20%20Ugurlu"
             });
 
             Data.Add(new PersonCity
@@ -141,7 +141,7 @@ namespace SearchComponent
                 Web = "https://johnpapa.net/about/",
                 Twitter = "https://twitter.com/john_papa",
                 Github = "https://github.com/johnpapa",
-                Mvp = ""
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/4040095?fullName=John%20%20Papa"
             });
 
             Data.Add(new PersonCity
@@ -155,7 +155,7 @@ namespace SearchComponent
                 Web = "https://blog.codewithdan.com/",
                 Twitter = "https://twitter.com/danwahlin",
                 Github = "https://github.com/danwahlin",
-                Mvp = ""
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/7586?fullName=Dan%20%20Wahlin"
             });
 
             Data.Add(new PersonCity
@@ -169,7 +169,7 @@ namespace SearchComponent
                 Web = "http://csharperimage.jeremylikness.com/",
                 Twitter = "https://twitter.com/jeremylikness",
                 Github = "https://github.com/jeremylikness",
-                Mvp = ""
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/4028936?fullName=Jeremy%20%20Likness"
             });
 
             Data.Add(new PersonCity
@@ -183,7 +183,7 @@ namespace SearchComponent
                 Web = "http://thedatafarm.com/blog/",
                 Twitter = "https://twitter.com/julielerman",
                 Github = "https://github.com/julielerman",
-                Mvp = ""
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/8987?fullName=Julie%20%20Lerman"
             });
 
             Data.Add(new PersonCity
@@ -197,7 +197,7 @@ namespace SearchComponent
                 Web = "http://blogs.msmvps.com/deborahk/",
                 Twitter = "https://twitter.com/DeborahKurata",
                 Github = "https://github.com/DeborahK",
-                Mvp = ""
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/10169?fullName=Deborah%20%20Kurata"
             });
 
             Data.Add(new PersonCity
@@ -225,7 +225,7 @@ namespace SearchComponent
                 Web = "https://brockallen.com/",
                 Twitter = "https://twitter.com/brocklallen",
                 Github = "https://github.com/brockallen",
-                Mvp = ""
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/4039969?fullName=Brock%20%20Allen"
             });
 
             Data.Add(new PersonCity
@@ -239,7 +239,7 @@ namespace SearchComponent
                 Web = "https://leastprivilege.com/",
                 Twitter = "https://twitter.com/leastprivilege",
                 Github = "https://github.com/leastprivilege",
-                Mvp = ""
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/21554?fullName=Dominick%20%20Baier"
             });
 
             Data.Add(new PersonCity
@@ -267,7 +267,7 @@ namespace SearchComponent
                 Web = "http://wildermuth.com/",
                 Twitter = "https://twitter.com/shawnwildermuth",
                 Github = "https://github.com/shawnwildermuth",
-                Mvp = ""
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/9072?fullName=Shawn%20%20Wildermuth"
             });
             
             Data.Add(new PersonCity
@@ -295,7 +295,7 @@ namespace SearchComponent
                 Web = "http://www.mikesdotnetting.com/",
                 Twitter = "https://twitter.com/mikesdotnetting",
                 Github = "",
-                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/4015684"
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/4015684?fullName=Mike%20%20Brind"
             });
             
             Data.Add(new PersonCity
@@ -323,7 +323,7 @@ namespace SearchComponent
                 Web = "http://tattoocoder.com/",
                 Twitter = "https://twitter.com/spboyer",
                 Github = "https://github.com/tattoocoder",
-                Mvp = ""
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/5000582?fullName=Shayne%20%20Boyer"
             });
 
             Data.Add(new PersonCity
