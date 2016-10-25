@@ -409,7 +409,37 @@ namespace SearchComponent
                 Github = "https://github.com/PascalPrecht",
                 Mvp = ""
             });
+
+            Data.Add(new PersonCity
+            {
+                Id = 30,
+                Name = "Martijn",
+                FamilyName = "Laarman",
+                CityCountry = "Amsterdam, Netherlands ",
+                Metadata = "elasticsearch nest C# .NET",
+                Info = "I work for Elasticsearch as .NET developer. ",
+                Web = "http://localghost.io/",
+                Twitter = "https://twitter.com/mpdreamz",
+                Github = "https://github.com/Mpdreamz",
+                Mvp = ""
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 31,
+                Name = "Troy",
+                FamilyName = "Hunt",
+                CityCountry = " Australia",
+                Metadata = "elasticsearch nest C# .NET",
+                Info = "I'm Troy Hunt, an Australian Microsoft Regional Director and also a Microsoft Most Valuable Professional for Developer Security. I don't work for Microsoft, but they're kind enough to recognise my community contributions by way of their award programs which I've been an awardee of since 2011. I get to interact with some fantastic people building their best products and then share what I know about creating secure applications for the web with the broader community.",
+                Web = "https://www.troyhunt.com/",
+                Twitter = "https://twitter.com/troyhunt",
+                Github = "",
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/4031649?fullName=Troy%20%20Hunt"
+            });
+
             
+
         }
     }
 }
