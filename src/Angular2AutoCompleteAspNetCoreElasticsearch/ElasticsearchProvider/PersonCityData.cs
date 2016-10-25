@@ -430,7 +430,7 @@ namespace SearchComponent
                 Name = "Troy",
                 FamilyName = "Hunt",
                 CityCountry = " Australia",
-                Metadata = "elasticsearch nest C# .NET",
+                Metadata = "security .NET",
                 Info = "I'm Troy Hunt, an Australian Microsoft Regional Director and also a Microsoft Most Valuable Professional for Developer Security. I don't work for Microsoft, but they're kind enough to recognise my community contributions by way of their award programs which I've been an awardee of since 2011. I get to interact with some fantastic people building their best products and then share what I know about creating secure applications for the web with the broader community.",
                 Web = "https://www.troyhunt.com/",
                 Twitter = "https://twitter.com/troyhunt",
