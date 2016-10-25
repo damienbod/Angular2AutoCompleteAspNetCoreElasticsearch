@@ -27,6 +27,8 @@ namespace SearchComponent
 
         public string Twitter { get; set; }
 
+        public string Mvp { get; set; }
+
         [ElasticsearchString(Analyzer = "didyoumean", SearchAnalyzer = "standard", TermVector = TermVector.yes)]
         public string did_you_mean { get; set; }
 

@@ -19,5 +19,7 @@ namespace SearchComponent
         public string Github { get; set; }
 
         public string Twitter { get; set; }
+
+        public string Mvp { get; set; }
     }
 }

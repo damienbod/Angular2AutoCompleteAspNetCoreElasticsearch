@@ -15,6 +15,7 @@ namespace SearchComponent
                 Web= "https://damienbod.com",
                 Twitter= "https://twitter.com/damien_bod",
                 Github = "https://github/damienbod",
+                Mvp = ""
             });
 
             Data.Add(new PersonCity
@@ -28,6 +29,7 @@ namespace SearchComponent
                 Web = "http://fabian-gosebrink.com/",
                 Twitter = "https://twitter.com/FabianGosebrink",
                 Github = "https://github.com/FabianGosebrink",
+                Mvp = ""
             });
 
             Data.Add(new PersonCity
@@ -41,6 +43,7 @@ namespace SearchComponent
                 Web = "http://asp.net-hacker.rocks/",
                 Twitter = "https://twitter.com/sharpcms",
                 Github = "https://github.com/JuergenGutsch",
+                Mvp = ""
             });
 
             Data.Add(new PersonCity
@@ -54,6 +57,7 @@ namespace SearchComponent
                 Web = "http://www.benjamin-abt.com",
                 Twitter = "https://twitter.com/SCHWABENCODEcom",
                 Github = "https://github.com/BenjaminAbt",
+                Mvp = ""
             });
 
             Data.Add(new PersonCity
@@ -67,6 +71,7 @@ namespace SearchComponent
                 Web = "https://alexanderzeitler.com/",
                 Twitter = "https://twitter.com/alexzeitler_",
                 Github = "https://github.com/alexzeitler",
+                Mvp = ""
             });
 
             Data.Add(new PersonCity
@@ -80,6 +85,7 @@ namespace SearchComponent
                 Web = "https://chsakell.com/",
                 Twitter = "https://twitter.com/chsakellsblog",
                 Github = "https://github.com/chsakell",
+                Mvp = ""
             });
 
             Data.Add(new PersonCity
@@ -93,6 +99,7 @@ namespace SearchComponent
                 Web = "http://www.tugberkugurlu.com",
                 Twitter = "https://twitter.com/tourismgeek",
                 Github = "https://github.com/tugberkugurlu",
+                Mvp = ""
             });
 
             Data.Add(new PersonCity
@@ -105,7 +112,8 @@ namespace SearchComponent
                 Info = "My name is Scott Hanselman. I'm a programmer, teacher, and speaker. I work out of my home office in Portland, Oregon for the Web Platform Team at Microsoft, but this blog, its content and opinions are my own. I blog about technology, culture, gadgets, diversity, code, the web, where we're going and where we've been. I'm excited about community, social equity, media, entrepreneurship and above all, the open web.",
                 Web = "http://www.hanselman.com/",
                 Twitter = "https://twitter.com/shanselman",
-                Github = "#",
+                Github = "",
+                Mvp = ""
             });
 
             Data.Add(new PersonCity
@@ -119,6 +127,7 @@ namespace SearchComponent
                 Web = "https://github.com/robisim74",
                 Twitter = "https://twitter.com/robisim74",
                 Github = "https://github.com/robisim74",
+                Mvp = ""
             });
 
             Data.Add(new PersonCity
@@ -132,6 +141,7 @@ namespace SearchComponent
                 Web = "https://johnpapa.net/about/",
                 Twitter = "https://twitter.com/john_papa",
                 Github = "https://github.com/johnpapa",
+                Mvp = ""
             });
 
             Data.Add(new PersonCity
@@ -145,6 +155,7 @@ namespace SearchComponent
                 Web = "https://blog.codewithdan.com/",
                 Twitter = "https://twitter.com/danwahlin",
                 Github = "https://github.com/danwahlin",
+                Mvp = ""
             });
 
             Data.Add(new PersonCity
@@ -158,19 +169,21 @@ namespace SearchComponent
                 Web = "http://csharperimage.jeremylikness.com/",
                 Twitter = "https://twitter.com/jeremylikness",
                 Github = "https://github.com/jeremylikness",
+                Mvp = ""
             });
 
             Data.Add(new PersonCity
             {
                 Id = 13,
-                Name = "Jeremy",
-                FamilyName = "Likness",
+                Name = "Julie",
+                FamilyName = "Lerman",
                 CityCountry = "USA Vermont",
                 Metadata = "Entity Framework EFCore C# ASP.NET PostgreSQL DDD Microsoft MVP",
                 Info = "Vermont Geekette, DDD, .NET (& EF) Mentor, Author, MS MVP, MS Regional Director, VTdotNET, Pluralsight, MSDN Mag. Talk to me about mentoring your dev team!",
                 Web = "http://thedatafarm.com/blog/",
                 Twitter = "https://twitter.com/julielerman",
                 Github = "https://github.com/julielerman",
+                Mvp = ""
             });
 
             Data.Add(new PersonCity
@@ -184,6 +197,7 @@ namespace SearchComponent
                 Web = "http://blogs.msmvps.com/deborahk/",
                 Twitter = "https://twitter.com/DeborahKurata",
                 Github = "https://github.com/DeborahK",
+                Mvp = ""
             });
 
             Data.Add(new PersonCity
@@ -197,6 +211,7 @@ namespace SearchComponent
                 Web = "http://andrewlock.net/",
                 Twitter = "https://twitter.com/andrewlocknet",
                 Github = "https://github.com/andrewlock",
+                Mvp = ""
             });
 
             Data.Add(new PersonCity
@@ -210,6 +225,7 @@ namespace SearchComponent
                 Web = "https://brockallen.com/",
                 Twitter = "https://twitter.com/brocklallen",
                 Github = "https://github.com/brockallen",
+                Mvp = ""
             });
 
             Data.Add(new PersonCity
@@ -223,6 +239,7 @@ namespace SearchComponent
                 Web = "https://leastprivilege.com/",
                 Twitter = "https://twitter.com/leastprivilege",
                 Github = "https://github.com/leastprivilege",
+                Mvp = ""
             });
 
             Data.Add(new PersonCity
@@ -236,6 +253,7 @@ namespace SearchComponent
                 Web = "https://www.scottbrady91.com/",
                 Twitter = "https://twitter.com/scottbrady91",
                 Github = "https://github.com/scottbrady91",
+                Mvp = ""
             });
 
             Data.Add(new PersonCity
@@ -249,6 +267,7 @@ namespace SearchComponent
                 Web = "http://wildermuth.com/",
                 Twitter = "https://twitter.com/shawnwildermuth",
                 Github = "https://github.com/shawnwildermuth",
+                Mvp = ""
             });
             
             Data.Add(new PersonCity
@@ -262,8 +281,65 @@ namespace SearchComponent
                 Web = "http://blog.mgechev.com/",
                 Twitter = "https://twitter.com/mgechev",
                 Github = "https://github.com/mgechev",
+                Mvp = ""
             });
             
+            Data.Add(new PersonCity
+            {
+                Id = 21,
+                Name = "Mike",
+                FamilyName = "Brind",
+                CityCountry = "Rochester  United Kingdom",
+                Metadata = "ASP.NET Core MVC EFCore SQL Microsoft MVP",
+                Info = "Despite that (or perhaps because of it) I have been awarded Microsoft MVP for ASP/ASP.NET each year since 2008. I wrote a book for Wrox that covers the ASP.NET Web Pages framework and working with WebMatrix. It's called Beginning ASP.NET Web Pages With WebMatrix. I have been developing web sites since 2002, and am completely self-taught. I live in Rochester in the UK.",
+                Web = "http://www.mikesdotnetting.com/",
+                Twitter = "https://twitter.com/mikesdotnetting",
+                Github = "",
+                Mvp = ""
+            });
+            
+            Data.Add(new PersonCity
+            {
+                Id = 22,
+                Name = "Rion",
+                FamilyName = "Williams",
+                CityCountry = "Lake Charles, Louisiana USA",
+                Metadata = "ASP.NET Core MVC EFCore SQL Microsoft MVP javascript",
+                Info = "Rion is an experienced, Full Stack Software Developer and Designer from Lake Charles, Louisiana. He is currently the Senior Software Developer at Structure X, a Systems Integrator and Software Development firm focusing in Healthcare. Rion graduated with three degrees (Computer Science, Mathematics and Visual Arts) from McNeese State University and has been building applications in the industrial and healthcare arenas ever since.",
+                Web = "http://rion.io/",
+                Twitter = "https://twitter.com/rionmonster",
+                Github = "https://github.com/rionmonster",
+                Mvp = "http://mvp.microsoft.com/en-us/MVP/Rion%20Williams-5000660"
+            });
+            
+            Data.Add(new PersonCity
+            {
+                Id = 23,
+                Name = "Shayne",
+                FamilyName = "Boyer",
+                CityCountry = "Florida, USA",
+                Metadata = "ASP.NET Core Node.js JavaScript TypeScript Microsoft Azure Angular Mobile Development Microsoft MVP",
+                Info = "Hi, I'm Shayne Boyer, I write this site, am a Microsoft MVP and Telerik Developer Expert who speaks at national and community events while helping teams architect web and cloud applications",
+                Web = "http://tattoocoder.com/",
+                Twitter = "https://twitter.com/spboyer",
+                Github = "https://github.com/tattoocoder",
+                Mvp = ""
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 24,
+                Name = "Torgeir",
+                FamilyName = "Helgevold",
+                CityCountry = "New York USA",
+                Metadata = "Angular Angular2",
+                Info = "Software Engineer. Focusing on Angular 2.0 these days ",
+                Web = "http://www.syntaxsuccess.com/",
+                Twitter = "https://twitter.com/helgevold",
+                Github = "https://github.com/thelgevold/",
+                Mvp = ""
+            });
+
         }
     }
 }

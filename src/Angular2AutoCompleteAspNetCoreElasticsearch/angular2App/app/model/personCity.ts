@@ -9,4 +9,5 @@ export class PersonCity {
     public web: string;
     public github: string;
     public twitter: string;
+    public mvp: string;
 }
