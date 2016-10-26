@@ -5,6 +5,8 @@
     <personcitysearch *ngIf="IndexExists" (onTermSelectedEvent)="onTermSelectedEvent($event)" [disableAutocomplete]="!IndexExists">
     </personcitysearch>
     
+    <em *ngIf="PersonCitySearchData.took > 0" style="font-size:smaller; color:lightgray;"><span>Hits: {{PersonCitySearchData.hits}}</span></em><br /> 
+
     <hr />
     <br />
 
