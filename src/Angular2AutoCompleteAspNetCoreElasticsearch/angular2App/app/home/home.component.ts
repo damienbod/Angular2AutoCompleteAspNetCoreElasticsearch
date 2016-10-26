@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
     public PersonCityItems: any[];
     public SelectedPersonCity: PersonCity;
     public IndexExists: boolean = false;
+    public CreateIndexDisabled: boolean = false;
 
     constructor(private _dataService: SearchDataService) {
         this.message = "Hello from HomeComponent constructor";
@@ -25,18 +26,23 @@ export class HomeComponent implements OnInit {
     }
 
     public CreateTestData() {
-        this._dataService.CreateTestData().subscribe(data => data,
+        this._dataService.CreateTestData().subscribe(
             error => console.log(error),
-            () => console.log('Get all complete'));
+            () => console.log('CreateTestData complete'));
     }
 
     public CreateIndex() {
+        this.CreateIndexDisabled = true;
         if (!this.IndexExists) {
-            this._dataService.CreateIndex().subscribe(data => data,
+            this._dataService.CreateIndex().subscribe(
                 error => console.log(error),
-                () => console.log('Get all complete'));
+                () => {
+                    console.log('CreateIndex complete');
+                    this.IndexExists = true;
+                    this.CreateIndexDisabled = false;
+                });
 
-            this.IndexExists = true;
+            
         }      
     }
 
@@ -45,6 +51,6 @@ export class HomeComponent implements OnInit {
             .IndexExists()
             .subscribe(data => this.IndexExists = data,
             error => console.log(error),
-            () => console.log('Get all complete'));
+            () => console.log('IndexExists complete'));
     }
 }

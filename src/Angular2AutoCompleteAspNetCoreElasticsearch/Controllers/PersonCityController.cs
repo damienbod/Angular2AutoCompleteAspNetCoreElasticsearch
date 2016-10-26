@@ -35,14 +35,14 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch.Controllers
         public IActionResult CreateIndex()
         {
             _personCitySearchProvider.CreateIndex();
-            return Created("http://localhost:5000/api/PersonCity/createindex/", "index created");
+            return Ok("index created");
         }
 
         [HttpGet("createtestdata")]
         public IActionResult CreateTestData()
         {
             _personCitySearchProvider.CreateTestData();
-            return Created("http://localhost:5000/api/PersonCity/createtestdata/", "test data created");
+            return Ok("test data created");
         }
 
         [HttpGet("indexexists")]

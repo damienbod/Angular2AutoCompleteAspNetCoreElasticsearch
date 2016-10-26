@@ -19,6 +19,7 @@ export class PersoncitysearchService extends Subject<CompleterItem[]> implements
             .map((res: Response) => {
                 // Convert the result to CompleterItem[]
                 let data = res.json();
+                console.log(data);
                 let matches: CompleterItem[] = data.map((autocomplete: any) => {
                     return {
                         title: autocomplete,

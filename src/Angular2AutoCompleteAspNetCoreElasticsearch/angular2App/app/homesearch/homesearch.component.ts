@@ -26,22 +26,6 @@ export class HomeSearchComponent implements OnInit {
         this.PersonCitySearchData = new PersonCitySearchResult();
     }
 
-    public CreateTestData() {
-        this._dataService.CreateTestData().subscribe(data => data,
-            error => console.log(error),
-            () => console.log('CreateTestData complete'));
-    }
-
-    public CreateIndex() {
-        if (!this.IndexExists) {
-            this._dataService.CreateIndex().subscribe(data => data,
-                error => console.log(error),
-                () => console.log('CreateIndex complete'));
-
-            this.IndexExists = true;
-        }
-    }
-
     public onTermSelectedEvent(term: string) {
         this.SelectedTerm = term;
         this.findDataForSearchTerm(term)
