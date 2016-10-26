@@ -135,17 +135,22 @@ namespace SearchComponent
             return results;
         }
 
-        public IEnumerable<PersonCity> Search(string term)
+        public PersonCitySearchResult Search(string term, int from)
         {
+            var personCitySearchResult = new PersonCitySearchResult();
             var search = new Search
             {
                 Size = 10,
+                From = from,
                 Query = new Query(new MatchQuery("did_you_mean", term))
             };
 
             var results = _context.Search<PersonCity>(search);
 
-            return results.PayloadResult.Hits.HitsResult.Select(t => t.Source);
+            personCitySearchResult.PersonCities = results.PayloadResult.Hits.HitsResult.Select(t => t.Source);
+            personCitySearchResult.Hits = results.PayloadResult.Hits.Total;
+            personCitySearchResult.Took = results.PayloadResult.Took;
+            return personCitySearchResult;
         }
 
         public bool GetStatus()

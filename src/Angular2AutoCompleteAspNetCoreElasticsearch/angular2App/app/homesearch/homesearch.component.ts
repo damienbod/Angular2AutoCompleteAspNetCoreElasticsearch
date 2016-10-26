@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 
 import { SearchDataService } from '../services/searchDataService';
 import { PersonCity } from '../model/personCity';
+import { PersonCitySearchResult } from '../model/personCitySearchResult';
 import { PersoncitysearchComponent } from '../personcitysearch/personcitysearch.component';
 
 @Component({
@@ -15,13 +16,14 @@ import { PersoncitysearchComponent } from '../personcitysearch/personcitysearch.
 export class HomeSearchComponent implements OnInit {
 
     public message: string;
-    public PersonCityItems: any[];
+    public PersonCitySearchData: PersonCitySearchResult;
     public SelectedTerm: string;
     public IndexExists: boolean = false;
 
     constructor(private _dataService: SearchDataService, private _personcitysearchComponent: PersoncitysearchComponent) {
         this.message = "Hello from HomeSearchComponent constructor";
         this.SelectedTerm = "none";
+        this.PersonCitySearchData = new PersonCitySearchResult();
     }
 
     public CreateTestData() {
@@ -49,7 +51,7 @@ export class HomeSearchComponent implements OnInit {
         console.log("findDataForSearchTerm:" + term);
         this._dataService.FindAllForTerm(term)
             .subscribe((data) => {
-                this.PersonCityItems = data;
+                this.PersonCitySearchData = data;
             },
             error => console.log(error),
             () => {

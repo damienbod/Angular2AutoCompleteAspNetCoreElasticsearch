@@ -10,7 +10,7 @@ namespace SearchComponent
 
         IEnumerable<string> AutocompleteSearch(string term);
 
-        IEnumerable<PersonCity> Search(string term);
+        PersonCitySearchResult Search(string term, int from);
 
         bool GetStatus();
 

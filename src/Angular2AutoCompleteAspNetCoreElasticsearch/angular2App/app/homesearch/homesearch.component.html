@@ -8,7 +8,7 @@
     <hr />
     <br />
 
-    <div *ngFor="let personCity of PersonCityItems">  
+    <div  *ngFor="let personCity of PersonCitySearchData.PersonCities">  
         <b><span>{{personCity.name}} {{personCity.familyName}} </span></b> <a *ngIf="personCity.twitter"  href="{{personCity.twitter}}"><img src="assets/socialTwitter.png" /></a>  <a *ngIf="personCity.github" href="{{personCity.github}}"><img src="assets/github.png" /></a> <a *ngIf="personCity.mvp" href="{{personCity.mvp}}"><img src="assets/mvp.png" width="24" /></a><br />
         <em style="font-size:large"><a href="{{personCity.web}}">{{personCity.web}}</a></em><br />  
         <em><span>{{personCity.metadata}}</span></em><br />      
