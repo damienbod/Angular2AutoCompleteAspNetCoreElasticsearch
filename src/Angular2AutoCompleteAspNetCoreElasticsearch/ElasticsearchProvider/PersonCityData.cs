@@ -452,6 +452,33 @@ namespace SearchComponent
                 Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/5000249?fullName=Rick%20Strahl"
             });
 
+            Data.Add(new PersonCity
+            {
+                Id = 33,
+                Name = "Taiseer",
+                FamilyName = "Joudeh",
+                CityCountry = "Jordan",
+                Metadata = " ASPNET, C#, HTML5, JavaScript, Angular Microsoft",
+                Info = "My name is Taiseer Joudeh and this is my professional blog. I consider myself a passionate software engineer who is always willing to learn and explore new technologies, then apply it in real world scenarios and share this knowledge with the community. I have more than 10 years of experience spent in developing and managing different software solutions for finance, transportation, logistics, and e - commerce sectors.I’ve been deeply involved in .NET development since early framework versions and currently I work on different technologies on the ASP.NET stack with deep passion for Web API, and Microsoft Azure.Recently I’ve been focusing on building Single Page Applications, Hybrid Mobile Solutions using AngularJS, and focusing on the building identity solutions for modern apps. I have been awarded the Microsoft Most Valuable Professional(MVP) Award for the years 2015 and 2016 in the Visual Studio and Development Technologies, also I’m a regular speaker in local events and Dev user groups.",
+                Web = "http://bitoftech.net/",
+                Twitter = "https://twitter.com/TJoudeh",
+                Github = "https://github.com/tjoudeh",
+                Mvp = ""
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 34,
+                Name = "Simon",
+                FamilyName = "Rigby",
+                CityCountry = "USA",
+                Metadata = " ASPNET, C#, HTML5, JavaScript, Angular Microsoft responsive design",
+                Info = "Hey there. Nice to meet you. Let me introduce myself. My name is Simon Rigby. I've been working in the web industry since the end of that first dotcom boom. In that time I've been lucky enough to work for/with some great companies. I've rubbed shoulders with some top notch techies and savvy business owners. I've learned a lot of great things along the way, from keys to success to mistakes to avoid. And I bring all that experience to the table in every project I work on. Which means, if we work together, you get that benefit too. ",
+                Web = "http://levelnis.co.uk/blog",
+                Twitter = "https://twitter.com/levelnis",
+                Github = "https://github.com/levelnis",
+                Mvp = ""
+            });
         }
     }
 }
