@@ -51,11 +51,12 @@ export class HomeSearchComponent implements OnInit {
         console.log("findDataForSearchTerm:" + term);
         this._dataService.FindAllForTerm(term)
             .subscribe((data) => {
+                console.log(data)
                 this.PersonCitySearchData = data;
             },
             error => console.log(error),
             () => {
-                console.log('PersonCitySearch:GetAll completed');
+                console.log('PersonCitySearch:findDataForSearchTerm completed');
             }
             );
     }

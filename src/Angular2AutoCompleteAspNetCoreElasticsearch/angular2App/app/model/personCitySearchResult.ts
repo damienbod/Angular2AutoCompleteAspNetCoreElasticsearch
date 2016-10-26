@@ -1,7 +1,7 @@
 ﻿import { PersonCity } from '../model/personCity';
 
 export class PersonCitySearchResult {
-    public PersonCities: PersonCity[];
+    public personCities: PersonCity[];
     public hits: number;
     public took: string;
 }
