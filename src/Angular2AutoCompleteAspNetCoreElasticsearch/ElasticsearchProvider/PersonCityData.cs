@@ -479,6 +479,91 @@ namespace SearchComponent
                 Github = "https://github.com/levelnis",
                 Mvp = ""
             });
+
+            Data.Add(new PersonCity
+            {
+                Id = 35,
+                Name = "Scott",
+                FamilyName = "Addie",
+                CityCountry = "Verona, WI USA",
+                Metadata = " ASP.NET Core, C# Microsoft MVP JavaScript  OSS",
+                Info = "Scott Addie is an ambitious, self-driven software architect & technical evangelist specializing in JavaScript and the modern Microsoft web stack. He is a Microsoft Certified Solutions Developer (MCSD – Web Applications), a Microsoft MVP (Visual Studio and Development Technologies), a frequent conference, code camp, and user group attendee, an ASP.NET and JavaScript blogger, and a technical speaker who has been developing enterprise web applications professionally since 2005. Scott lives in Madison, WI with his wife and 3 children.When not hacking away at an ASP.NET Core side project or slinging code on the latest JavaScript libraries / frameworks, he can be found spending time with his family. ",
+                Web = "https://scottaddie.com/",
+                Twitter = "https://twitter.com/Scott_Addie",
+                Github = "https://github.com/scottaddie",
+                Mvp = "https://mvp.microsoft.com/en-us/PublicProfile/5001850?fullName=Scott%20%20Addie"
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 36,
+                Name = "Jon",
+                FamilyName = "Galloway",
+                CityCountry = "Rancho San Diego, CA  USA",
+                Metadata = " ASP.NET Core C# Microsoft JavaScript",
+                Info = "Jon works at Microsoft as a Technical Evangelist focused on ASP.NET and Windows Azure. He’s co-author of Wrox Professional ASP.NET MVC, writes samples and tutorials like the MVC Music Store and is a frequent speaker at conferences and international Web Camps events. Jon’s been doing professional web development for 17 years, including high scale applications in financial, entertainment and healthcare analytics. He’s part of the Herding Code podcast, Twitters as @jongalloway and blogs at http://weblogs.asp.net/jongalloway. He likes to travel, but spends most of his time in San Diego with his amazingly patient wife Rachel, three wonderful daughters, a dozen avocado trees and the occasional rattlesnake.",
+                Web = "https://weblogs.asp.net/jongalloway/",
+                Twitter = "https://twitter.com/jongalloway",
+                Github = "https://github.com/jongalloway",
+                Mvp = ""
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 37,
+                Name = "David",
+                FamilyName = "Fowler",
+                CityCountry = "Redmond USA",
+                Metadata = " ASP.NET Core C# Microsoft SignalR",
+                Info = "Software Developer at Microsoft on the http://ASP.NET  team, Creator of SignalR, http://ASP.NET  Core Architect, Tennis Player, Father and Husband",
+                Web = "http://davidfowl.com/",
+                Twitter = "https://twitter.com/davidfowl",
+                Github = "https://github.com/davidfowl",
+                Mvp = ""
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 38,
+                Name = "Steve",
+                FamilyName = "Smith",
+                CityCountry = "Kent OH USA",
+                Metadata = " ASP.NET Core C# Microsoft DDD",
+                Info = "Speaker, Author, and Software Craftsman. Microsoft MVP. Available for training / mentoring on DDD, ASPNET Core, and quality software: http://ardalis.com",
+                Web = "http://ardalis.com/",
+                Twitter = "https://twitter.com/ardalis",
+                Github = "https://github.com/davidfowl",
+                Mvp = ""
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 39,
+                Name = "Barry",
+                FamilyName = "Dorrans",
+                CityCountry = "Redmond USA",
+                Metadata = " ASP.NET Core C# Microsoft Security",
+                Info = "Sweary Security Snark. Microsoft's .NET security person. Opinions here are mine and not speaking on behalf of Microsoft or Microsoft Security.",
+                Web = "https://idunno.org/",
+                Twitter = "https://twitter.com/blowdart",
+                Github = "https://github.com/blowdart",
+                Mvp = ""
+            });
+
+            Data.Add(new PersonCity
+            {
+                Id = 40,
+                Name = "Brice",
+                FamilyName = "Lambson",
+                CityCountry = "Redmond USA",
+                Metadata = " ASP.NET Core C# Microsoft Entity Framework EFCore",
+                Info = "Hello, my name is Brice Lambson. I’m a senior software engineer on the Entity Framework team at Microsoft. In my spare time, I enjoy giving back to the community through blogging and open source.",
+                Web = "http://www.bricelam.net/",
+                Twitter = "https://twitter.com/bricelambs",
+                Github = "https://github.com/bricelam",
+                Mvp = ""
+            });
+
         }
     }
 }
