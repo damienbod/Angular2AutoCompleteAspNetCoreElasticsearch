@@ -82,7 +82,7 @@ namespace SearchComponent
                                 new CustomAnalyzer("autocomplete")
                                 {
                                     Tokenizer = DefaultTokenizers.Standard,
-                                    Filter = new List<string> {DefaultTokenFilters.Lowercase, "autocompletefilter"},
+                                    Filter = new List<string> {DefaultTokenFilters.Lowercase, "autocompletefilter", "stopwords", "stemmer"},
                                     CharFilter = new List<string> {DefaultCharFilters.HtmlStrip}
                                 },
                                 new CustomAnalyzer("default")
