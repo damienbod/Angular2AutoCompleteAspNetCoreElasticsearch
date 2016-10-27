@@ -16,5 +16,12 @@
 
     </div>
 
+    <ul class="pagination" *ngIf="ShowPaging">
+        <li><a (click)="PreviousPage()" >&laquo;</a></li>
+
+        <li><a *ngFor="let page of Pages" (click)="LoadDataForPage(page)">{{page}}</a></li>
+
+        <li><a (click)="NextPage()">&raquo;</a></li>
+    </ul>
 </div>
 

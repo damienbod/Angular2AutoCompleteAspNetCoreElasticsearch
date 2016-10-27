@@ -27,16 +27,17 @@ export class HomeSearchComponent implements OnInit {
     }
 
     public onTermSelectedEvent(term: string) {
-        this.SelectedTerm = term;
-        this.findDataForSearchTerm(term)
+        this.SelectedTerm = term; 
+        this.findDataForSearchTerm(term, 0)
     }
 
-    private findDataForSearchTerm(term: string) {
+    private findDataForSearchTerm(term: string, from: number) {
         console.log("findDataForSearchTerm:" + term);
-        this._dataService.FindAllForTerm(term)
+        this._dataService.FindAllForTerm(term, from)
             .subscribe((data) => {
                 console.log(data)
                 this.PersonCitySearchData = data;
+                this.configurePagingDisplay(this.PersonCitySearchData.hits);
             },
             error => console.log(error),
             () => {
@@ -51,5 +52,55 @@ export class HomeSearchComponent implements OnInit {
             .subscribe(data => this.IndexExists = data,
             error => console.log(error),
             () => console.log('Get IndexExists complete'));
+    }
+
+    public ShowPaging: boolean = false;
+    public CurrentPage: number = 0;
+    public TotalHits: number = 0;
+    public PagesCount: number = 0;
+    public Pages: number[] = [];
+
+    public LoadDataForPage(page: number) {
+        var from = page * 10;
+        this.findDataForSearchTerm(this.SelectedTerm, from)
+        this.CurrentPage = page;
+    }
+
+    public NextPage() {
+        var page = this.CurrentPage;
+        console.log("TotalHits" + this.TotalHits + "NextPage: " + ((this.CurrentPage + 1) * 10) + "CurrentPage" + this.CurrentPage );
+
+        if (this.TotalHits > ((this.CurrentPage + 1) * 10)) {
+            page = this.CurrentPage + 1;
+        }
+
+        this.LoadDataForPage(page);
+    }
+
+    public PreviousPage(page: number) {
+        var page = this.CurrentPage;
+
+        if (this.CurrentPage > 0) {
+            page = this.CurrentPage - 1;
+        }
+
+        this.LoadDataForPage(page);
+    }
+
+    private configurePagingDisplay(hits: number) {
+        this.PagesCount = Math.floor(hits / 10);
+
+        this.Pages = [];
+        for (let i = 0; i <= this.PagesCount; i++) {
+            this.Pages.push((i));
+        }
+        
+        this.TotalHits = hits;
+
+        if (this.PagesCount <= 1) {
+            this.ShowPaging = false;
+        } else {
+            this.ShowPaging = true;
+        }
     }
 }
