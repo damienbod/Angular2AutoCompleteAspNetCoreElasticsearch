@@ -73,7 +73,7 @@ namespace SearchComponent
                         {
                             Analyzers = new List<AnalyzerBase>
                             {
-                                new CustomAnalyzer("didyoumean")
+                                new CustomAnalyzer("edge_ngram_search")
                                 {
                                     Tokenizer = DefaultTokenizers.Standard,
                                     Filter = new List<string> {DefaultTokenFilters.Lowercase, "edge_ngram_filter"},
@@ -94,18 +94,18 @@ namespace SearchComponent
                                 
                                
                             }
-                        },
-                        Tokenizers =
-                        {
-                            CustomTokenizers = new List<AnalysisTokenizerBase>
-                            {
-                                new EdgeNGramTokenizer("ngram_tokenizer")
-                                {
-                                    MaxGram = 4,
-                                    MinGram = 4
-                                }
-                            }
                         }
+                        //Tokenizers =
+                        //{
+                        //    CustomTokenizers = new List<AnalysisTokenizerBase>
+                        //    {
+                        //        new EdgeNGramTokenizer("ngram_tokenizer")
+                        //        {
+                        //            MaxGram = 4,
+                        //            MinGram = 4
+                        //        }
+                        //    }
+                        //}
 
                     }
                 },
@@ -142,7 +142,7 @@ namespace SearchComponent
             {
                 Size = 10,
                 From = from,
-                Query = new Query(new MatchQuery("did_you_mean", term))
+                Query = new Query(new MatchQuery("searchfield", term))
             };
 
             var results = _context.Search<PersonCity>(search);
