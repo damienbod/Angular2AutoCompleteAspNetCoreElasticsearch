@@ -125,8 +125,8 @@ namespace SearchComponent
                         Order= new OrderAgg("_count", OrderEnum.desc),
                         Include = new IncludeExpression(term + ".*")
                     }
-                },
-                Query = new Query(new PrefixQuery("autocomplete", term))
+                }
+                //Query = new Query(new PrefixQuery("autocomplete", term))
             };
 
             var items = _context.Search<PersonCity>(search);
