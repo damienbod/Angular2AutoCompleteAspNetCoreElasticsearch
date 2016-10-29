@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SearchComponent;
 
 namespace Angular2AutoCompleteAspNetCoreElasticsearch.Controllers
 {
@@ -12,24 +13,36 @@ namespace Angular2AutoCompleteAspNetCoreElasticsearch.Controllers
             _personCitySearchProvider = personCitySearchProvider;
         }
 
-        [HttpGet("search/{searchtext}")]
-        public IActionResult Search(string searchtext)
+        [HttpGet("search/{from}/{searchtext}")]
+        public IActionResult Search(string searchtext, int from)
+        {
+            return Ok(_personCitySearchProvider.Search(searchtext.ToLower(), from));
+        }
+
+        [HttpGet("querystringsearch/{searchtext}")]
+        public IActionResult QueryString(string searchtext)
         {
             return Ok(_personCitySearchProvider.QueryString(searchtext));
+        }
+
+        [HttpGet("autocomplete/{searchtext}")]
+        public IActionResult AutoComplete(string searchtext)
+        {
+            return Ok(_personCitySearchProvider.AutocompleteSearch(searchtext.ToLower()));
         }
 
         [HttpGet("createindex")]
         public IActionResult CreateIndex()
         {
             _personCitySearchProvider.CreateIndex();
-            return Created("http://localhost:5000/api/PersonCity/createindex/", "index created");
+            return Ok("index created");
         }
 
         [HttpGet("createtestdata")]
         public IActionResult CreateTestData()
         {
             _personCitySearchProvider.CreateTestData();
-            return Created("http://localhost:5000/api/PersonCity/createtestdata/", "test data created");
+            return Ok("test data created");
         }
 
         [HttpGet("indexexists")]

@@ -1,20 +1,24 @@
 <div class="panel-group">
-
-    <p>Elasticsearch Index exists: {{IndexExists}}</p> 
-    <button (click)="CreateIndex()" *ngIf="!IndexExists">Create Index</button>
-    <button (click)="CreateTestData()" *ngIf="IndexExists">Create TestData</button>
+    <button (click)="CreateIndex()" *ngIf="!IndexExists && !CreateIndexDisabled" >CREATE INDEX</button>
+    <button (click)="CreateTestData()" *ngIf="IndexExists">CREATE TEST DATA</button>
     
     <hr />
     <br />
 
-    <autocompletesearch [(bindModelPersonCity)]="SelectedPersonCity" [disableAutocomplete]="!IndexExists" >
-    </autocompletesearch>
+    <personcityautocomplete *ngIf="IndexExists" [(bindModelPersonCity)]="SelectedPersonCity" [disableAutocomplete]="!IndexExists" >
+    </personcityautocomplete>
 
     <hr />
 
-    SELECTED : <span>{{SelectedPersonCity.name}} {{SelectedPersonCity.familyName}} </span>
+    <span>{{SelectedPersonCity.name}} {{SelectedPersonCity.familyName}} </span><br />
     <br />
-    INFO     : <span>{{SelectedPersonCity.info}}</span>
+    <span>{{SelectedPersonCity.info}}</span><br />
+    <br />
+    <em style="font-size:large"><a href="{{SelectedPersonCity.web}}">{{SelectedPersonCity.web}}</a></em><br />
+    <br />
+    <a *ngIf="SelectedPersonCity.twitter" href="{{SelectedPersonCity.twitter}}"><img src="assets/socialTwitter.png" /></a>  <a *ngIf="SelectedPersonCity.github" href="{{SelectedPersonCity.github}}"><img src="assets/github.png" /></a> <a *ngIf="SelectedPersonCity.mvp" href="{{SelectedPersonCity.mvp}}"><img src="assets/mvp.png" width="24" /></a><br />
+    <br />
+    <em><span>{{SelectedPersonCity.metadata}}</span></em><br />
     <hr />
 
 </div>

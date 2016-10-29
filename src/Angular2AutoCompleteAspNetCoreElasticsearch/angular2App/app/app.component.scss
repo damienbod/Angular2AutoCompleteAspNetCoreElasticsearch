@@ -1,5 +1,6 @@
 body {
-    padding-top: 50px;
+    padding-top: 0;
+
 }
 
 .starter-template {
@@ -13,4 +14,8 @@ body {
 
 a {
     color: #03A9F4;
+}
+
+.navbar-inverse {
+    border-radius:0;
 }

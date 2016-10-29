@@ -1,0 +1,27 @@
+<div class="panel-group">
+
+    <personcitysearch *ngIf="IndexExists" (onTermSelectedEvent)="onTermSelectedEvent($event)" [disableAutocomplete]="!IndexExists">
+    </personcitysearch>
+    
+    <em *ngIf="PersonCitySearchData.took > 0" style="font-size:smaller; color:lightgray;"><span>Hits: {{PersonCitySearchData.hits}}</span></em><br /> 
+    <br />
+
+    <div  *ngFor="let personCity of PersonCitySearchData.personCities">  
+        <b><span>{{personCity.name}} {{personCity.familyName}} </span></b> <a *ngIf="personCity.twitter"  href="{{personCity.twitter}}"><img src="assets/socialTwitter.png" /></a>  <a *ngIf="personCity.github" href="{{personCity.github}}"><img src="assets/github.png" /></a> <a *ngIf="personCity.mvp" href="{{personCity.mvp}}"><img src="assets/mvp.png" width="24" /></a><br />
+        <em style="font-size:large"><a href="{{personCity.web}}">{{personCity.web}}</a></em><br />  
+        <em><span>{{personCity.metadata}}</span></em><br />      
+        <span>{{personCity.info}}</span><br />
+        <br />
+        <br />
+
+    </div>
+
+    <ul class="pagination" *ngIf="ShowPaging">
+        <li><a (click)="PreviousPage()" >&laquo;</a></li>
+
+        <li><a *ngFor="let page of Pages" (click)="LoadDataForPage(page)">{{page}}</a></li>
+
+        <li><a (click)="NextPage()">&raquo;</a></li>
+    </ul>
+</div>
+

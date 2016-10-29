@@ -2,13 +2,13 @@ import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 
-import { PersonCityAutocompleteSearchComponent } from '../autocomplete/personCityAutocompleteSearch.component';
+import { PersoncityautocompleteComponent } from '../personcityautocomplete/personcityautocomplete.component';
 import { SearchDataService } from '../services/searchDataService';
-import { PersonCity } from '../autocomplete/personCity';
+import { PersonCity } from '../model/personCity';
 
 @Component({
     selector: 'homecomponent',
-    template: require('./home.component.html'),
+    templateUrl: 'home.component.html',
     providers: [SearchDataService]
 })
 
@@ -17,7 +17,8 @@ export class HomeComponent implements OnInit {
     public message: string;
     public PersonCityItems: any[];
     public SelectedPersonCity: PersonCity;
-    public IndexExists: boolean = false;;
+    public IndexExists: boolean = false;
+    public CreateIndexDisabled: boolean = false;
 
     constructor(private _dataService: SearchDataService) {
         this.message = "Hello from HomeComponent constructor";
@@ -25,18 +26,23 @@ export class HomeComponent implements OnInit {
     }
 
     public CreateTestData() {
-        this._dataService.CreateTestData().subscribe(data => data,
+        this._dataService.CreateTestData().subscribe(
             error => console.log(error),
-            () => console.log('Get all complete'));
+            () => console.log('CreateTestData complete'));
     }
 
     public CreateIndex() {
+        this.CreateIndexDisabled = true;
         if (!this.IndexExists) {
-            this._dataService.CreateIndex().subscribe(data => data,
+            this._dataService.CreateIndex().subscribe(
                 error => console.log(error),
-                () => console.log('Get all complete'));
+                () => {
+                    console.log('CreateIndex complete');
+                    this.IndexExists = true;
+                    this.CreateIndexDisabled = false;
+                });
 
-            this.IndexExists = true;
+            
         }      
     }
 
@@ -45,6 +51,6 @@ export class HomeComponent implements OnInit {
             .IndexExists()
             .subscribe(data => this.IndexExists = data,
             error => console.log(error),
-            () => console.log('Get all complete'));
+            () => console.log('IndexExists complete'));
     }
 }

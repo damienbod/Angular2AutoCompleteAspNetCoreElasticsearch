@@ -29,14 +29,19 @@ export class SearchDataService {
         return this._http.get(url).map((response: Response) => <any>response.json());
     }
 
-    public IndexExists = (): Observable<boolean> => {
+    public IndexExists = (): Observable<any> => {
         let url = this.actionUrl + "indexexists";
         return this._http.get(url).map((response: Response) => <any>response.json());
     }
 
-    public CreateTestData = (): Observable<Response> => {
+    public CreateTestData = (): Observable<any> => {
         let url = this.actionUrl + "createtestdata";
         return this._http.get(url).map((response: Response) => <any>response.json());
     }
+
+    public FindAllForTerm = (term: string, from: number): Observable<any> => {
+        return this._http.get(this.actionUrl + "search/" + from + "/" + term).map((response: Response) => <any>response.json());
+    }
+
  
 }

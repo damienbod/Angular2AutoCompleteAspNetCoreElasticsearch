@@ -1,12 +1,16 @@
 ﻿using System.Collections.Generic;
 
-namespace Angular2AutoCompleteAspNetCoreElasticsearch
+namespace SearchComponent
 {
     public interface IPersonCitySearchProvider
     {
         void CreateIndex();
 
         void CreateTestData();
+
+        IEnumerable<string> AutocompleteSearch(string term);
+
+        PersonCitySearchResult Search(string term, int from);
 
         bool GetStatus();
 
