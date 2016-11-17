@@ -32,7 +32,7 @@
     "@angular/platform-server": "~2.1.0",
     "bootstrap": "^3.3.7",
     "ie-shim": "^0.1.0",
-    "ng2-completer": "0.2.3"
+    "ng2-completer": "0.2.2"
   },
   "devDependencies": {
     "@types/node": "^6.0.45",
