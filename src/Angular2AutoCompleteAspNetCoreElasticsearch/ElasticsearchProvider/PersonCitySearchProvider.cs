@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using ElasticsearchCRUD;
 using ElasticsearchCRUD.ContextAddDeleteUpdate.IndexModel.MappingModel;
 using ElasticsearchCRUD.ContextAddDeleteUpdate.IndexModel.SettingsModel;
 using ElasticsearchCRUD.ContextAddDeleteUpdate.IndexModel.SettingsModel.Analyzers;
 using ElasticsearchCRUD.ContextAddDeleteUpdate.IndexModel.SettingsModel.Filters;
-using ElasticsearchCRUD.ContextAddDeleteUpdate.IndexModel.SettingsModel.Tokenizers;
 using ElasticsearchCRUD.ContextSearch.SearchModel.AggModel;
 using ElasticsearchCRUD.Model;
 using ElasticsearchCRUD.Model.SearchModel;
@@ -20,7 +18,7 @@ namespace SearchComponent
     public class PersonCitySearchProvider : IPersonCitySearchProvider
     {
         private readonly IElasticsearchMappingResolver _elasticsearchMappingResolver = new ElasticsearchMappingResolver();
-        //private const string ConnectionString = "http://localhost.fiddler:9200";
+        // const string ConnectionString = "http://localhost.fiddler:9200";
         private const string ConnectionString = "http://localhost:9200";
         private readonly ElasticsearchContext _context;
 
