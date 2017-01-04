@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     public CreateIndexDisabled: boolean = false;
 
     constructor(private _dataService: SearchDataService) {
-        this.message = "Hello from HomeComponent constructor";
+        this.message = 'Hello from HomeComponent constructor';
         this.SelectedPersonCity = new PersonCity();
     }
 
@@ -41,9 +41,7 @@ export class HomeComponent implements OnInit {
                     this.IndexExists = true;
                     this.CreateIndexDisabled = false;
                 });
-
-            
-        }      
+        }
     }
 
     ngOnInit() {

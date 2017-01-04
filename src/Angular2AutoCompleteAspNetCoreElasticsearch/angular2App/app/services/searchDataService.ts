@@ -1,6 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { Configuration } from '../app.constants';
 
@@ -25,23 +25,21 @@ export class SearchDataService {
     }
 
     public CreateIndex = (): Observable<Response> => {
-        let url = this.actionUrl + "createindex";
+        let url = this.actionUrl + 'createindex';
         return this._http.get(url).map((response: Response) => <any>response.json());
     }
 
     public IndexExists = (): Observable<any> => {
-        let url = this.actionUrl + "indexexists";
+        let url = this.actionUrl + 'indexexists';
         return this._http.get(url).map((response: Response) => <any>response.json());
     }
 
     public CreateTestData = (): Observable<any> => {
-        let url = this.actionUrl + "createtestdata";
+        let url = this.actionUrl + 'createtestdata';
         return this._http.get(url).map((response: Response) => <any>response.json());
     }
 
     public FindAllForTerm = (term: string, from: number): Observable<any> => {
-        return this._http.get(this.actionUrl + "search/" + from + "/" + term).map((response: Response) => <any>response.json());
+        return this._http.get(this.actionUrl + 'search/' + from + '/' + term).map((response: Response) => <any>response.json());
     }
-
- 
 }
