@@ -1,5 +1,5 @@
 import { Component, Inject, EventEmitter, Input, Output, OnInit, AfterViewInit, ElementRef } from '@angular/core';
-import { Http, Response } from "@angular/http";
+import { Http, Response } from '@angular/http';
 
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
@@ -16,27 +16,27 @@ import './personcityautocomplete.component.scss';
 @Component({
     selector: 'personcityautocomplete',
   template: `
-<ng2-completer [dataService]="dataService" (selected)="onPersonCitySelected($event)" [minSearchLength]="0" [disableInput]="disableAutocomplete"></ng2-completer>
+<ng2-completer [dataService]='dataService' (selected)='onPersonCitySelected($event)' [minSearchLength]='0' [disableInput]='disableAutocomplete'></ng2-completer>
 
 `
 })
     
 export class PersoncityautocompleteComponent implements OnInit    {
 
-    constructor(private completerService: CompleterService, private http: Http, private _configuration: Configuration) {
-
-        this.dataService = new PersoncityautocompleteDataService(http, _configuration); ////completerService.local("name, info, familyName", 'name');
-    }
-
     @Output() bindModelPersonCityChange = new EventEmitter<PersonCity>();
     @Input() bindModelPersonCity: PersonCity;
     @Input() disableAutocomplete: boolean = false;
+
+    constructor(private completerService: CompleterService, private http: Http, private _configuration: Configuration) {
+
+        this.dataService = new PersoncityautocompleteDataService(http, _configuration); ////completerService.local('name, info, familyName', 'name');
+    }
 
     private searchStr: string;
     private dataService: PersoncityautocompleteDataService;
 
     ngOnInit() {
-        console.log("ngOnInit PersoncityautocompleteComponent");
+        console.log('ngOnInit PersoncityautocompleteComponent');
     }
 
     public onPersonCitySelected(selected: CompleterItem) {

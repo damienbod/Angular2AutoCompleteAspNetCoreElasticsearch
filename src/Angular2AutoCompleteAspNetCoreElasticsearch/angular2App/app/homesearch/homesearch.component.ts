@@ -1,7 +1,6 @@
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-
 import { SearchDataService } from '../services/searchDataService';
 import { PersonCity } from '../model/personCity';
 import { PersonCitySearchResult } from '../model/personCitySearchResult';
@@ -20,22 +19,28 @@ export class HomeSearchComponent implements OnInit {
     public SelectedTerm: string;
     public IndexExists: boolean = false;
 
+    public ShowPaging: boolean = false;
+    public CurrentPage: number = 0;
+    public TotalHits: number = 0;
+    public PagesCount: number = 0;
+    public Pages: number[] = [];
+
     constructor(private _dataService: SearchDataService, private _personcitysearchComponent: PersoncitysearchComponent) {
-        this.message = "Hello from HomeSearchComponent constructor";
-        this.SelectedTerm = "none";
+        this.message = 'Hello from HomeSearchComponent constructor';
+        this.SelectedTerm = 'none';
         this.PersonCitySearchData = new PersonCitySearchResult();
     }
 
     public onTermSelectedEvent(term: string) {
-        this.SelectedTerm = term; 
-        this.findDataForSearchTerm(term, 0)
+        this.SelectedTerm = term;
+        this.findDataForSearchTerm(term, 0);
     }
 
     private findDataForSearchTerm(term: string, from: number) {
-        console.log("findDataForSearchTerm:" + term);
+        console.log('findDataForSearchTerm:' + term);
         this._dataService.FindAllForTerm(term, from)
             .subscribe((data) => {
-                console.log(data)
+                console.log(data);
                 this.PersonCitySearchData = data;
                 this.configurePagingDisplay(this.PersonCitySearchData.hits);
             },
@@ -54,21 +59,15 @@ export class HomeSearchComponent implements OnInit {
             () => console.log('Get IndexExists complete'));
     }
 
-    public ShowPaging: boolean = false;
-    public CurrentPage: number = 0;
-    public TotalHits: number = 0;
-    public PagesCount: number = 0;
-    public Pages: number[] = [];
-
     public LoadDataForPage(page: number) {
-        var from = page * 10;
-        this.findDataForSearchTerm(this.SelectedTerm, from)
+        let from = page * 10;
+        this.findDataForSearchTerm(this.SelectedTerm, from);
         this.CurrentPage = page;
     }
 
     public NextPage() {
-        var page = this.CurrentPage;
-        console.log("TotalHits" + this.TotalHits + "NextPage: " + ((this.CurrentPage + 1) * 10) + "CurrentPage" + this.CurrentPage );
+        let page = this.CurrentPage;
+        console.log('TotalHits' + this.TotalHits + 'NextPage: ' + ((this.CurrentPage + 1) * 10) + 'CurrentPage' + this.CurrentPage );
 
         if (this.TotalHits > ((this.CurrentPage + 1) * 10)) {
             page = this.CurrentPage + 1;
@@ -77,8 +76,8 @@ export class HomeSearchComponent implements OnInit {
         this.LoadDataForPage(page);
     }
 
-    public PreviousPage(page: number) {
-        var page = this.CurrentPage;
+    public PreviousPage() {
+        let page = this.CurrentPage;
 
         if (this.CurrentPage > 0) {
             page = this.CurrentPage - 1;
@@ -94,7 +93,7 @@ export class HomeSearchComponent implements OnInit {
         for (let i = 0; i <= this.PagesCount; i++) {
             this.Pages.push((i));
         }
-        
+
         this.TotalHits = hits;
 
         if (this.PagesCount <= 1) {
