@@ -20,20 +20,20 @@ import './personcityautocomplete.component.scss';
 
 `
 })
-    
+
 export class PersoncityautocompleteComponent implements OnInit    {
 
     @Output() bindModelPersonCityChange = new EventEmitter<PersonCity>();
     @Input() bindModelPersonCity: PersonCity;
     @Input() disableAutocomplete: boolean = false;
 
+    private searchStr: string;
+    private dataService: PersoncityautocompleteDataService;
+
     constructor(private completerService: CompleterService, private http: Http, private _configuration: Configuration) {
 
         this.dataService = new PersoncityautocompleteDataService(http, _configuration); ////completerService.local('name, info, familyName', 'name');
     }
-
-    private searchStr: string;
-    private dataService: PersoncityautocompleteDataService;
 
     ngOnInit() {
         console.log('ngOnInit PersoncityautocompleteComponent');

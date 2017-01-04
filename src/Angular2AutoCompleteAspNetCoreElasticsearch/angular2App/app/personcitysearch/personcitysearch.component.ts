@@ -20,12 +20,7 @@ import './personcitysearch.component.scss';
 `
 })
 
-export class PersoncitysearchComponent implements OnInit    {
-
-    constructor(private completerService: CompleterService, private http: Http, private _configuration: Configuration) {
-
-        this.dataService = new PersoncitysearchService(http, _configuration);
-    }
+export class PersoncitysearchComponent implements OnInit {
 
     @Output() onTermSelectedEvent = new EventEmitter<string>();
     @Input() bindSelectedTerm: string;
@@ -34,6 +29,11 @@ export class PersoncitysearchComponent implements OnInit    {
 
     private searchStr: string;
     private dataService: PersoncitysearchService;
+
+    constructor(private completerService: CompleterService, private http: Http, private _configuration: Configuration) {
+
+        this.dataService = new PersoncitysearchService(http, _configuration);
+    }
 
     ngOnInit() {
         console.log('ngOnInit SearchComponent');

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26014.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{599448E5-ED3D-44C2-93DA-46650CE8B1CC}"
 EndProject
@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Angular2AutoCompleteAspNetCoreElasticsearch", "src\Angular2AutoCompleteAspNetCoreElasticsearch\Angular2AutoCompleteAspNetCoreElasticsearch.xproj", "{99279475-BE89-4DC3-AD47-9A9D139915B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Angular2AutoCompleteAspNetCoreElasticsearch", "src\Angular2AutoCompleteAspNetCoreElasticsearch\Angular2AutoCompleteAspNetCoreElasticsearch.csproj", "{99279475-BE89-4DC3-AD47-9A9D139915B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

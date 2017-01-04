@@ -1,8 +1,7 @@
-"use strict";
 var PersonCitySearchResult = (function () {
     function PersonCitySearchResult() {
     }
     return PersonCitySearchResult;
 }());
-exports.PersonCitySearchResult = PersonCitySearchResult;
+export { PersonCitySearchResult };
 //# sourceMappingURL=personCitySearchResult.js.map
