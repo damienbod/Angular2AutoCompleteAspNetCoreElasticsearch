@@ -3,5 +3,5 @@
 export class PersonCitySearchResult {
     public personCities: PersonCity[];
     public hits: number;
-    public took: string;
+    public took: number;
 }
