@@ -25,7 +25,7 @@ export class PersoncityautocompleteComponent implements OnInit    {
 
     @Output() bindModelPersonCityChange = new EventEmitter<PersonCity>();
     @Input() bindModelPersonCity: PersonCity;
-    @Input() disableAutocomplete: boolean = false;
+    @Input() disableAutocomplete = false;
 
     private searchStr: string;
     private dataService: PersoncityautocompleteDataService;

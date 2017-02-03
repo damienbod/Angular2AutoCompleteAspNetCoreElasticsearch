@@ -25,7 +25,7 @@ export class PersoncitysearchComponent implements OnInit {
     @Output() onTermSelectedEvent = new EventEmitter<string>();
     @Input() bindSelectedTerm: string;
 
-    @Input() disableAutocomplete: boolean = false;
+    @Input() disableAutocomplete = false;
 
     private searchStr: string;
     private dataService: PersoncitysearchService;

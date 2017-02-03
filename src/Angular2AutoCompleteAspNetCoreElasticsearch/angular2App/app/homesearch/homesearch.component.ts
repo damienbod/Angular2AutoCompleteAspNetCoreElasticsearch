@@ -17,12 +17,12 @@ export class HomeSearchComponent implements OnInit {
     public message: string;
     public PersonCitySearchData: PersonCitySearchResult;
     public SelectedTerm: string;
-    public IndexExists: boolean = false;
+    public IndexExists = false;
 
-    public ShowPaging: boolean = false;
-    public CurrentPage: number = 0;
-    public TotalHits: number = 0;
-    public PagesCount: number = 0;
+    public ShowPaging = false;
+    public CurrentPage = 0;
+    public TotalHits = 0;
+    public PagesCount = 0;
     public Pages: number[] = [];
 
     constructor(private _dataService: SearchDataService, private _personcitysearchComponent: PersoncitysearchComponent) {

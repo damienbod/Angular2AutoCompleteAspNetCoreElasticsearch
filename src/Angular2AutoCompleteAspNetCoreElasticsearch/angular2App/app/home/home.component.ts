@@ -17,8 +17,8 @@ export class HomeComponent implements OnInit {
     public message: string;
     public PersonCityItems: any[];
     public SelectedPersonCity: PersonCity;
-    public IndexExists: boolean = false;
-    public CreateIndexDisabled: boolean = false;
+    public IndexExists = false;
+    public CreateIndexDisabled = false;
 
     constructor(private _dataService: SearchDataService) {
         this.message = 'Hello from HomeComponent constructor';
