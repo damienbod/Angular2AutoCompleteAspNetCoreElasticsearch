@@ -25,7 +25,7 @@ export class HomeSearchComponent implements OnInit {
     public PagesCount = 0;
     public Pages: number[] = [];
 
-    constructor(private _dataService: SearchDataService, private _personcitysearchComponent: PersoncitysearchComponent) {
+    constructor(public _dataService: SearchDataService, private _personcitysearchComponent: PersoncitysearchComponent) {
         this.message = 'Hello from HomeSearchComponent constructor';
         this.SelectedTerm = 'none';
         this.PersonCitySearchData = new PersonCitySearchResult();

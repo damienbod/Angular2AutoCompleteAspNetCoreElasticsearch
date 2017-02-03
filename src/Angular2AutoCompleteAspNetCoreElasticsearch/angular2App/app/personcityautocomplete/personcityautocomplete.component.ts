@@ -28,7 +28,7 @@ export class PersoncityautocompleteComponent implements OnInit    {
     @Input() disableAutocomplete = false;
 
     private searchStr: string;
-    private dataService: PersoncityautocompleteDataService;
+    public dataService: PersoncityautocompleteDataService;
 
     constructor(private completerService: CompleterService, private http: Http, private _configuration: Configuration) {
 
