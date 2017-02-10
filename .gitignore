@@ -1,13 +1,14 @@
 src/Angular2AutoCompleteAspNetCoreElasticsearch/obj
 
 .vs
-src/Angular2AutoCompleteAspNetCoreElasticsearch/aot
-src/Angular2AutoCompleteAspNetCoreElasticsearch/angularApp/**/*.js
+src/AngularAutoCompleteAspNetCoreElasticsearch/aot
+src/AngularAutoCompleteAspNetCoreElasticsearch/angularApp/**/*.js
 
-src/Angular2AutoCompleteAspNetCoreElasticsearch/node_modules
-src/Angular2AutoCompleteAspNetCoreElasticsearch/angularApp/app/**/*.map
-src/Angular2AutoCompleteAspNetCoreElasticsearch/wwwroot
-src/Angular2AutoCompleteAspNetCoreElasticsearch/angularApp/main.js.map
-src/Angular2AutoCompleteAspNetCoreElasticsearch/angularApp/polyfills.js.map
-src/Angular2AutoCompleteAspNetCoreElasticsearch/angularApp/vendor.js.map
-src/Angular2AutoCompleteAspNetCoreElasticsearch/bin
+src/AngularAutoCompleteAspNetCoreElasticsearch/node_modules
+src/AngularAutoCompleteAspNetCoreElasticsearch/angularApp/app/**/*.map
+src/AngularAutoCompleteAspNetCoreElasticsearch/wwwroot
+src/AngularAutoCompleteAspNetCoreElasticsearch/angularApp/main.js.map
+src/AngularAutoCompleteAspNetCoreElasticsearch/angularApp/polyfills.js.map
+src/AngularAutoCompleteAspNetCoreElasticsearch/angularApp/vendor.js.map
+src/AngularAutoCompleteAspNetCoreElasticsearch/bin
+src/AngularAutoCompleteAspNetCoreElasticsearch/obj
