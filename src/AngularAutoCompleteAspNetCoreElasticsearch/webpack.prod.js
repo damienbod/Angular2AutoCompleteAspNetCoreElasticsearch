@@ -7,36 +7,31 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var helpers = require('./webpack.helpers');
 
-console.log('@@@@@@@@@ USING DEVELOPMENT @@@@@@@@@@@@@@@');
+console.log('@@@@@@@@@ USING PRODUCTION @@@@@@@@@@@@@@@');
 
 module.exports = {
 
-    devtool: 'source-map',
-    performance: {
-        hints: false
-    },
     entry: {
-        'app': './angular2App/main.ts'
+        'vendor': './angularApp/vendor.ts',
+        'polyfills': './angularApp/polyfills.ts',
+        'app': './angularApp/main-aot.ts' // AoT compilation
     },
 
     output: {
-        path: __dirname +  '/wwwroot/',
-        filename: 'dist/[name].bundle.js',
-        chunkFilename: 'dist/[id].chunk.js',
+        path: './wwwroot/',
+        filename: 'dist/[name].[hash].bundle.js',
+        chunkFilename: 'dist/[id].[hash].chunk.js',
         publicPath: '/'
     },
 
     resolve: {
         extensions: ['.ts', '.js', '.json', '.css', '.scss', '.html']
     },
-	
+
     devServer: {
         historyApiFallback: true,
-        contentBase: path.join(__dirname, '/wwwroot/'),
-        watchOptions: {
-            aggregateTimeout: 300,
-            poll: 1000
-        }
+        stats: 'minimal',
+        outputPath: path.join(__dirname, 'wwwroot/')
     },
 
     module: {
@@ -45,10 +40,7 @@ module.exports = {
                 test: /\.ts$/,
                 loaders: [
                     'awesome-typescript-loader',
-                    'angular-router-loader',
-                    'angular2-template-loader',        
-                    'source-map-loader',
-                    'tslint-loader'
+                    'angular-router-loader?aot=true&genDir=aot/'
                 ]
             },
             {
@@ -75,26 +67,38 @@ module.exports = {
         ],
         exprContextCritical: false
     },
-    plugins: [
-        new webpack.optimize.CommonsChunkPlugin({ name: ['app', 'polyfills']}),
 
+    plugins: [
         new CleanWebpackPlugin(
             [
                 './wwwroot/dist',
                 './wwwroot/assets'
             ]
         ),
+        new webpack.NoEmitOnErrorsPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+            output: {
+                comments: false
+            },
+            sourceMap: false
+        }),
+        new webpack.optimize.CommonsChunkPlugin(
+            {
+                name: ['vendor', 'polyfills']
+            }),
 
         new HtmlWebpackPlugin({
             filename: 'index.html',
             inject: 'body',
-            template: 'angular2App/index.html'
+            template: 'angularApp/index.html'
         }),
 
         new CopyWebpackPlugin([
-            { from: './angular2App/images/*.*', to: 'assets/', flatten: true }
+            { from: './angularApp/images/*.*', to: 'assets/', flatten: true }
         ])
     ]
-
 };
 
