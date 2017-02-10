@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26014.0
+VisualStudioVersion = 15.0.26206.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{599448E5-ED3D-44C2-93DA-46650CE8B1CC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{14F7F195-ABA8-42B3-9C78-B4B6B7F13DB6}"
 	ProjectSection(SolutionItems) = preProject
-		..\README.md = ..\README.md
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Angular2AutoCompleteAspNetCoreElasticsearch", "src\Angular2AutoCompleteAspNetCoreElasticsearch\Angular2AutoCompleteAspNetCoreElasticsearch.csproj", "{16E13622-7E32-4D3B-A382-CABA654D359F}"
