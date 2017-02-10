@@ -19,7 +19,6 @@
   },
   "files": [
     "angularApp/app/app.module.ts",
-    "angularApp/app/about/about.module.ts",
     "angularApp/main.ts"
   ],
   "awesomeTypescriptLoaderOptions": {
